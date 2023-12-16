@@ -40,6 +40,9 @@ stories:
       - action: request_1_2_years_form
       - active_loop: request_1_2_years_form
       - active_loop: null
+      - action: request_3_4_years_form
+      - active_loop: request_3_4_years_form
+      - active_loop: null
 
   - story: family method
     steps:
@@ -56,4 +59,7 @@ stories:
       - active_loop: null
       - action: request_1_2_years_form
       - active_loop: request_1_2_years_form
+      - active_loop: null
+      - action: request_3_4_years_form
+      - active_loop: request_3_4_years_form
       - active_loop: null

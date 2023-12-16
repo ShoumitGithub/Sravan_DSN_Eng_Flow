@@ -1,11 +1,12 @@
 from typing import Text, List, Any, Dict
 
+from actions.action_1_2years import *
+from actions.action_3_4_years import *
 from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, ActiveLoop, SlotSet, FollowupAction
 from rasa_sdk.types import DomainDict
 from actions.helper import *
-from actions.action_0_2years import *
 
 
 class ActionPath(Action):

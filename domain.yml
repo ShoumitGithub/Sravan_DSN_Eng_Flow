@@ -18,6 +18,7 @@ actions:
   - action_next_options
   - validate_request_0_3_months_form
   - validate_request_1_2_years_form
+  - validate_request_3_4_years_form
   - validate_request_permanent_form
   - action_ask_0_3_months_method
   - action_ask_daily_pills_advantage
@@ -53,6 +54,23 @@ actions:
   - action_ask_implants_medical_condition
   - action_ask_implants_database
   - action_ask_1_2_years_method
+  - action_ask_3_4_year_method
+  - action_ask_ius_explanation
+  - action_ask_ius_how_works
+  - action_ask_ius_advantage
+  - action_ask_ius_disadvantage
+  - action_ask_ius_who_can_and_cannot_use
+  - action_ask_ius_medical_condition
+  - action_ask_ius_yes
+  - action_ask_ius_show
+  - action_ask_iud_explanation
+  - action_ask_iud_how_works
+  - action_ask_iud_advantage
+  - action_ask_iud_disadvantage
+  - action_ask_iud_who_can_and_cannot_use
+  - action_ask_iud_medical_condition
+  - action_ask_iud_show
+  - action_ask_iud_yes
 
 forms:
   request_user_data_form:
@@ -133,6 +151,41 @@ forms:
       - implants_who_can_and_cannot_use
       - implants_medical_condition
       - implants_database
+
+  request_3_4_years_form:
+    required_slots:
+      - 3_4_year_method
+      - daily_pills_advantage
+      - daily_pills_disadvantage
+      - daily_who_can_use_pills
+      - daily_medical_conditions
+      - daily_contraceptive_database
+      - emergency_pill_explanation
+      - emergency_pill_advantage
+      - emergency_pill_disadvantage
+      - emergency_who_can_and_cannot_use_contraceptive
+      - emergency_contraceptive_database
+      - injectable_explanation
+      - injectable_advantage
+      - injectable_disadvantage
+      - implants_advantage
+      - implants_disadvantage
+      - implants_who_can_and_cannot_use
+      - implants_medical_condition
+      - implants_database
+      - ius_how_works
+      - ius_advantage
+      - ius_disadvantage
+      - ius_who_can_and_cannot_use
+      - ius_medical_condition
+      - ius_yes
+      - ius_show
+      - iud_advantage
+      - iud_disadvantage
+      - iud_who_can_and_cannot_use
+      - iud_medical_condition
+      - iud_yes
+      - iud_show
 slots:
 
   gender:
@@ -254,6 +307,7 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: injectable_explanation
           - active_loop: request_1_2_years_form
 
   injectable_advantage:
@@ -263,6 +317,7 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: injectable_advantage
           - active_loop: request_1_2_years_form
 
   injectable_disadvantage:
@@ -272,7 +327,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: injectable_disadvantage
           - active_loop: request_1_2_years_form
+
 
   injectable_medical_conditions:
     type: text
@@ -281,6 +338,7 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: injectable_medical_conditions
           - active_loop: request_1_2_years_form
 
   injectable_who_can_and_cannot_use_injectables:
@@ -290,6 +348,7 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: injectable_who_can_and_cannot_use_injectables
           - active_loop: request_1_2_years_form
 
   injectable_database:
@@ -299,6 +358,7 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: injectable_database
           - active_loop: request_1_2_years_form
 
   diaphragm_explanation:
@@ -418,7 +478,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: daily_pills_advantage
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
   daily_pills_disadvantage:
     type: text
@@ -427,7 +489,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: daily_pills_disadvantage
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
   daily_who_can_use_pills:
     type: text
@@ -436,7 +500,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: daily_who_can_use_pills
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
 
   daily_medical_conditions:
@@ -446,7 +512,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: daily_medical_conditions
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
   daily_contraceptive_database:
     type: text
@@ -455,7 +523,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: daily_contraceptive_database
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
   emergency_pill_advantage:
     type: text
@@ -464,7 +534,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: emergency_pill_advantage
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
   emergency_pill_disadvantage:
     type: text
@@ -473,7 +545,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: emergency_pill_disadvantage
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
 
   emergency_who_can_and_cannot_use_contraceptive:
@@ -483,7 +557,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: emergency_who_can_and_cannot_use_contraceptive
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
 
   emergency_contraceptive_database:
@@ -493,7 +569,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: emergency_contraceptive_database
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
   emergency_pill_explanation:
     type: text
@@ -502,7 +580,9 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_0_3_months_form
+            requested_slot: emergency_pill_explanation
           - active_loop: request_1_2_years_form
+          - active_loop: request_3_4_years_form
 
   implants_advantage:
     type: text
@@ -511,6 +591,8 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_1_2_years_form
+            requested_slot: implants_advantage
+          - active_loop: request_3_4_years_form
 
   implants_disadvantage:
     type: text
@@ -519,6 +601,8 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_1_2_years_form
+            requested_slot: implants_disadvantage
+          - active_loop: request_3_4_years_form
 
   implants_medical_condition:
     type: text
@@ -527,6 +611,8 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_1_2_years_form
+            requested_slot: implants_medical_condition
+          - active_loop: request_3_4_years_form
 
   implants_database:
     type: text
@@ -535,6 +621,8 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_1_2_years_form
+            requested_slot: implants_database
+          - active_loop: request_3_4_years_form
 
   implants_who_can_and_cannot_use:
     type: text
@@ -543,7 +631,136 @@ slots:
       - type: from_text
         conditions:
           - active_loop: request_1_2_years_form
+            requested_slot: implants_who_can_and_cannot_use
+          - active_loop: request_3_4_years_form
 
+  3_4_year_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: 3_4_year_method
+
+  ius_how_works:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_how_works
+
+  ius_advantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_advantage
+
+
+  ius_disadvantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_disadvantage
+
+  ius_who_can_and_cannot_use:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_who_can_and_cannot_use
+
+  ius_medical_condition:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_medical_condition
+
+
+  ius_show:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_show
+
+  iud_advantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_advantage
+
+  iud_disadvantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_disadvantage
+
+  iud_who_can_and_cannot_use:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_who_can_and_cannot_use
+
+  iud_medical_condition:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_medical_condition
+
+  iud_show:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_show
+
+  ius_yes:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_yes
+
+  iud_yes:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_yes
 
 responses:
   utter_cheer_up:

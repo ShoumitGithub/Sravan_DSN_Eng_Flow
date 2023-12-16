@@ -3,6 +3,7 @@ from typing import List
 # Constants
 from rasa_sdk import Tracker
 
+
 SOMETHING_IS_WRONG = "Something is Wrong"
 VERTICAL_BUTTON_TYPE = 'vertical'
 
