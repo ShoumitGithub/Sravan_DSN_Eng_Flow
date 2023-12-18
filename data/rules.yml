@@ -30,22 +30,43 @@ rules:
     - active_loop: null
     - action: action_family_method
 
-- rule: family method
+- rule: 0-3 months
   steps:
-    - intent: family_method
-    - action: request_family_planning_using_method_form
-    - active_loop: request_family_planning_using_method_form
-    - active_loop: null
-    - action: action_next_options
-    - action: select_do_you_understand
-    - active_loop: select_do_you_understand
-    - active_loop: null
+    - intent: prevent_pregnancy_0_3_months
     - action: request_0_3_months_form
     - active_loop: request_0_3_months_form
     - active_loop: null
+
+- rule: 1-2 years
+  steps:
+    - intent: prevent_pregnancy_1_2_years
     - action: request_1_2_years_form
     - active_loop: request_1_2_years_form
     - active_loop: null
-    - action: request_3_4_years_form
-    - active_loop: request_3_4_years_form
-    - active_loop: null
+
+- rule: 3-4 years
+  steps:
+      - intent: prevent_pregnancy_3_4_years
+      - action: request_3_4_years_form
+      - active_loop: request_3_4_years_form
+      - active_loop: null
+
+- rule: 5-10 years
+  steps:
+      - intent: prevent_pregnancy_5_10_years
+      - action: request_5_10_years_form
+      - active_loop: request_5_10_years_form
+      - active_loop: null
+
+- rule: prevent pregnancy permanently
+  steps:
+      - intent: prevent_pregnancy_permanently
+      - action: request_permanent_form
+      - active_loop: request_permanent_form
+      - active_loop: null
+      - action: action_permanent_display_response
+
+- rule: family method
+  steps:
+    - intent: family_method
+    - action: action_how_long_prevent_pregnancy

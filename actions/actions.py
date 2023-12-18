@@ -1,12 +1,26 @@
 from typing import Text, List, Any, Dict
 
-from actions.action_1_2years import *
-from actions.action_3_4_years import *
 from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import EventType, ActiveLoop, SlotSet, FollowupAction
+from rasa_sdk.events import EventType, ActiveLoop, SlotSet
 from rasa_sdk.types import DomainDict
 from actions.helper import *
+
+
+class ActionHowLongPreventPregnancy(Action):
+
+    def name(self) -> Text:
+        return "action_how_long_prevent_pregnancy"
+
+    def run(
+        self,
+        dispatcher: "CollectingDispatcher",
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(response='utter_ask_prevent_pregnancy_time')
+        return []
 
 
 class ActionPath(Action):
@@ -740,13 +754,3 @@ class ValidateRequest03MonthsForm(FormValidationAction):
 
         return slots
 
-    async def run(
-            self,
-            dispatcher: "CollectingDispatcher",
-            tracker: "Tracker",
-            domain: "DomainDict",
-    ) -> List[EventType]:
-        print(f"value in run and value is prevent_pregnancy_time: {tracker.slots.get('prevent_pregnancy_time')}")
-        if tracker.slots.get('prevent_pregnancy_time') != '0-3 months':
-            return [ActiveLoop(None), SlotSet('requested_slot', None)]
-        await super().run(dispatcher, tracker, domain)

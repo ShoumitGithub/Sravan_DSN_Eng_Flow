@@ -7,6 +7,7 @@ from rasa_sdk import Tracker
 SOMETHING_IS_WRONG = "Something is Wrong"
 VERTICAL_BUTTON_TYPE = 'vertical'
 
+
 def get_slot_value(tracker: Tracker, slot_name):
     return tracker.slots.get(slot_name)
 

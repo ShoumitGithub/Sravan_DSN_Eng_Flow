@@ -4,7 +4,19 @@ from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, ActiveLoop, SlotSet, FollowupAction
 from rasa_sdk.types import DomainDict
+
+from actions.actions import AskForSlotDailyPillsAdvantage, AskForSlotDailyPillsDisadvantage
 from actions.helper import *
+
+
+class ActionAskDailyPillsAdvantage34(AskForSlotDailyPillsAdvantage):
+    def name(self) -> Text:
+        return "action_ask_daily_pills_advantage_3_4"
+
+
+class AskForSlotDailyPillsDisadvantage34(AskForSlotDailyPillsDisadvantage):
+    def name(self) -> Text:
+        return "action_ask_daily_pills_disadvantage_3_4"
 
 
 class ActionAsk3To4YearMethod(Action):
@@ -56,6 +68,7 @@ class ActionAskIusHowWorks(Action):
                   "ovulation and for gynaecological conditions, it reduces the endometrial lining of the womb making " \
                   "the period lighter and less painful. \n" \
                   "This means that you can use IUS for both gynecological matters and to prevent pregnancy.\n" \
+                  "Do you understand" \
                   ""
         dispatcher.utter_message(text=message)
         return []
@@ -70,26 +83,25 @@ class ActionAskIusAdvantage(Action):
     ) -> List[EventType]:
         message = """Now let me tell you some of the advantages and disadvantages of IUS.
 
-Advantages
-For pregnancy prevention:
-1. No daily use is required.
-2. Insertion and removal can be done at any time within the menstrual cycle.
-3. Do not require regular clinic visits. 
-4. It has a quick return to fertility after removal.
-5. Safe for breastfeeding mothers from six weeks after delivery.
-6. Local release of the home ensures milder side effects.
-7. It maintains normal libido.
-8. Reduces the risk of ovarian cancer and endometrial cancer.
-9. Lower overall risk of ectopic pregnancy than women not on contraception.
-
-For gynecological use:
-1. Starts working within 24 hours after insertion.
-2. Highly effective for the treatment of abnormally heavy menstrual bleeding.
-3. Lowers the risk of anemia due to menstrual blood loss.
-4. Effective alternative to surgery especially for women who cannot afford to pay for surgery.\n
-Are you with me"""
-        buttons = create_button(["Yes", "No"])
-        dispatcher.utter_message(text=message, buttons=buttons, button_type='vertical')
+                    Advantages
+                    For pregnancy prevention:
+                    1. No daily use is required.
+                    2. Insertion and removal can be done at any time within the menstrual cycle.
+                    3. Do not require regular clinic visits. 
+                    4. It has a quick return to fertility after removal.
+                    5. Safe for breastfeeding mothers from six weeks after delivery.
+                    6. Local release of the home ensures milder side effects.
+                    7. It maintains normal libido.
+                    8. Reduces the risk of ovarian cancer and endometrial cancer.
+                    9. Lower overall risk of ectopic pregnancy than women not on contraception.
+                    
+                    For gynecological use:
+                    1. Starts working within 24 hours after insertion.
+                    2. Highly effective for the treatment of abnormally heavy menstrual bleeding.
+                    3. Lowers the risk of anemia due to menstrual blood loss.
+                    4. Effective alternative to surgery especially for women who cannot afford to pay for surgery.\n
+                    Do you understand"""
+        dispatcher.utter_message(text=message)
         return []
 
 
@@ -112,7 +124,8 @@ a. Headache.
 b. Nausea or vomiting.
 c. Breast tenderness.
 d. Lower abdominal cramps.
-e. Irregular uterine/vaginal bleeding."""
+e. Irregular uterine/vaginal bleeding.\n
+Are you with me"""
         buttons = create_button(["Yes", "No"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type='vertical')
         return []
@@ -132,8 +145,7 @@ Who can use
 1. You can use IUS if you cannot use combined contraceptives.
 2. If can use IUS even if you are HIV positive.\n
 Do you get me?"""
-        buttons = create_button(["Yes", "No"])
-        dispatcher.utter_message(text=message, )
+        dispatcher.utter_message(text=message)
         return []
 
 
@@ -159,7 +171,10 @@ class ActionAskIusShow(Action):
     ) -> List[EventType]:
         message = """Ok, let me show you one of the effective IUS products that you can adopt.\n
         Eloira, which is an IUS different from an IUD due to the absence of copper. A hormone (Levonorgestrel) 
-        replaces the copper. It is used to treat gynecological conditions and pregnancy prevention. """
+        replaces the copper. It is used to treat gynecological conditions and pregnancy prevention. 
+        Eloira, which is an IUS different from an IUD due to the absence of copper. 
+        A hormone (Levonorgestrel) replaces the copper. It is used 
+        to treat gynecological conditions and pregnancy prevention. """
         dispatcher.utter_message(text=message)
         return []
 
@@ -226,8 +241,7 @@ Who can use
 3. You can use an IUD if you have currently or history of certain health conditions like stroke, heart disease, liver disease, breast cancer, headaches, lupus, vein thrombosis, etc, and cannot use hormonal contraceptives.
 4. You can use an IUD even if you are taking drugs like anti-tuberculosis drugs, anti-convulsant drugs, or anti-retroviral agents, etc\n
 Do you get me"""
-        button = create_yes_or_no_button()
-        dispatcher.utter_message(text=message, buttons=button)
+        dispatcher.utter_message(text=message)
         return []
 
 
@@ -296,23 +310,23 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
     def name(self):
         return 'validate_request_3_4_years_form'
 
-    def validate_ius_who_can_and_cannot_use(self,
-                                     slot_value: Any,
-                                     dispatcher: CollectingDispatcher,
-                                     tracker: Tracker,
-                                     domain: DomainDict,
+    def validate_ius_who_can_and_cannot_use( self,
+                                             slot_value: Any,
+                                             dispatcher: CollectingDispatcher,
+                                             tracker: Tracker,
+                                             domain: DomainDict,
                                      ):
         if slot_value is not None:
             message = """Who cannot use
-You cannot use IUS if you have any of the following medical conditions.
-a. Uncontrolled hypertension.
-b. Stroke.
-c. Heart Disease.
-d. Liver Disease.
-e. Breast Cancer.
-f. Cervical cancer.
-g. Kidney infection.
-h. Unexplained vaginal bleeding"""
+                        You cannot use IUS if you have any of the following medical conditions.
+                        a. Uncontrolled hypertension.
+                        b. Stroke.
+                        c. Heart Disease.
+                        d. Liver Disease.
+                        e. Breast Cancer.
+                        f. Cervical cancer.
+                        g. Kidney infection.
+                        h. Unexplained vaginal bleeding"""
             dispatcher.utter_message(text=message)
 
         return {'ius_who_can_and_cannot_use': slot_value}
@@ -328,8 +342,31 @@ h. Unexplained vaginal bleeding"""
             message = """Ok, sorry about your medical condition but it is not advisable for you to use IUS. 
             Please speak to your doctor before using this method of contraception.\n
             Do you understand? It is very important."""
+            dispatcher.utter_message(text=message)
 
         return {'ius_medical_condition': slot_value}
+
+
+    def validate_iud_who_can_and_cannot_use( self,
+                                             slot_value: Any,
+                                             dispatcher: CollectingDispatcher,
+                                             tracker: Tracker,
+                                             domain: DomainDict,
+                                     ):
+        if slot_value is not None:
+            message = """Who cannot use
+                        You cannot use an IUD if you have any of the following medical conditions.
+                        a. Cervical cancer.
+                        b. Endometrial disease.
+                        c. Unexplained vaginal bleeding.
+                        d. Uterine fibroid with cavity distortion.
+                        e. Pelvic tuberculosis.
+                        f. Untreated vaginal infection.
+                        g. STIs like gonorrhoea and chlamydia."""
+            dispatcher.utter_message(text=message)
+
+        return {'iud_who_can_and_cannot_use': slot_value}
+
 
     async def required_slots(
             self,
@@ -351,22 +388,12 @@ h. Unexplained vaginal bleeding"""
         if get_slot_value(tracker, '3_4_year_method'):
             print(f"Slot Mapping: {slot_mappings.get(get_slot_value(tracker, '3_4_year_method'), 'Dummy')}")
             slots = required_slots(slots, slot_mappings.get(get_slot_value(tracker, '3_4_year_method'), "Dummy"))
-        print(f"After calling required in 3_4 years: {slots}")
         if get_slot_value(tracker, 'ius_medical_condition') == 'No':
             slots.remove('ius_yes')
 
         if get_slot_value(tracker, 'iud_medical_condition') == 'No':
             slots.remove('iud_yes')
 
+        print(f"After calling required in 3_4 years: {slots}")
         return slots
 
-    async def run(
-            self,
-            dispatcher: "CollectingDispatcher",
-            tracker: "Tracker",
-            domain: "DomainDict",
-    ) -> List[EventType]:
-        print(f"value in run and value is in 3_4 prevent_pregnancy_time: {tracker.slots.get('prevent_pregnancy_time')}")
-        if tracker.slots.get('prevent_pregnancy_time') != '3-4 years':
-            return [ActiveLoop(None), SlotSet('requested_slot', None)]
-        await super().run(dispatcher, tracker, domain)

@@ -4,7 +4,19 @@ from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, ActiveLoop, SlotSet, FollowupAction
 from rasa_sdk.types import DomainDict
+
+from actions.actions import AskForSlotDailyPillsAdvantage, AskForSlotDailyPillsDisadvantage
 from actions.helper import *
+
+
+class ActionAskDailyPillsAdvantage12(AskForSlotDailyPillsAdvantage):
+    def name(self) -> Text:
+        return "action_ask_daily_pills_advantage_1_2"
+
+
+class AskForSlotDailyPillsDisadvantage12(AskForSlotDailyPillsDisadvantage):
+    def name(self) -> Text:
+        return "action_ask_daily_pills_disadvantage_1_2"
 
 
 class AskForSlot12YearsMethod(Action):
@@ -180,14 +192,3 @@ class ValidateRequest02YearsForm(FormValidationAction):
             slots = required_slots(slots, slot_mappings.get(get_slot_value(tracker, '1_2_years_method'), "Dummy"))
         print(f"After slots: {slots}")
         return slots
-
-    async def run(
-            self,
-            dispatcher: "CollectingDispatcher",
-            tracker: "Tracker",
-            domain: "DomainDict",
-    ) -> List[EventType]:
-        print(f"value in run and value is prevent_pregnancy_time: {tracker.slots.get('prevent_pregnancy_time')}")
-        if tracker.slots.get('prevent_pregnancy_time') != '1-2 years':
-            return [ActiveLoop(None), SlotSet('requested_slot', None)]
-        await super().run(dispatcher, tracker, domain)

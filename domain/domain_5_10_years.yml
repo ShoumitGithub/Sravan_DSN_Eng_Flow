@@ -1,0 +1,171 @@
+---
+version: "3.1"
+
+actions:
+  - validate_request_5_10_years_form
+  - action_ask_5_10_year_method
+  - action_ask_ius_how_works_5_10
+  - action_ask_ius_advantage_5_10
+  - action_ask_ius_disadvantage_5_10
+  - action_ask_ius_who_can_and_cannot_use_5_10
+  - action_ask_ius_medical_condition_5_10
+  - action_ask_ius_yes_5_10
+  - action_ask_ius_show_5_10
+  - action_ask_iud_advantage_5_10
+  - action_ask_iud_disadvantage_5_10
+  - action_ask_iud_who_can_and_cannot_use_5_10
+  - action_ask_iud_medical_condition_5_10
+  - action_ask_iud_show_5_10
+  - action_ask_iud_yes_5_10
+
+forms:
+  request_5_10_years_form:
+    required_slots:
+      - 5_10_year_method
+      - ius_how_works_5_10
+      - ius_advantage_5_10
+      - ius_disadvantage_5_10
+      - ius_who_can_and_cannot_use_5_10
+      - ius_medical_condition_5_10
+      - ius_yes_5_10
+      - ius_show_5_10
+      - iud_advantage_5_10
+      - iud_disadvantage_5_10
+      - iud_who_can_and_cannot_use_5_10
+      - iud_medical_condition_5_10
+      - iud_yes_5_10
+      - iud_show_5_10
+
+slots:
+
+  5_10_year_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: 5_10_year_method
+
+
+  ius_how_works_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: ius_how_works_5_10
+
+  ius_advantage_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: ius_advantage_5_10
+
+  ius_disadvantage_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: ius_disadvantage_5_10
+
+  ius_who_can_and_cannot_use_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: ius_who_can_and_cannot_use_5_10
+
+  ius_medical_condition_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: ius_medical_condition_5_10
+
+  ius_yes_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: ius_yes_5_10
+
+  ius_show_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: ius_show_5_10
+
+  iud_advantage_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: iud_advantage_5_10
+
+  iud_disadvantage_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: iud_disadvantage_5_10
+
+  iud_who_can_and_cannot_use_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: iud_who_can_and_cannot_use_5_10
+
+  iud_medical_condition_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: iud_medical_condition_5_10
+
+  iud_yes_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: iud_yes_5_10
+
+  iud_show_5_10:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_5_10_years_form
+            requested_slot: iud_show_5_10
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
