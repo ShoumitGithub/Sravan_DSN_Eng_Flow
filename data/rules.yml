@@ -5,7 +5,7 @@ rules:
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
-  - action: utter_goodbye
+  - action: action_chat_restart
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
@@ -16,7 +16,7 @@ rules:
   conversation_start: true
   steps:
     - intent: greet
-    - action: utter_greet
+    - action: action_greet_message
     - action: request_user_data_form
     - active_loop: request_user_data_form
     - active_loop: null

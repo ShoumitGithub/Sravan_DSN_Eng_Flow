@@ -13,7 +13,7 @@ stories:
   - story: greet
     steps:
       - intent: greet
-      - action: utter_greet
+      - action: action_greet_message
       - action: request_user_data_form
       - active_loop: request_user_data_form
       - active_loop: null

@@ -2,10 +2,22 @@ from typing import Text, List, Any, Dict
 
 from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import EventType, ActiveLoop, SlotSet
+from rasa_sdk.events import EventType, ActiveLoop, SlotSet, Restarted
 from rasa_sdk.types import DomainDict
 from actions.helper import *
 
+
+class ActionRestarted(Action):
+    """ This is for restarting the chat"""
+
+    def name(self) -> Text:
+        return "action_chat_restart"
+
+    async def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message("Chat has been restarted.")
+        return []
 
 class ActionHowLongPreventPregnancy(Action):
 
@@ -22,6 +34,30 @@ class ActionHowLongPreventPregnancy(Action):
         dispatcher.utter_message(response='utter_ask_prevent_pregnancy_time')
         return []
 
+class ActionGreetMessage(Action):
+    def name(self) -> Text:
+        return "action_greet_message"
+
+    async def run(self,
+                  dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        message= "Hey! How are you today?"
+
+        dispatcher.utter_message(text=message)
+
+        message= "My name is Honey. I am a family planning counsellor. I am here to help with family\n\n"\
+                "I can answer your family planning questions, refer to an agent to speak with and also refer you to a family planning clinic."
+
+        dispatcher.utter_message(text=message)
+
+        message= "Before we continue, I would like to get some of your details to help you better."
+
+        dispatcher.utter_message(text=message)
+        return []
+
+
 
 class ActionPath(Action):
     def name(self) -> Text:
@@ -31,10 +67,13 @@ class ActionPath(Action):
                   dispatcher: CollectingDispatcher,
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        buttons = [{"title": "I want to ask about family planning.", "payload": "I want to ask about family planning."},
-                   {"title": "I want the nearest family planning clinic to me.",
-                    "payload": "I want the nearest family planning clinic to me."},
-                   {"title": "Other reproductive health issues.", "payload": "Other reproductive health issues."}]
+        buttons = [
+                        {"title": "I want to ask about family planning.", "payload": "I want to ask about family planning."},
+                        {"title": "I want the nearest family planning clinic to me.", "payload": "I want the nearest family planning clinic to me."},
+                        {"title": "Other reproductive health issues.", "payload": "Other reproductive health issues."},
+                        {"title": "I have a question.", "payload": "I have a question."}
+                    ]
+
         dispatcher.utter_message("What would you like to know about?", buttons=buttons, button_type="vertical")
         return []
 
@@ -55,7 +94,7 @@ class ActionFamilyMethod(Action):
                     "payload": "  I want to know about side effects."},
                    {"title": "  I want to know about family planning products.",
                     "payload": " I want to know about family planning products."}]
-        dispatcher.utter_button_message("What would you like to know about?", buttons)
+        dispatcher.utter_button_message("What do you want to know about family planning?", buttons ,  button_type="vertical")
         return []
 
 
@@ -118,10 +157,10 @@ class AskForSlot03MonthsMethod(Action):
     ) -> List[EventType]:
         button_details = create_button(["Daily contraceptive pills", "Emergency contraceptive pills",
                                         "Injectable contraceptives", "Diaphragm", "Female condom", "Male condom"])
-        dispatcher.utter_message(text="The short-term family planning methods are: \n "
+        dispatcher.utter_message(text="The short-term family planning methods are: \n"
                                       "1. Daily contraceptive pills\n"
                                       "2. Emergency contraceptive pills\n"
-                                      "3. The barrier contraceptives which are the diaphragms and "
+                                      "3. The barrier contraceptives which are the diaphragms and"
                                       "condoms and then the Injectables.\n"
                                       "Click on any of them to get the full details about them.",
                                  buttons=button_details, button_type="vertical")
@@ -140,8 +179,8 @@ class AskForSlotDailyPillsAdvantage(Action):
                                        url_description='Audio embedding (Daily pills)')
         message = "Daily pills are combined oral contraceptive (COC) pills for pregnancy prevention, dermatological " \
                   "and gynecological conditions, and management of menstrual irregularities (heavy bleeding, " \
-                  "painful menstruation, premenstrual syndrome). " \
-                  "They work by thickening the mucus around the cervix, which makes it difficult for sperm to enter " \
+                  "painful menstruation, premenstrual syndrome).\n" \
+                  "  \nThey work by thickening the mucus around the cervix, which makes it difficult for sperm to enter " \
                   "the uterus and reach any eggs that may have been released. " \
                   "Most combination pills come in either a 21-day pack (Dianofem and Desofem) or a 28-day pack (" \
                   "Levofem). One pill is taken each day at about the same time for 21 days. Depending on your pack, " \
@@ -753,4 +792,3 @@ class ValidateRequest03MonthsForm(FormValidationAction):
             slots.remove('daily_contraceptive_database')
 
         return slots
-

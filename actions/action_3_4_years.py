@@ -396,4 +396,3 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
 
         print(f"After calling required in 3_4 years: {slots}")
         return slots
-
