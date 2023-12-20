@@ -132,6 +132,23 @@ You can visit you nearest health shop to purchase.
                                 "Also, it can be stopped anytime the woman wants by asking a health provider "
                                 "to remove it. This method is completely and quickly reversible "
                                 "because it releases a very low dose of hormone, which leaves the body quickly "
-                                "when removed, so you woman can get pregnant without delay."
+                                "when removed, so you woman can get pregnant without delay.",
+                "Fiesta intim gel": """Fiesta Gels are classy and smooth, with a wet sensation for heightened sexual pleasure.How to Use 
+                Pour a small amount of Fiesta Intim natural gel on your palm and apply directly on your erect penis. For extra pleasure, you can also apply on the woman's intimate area. """,
+                "KY Jelly": """KY Jelly is a water-based, fragrance-free, non-greasy formula that quickly prepares you for sexual intimacy & eases the discomfort of personal dryness.""",
+                "Lydia IUD": """Lydia IUD devices are non-hormonal, long-lasting contraception (5-10 yrs.) DKT has 5 variants which can be T (the most common) or Y-shaped - made of plastic coat with copper. This device is inserted into the uterus and it is the most effective contraceptive according to WHO with about 99.9% efficacy. It can also serve as an emergency contraceptive if used within 5days of unprotected sexual intercourse. 
+                            Its mechanism of action is to inhibit sperm penetration due to the toxicity of copper to sperm""",
+                "Eliora": "Eloira, which is an IUS different from an IUD due to the absence of copper. A hormone (Levonorgestrel) replaces the copper. It is used to treat gynecological conditions and pregnancy prevention. ",
+                "Miso-Fem": """Miso-Fem is a tested and trusted high-quality brand of Misoprostol that is used in the management of obstetric, gynecological, and medical conditions. used for maternal mortality reduction. These conditions include postpartum haemorrhage (PPH) and peptic ulcer induced by Non-Steroidal Anti-Inflammatory Drugs (NSAIDs). 
+                How to Use 
+                Miso-Fem is to be taken under the tongue (dissolved under the tongue) and not to be swallowed, or through the vagina or rectal to be absolved. It is used for labor (pain) reduction by dilating the cervix. 
+                You can click on the audio below to listen to a full explanation of Miso-Fem and usage in Pidgin if you want to.""",
+                "Mifepak": """Mifepak is used for intra-uterine fetal demise, therapeutic abortion, and conservative management of the placenta. Its mode of work includes blocking the progesterone, causing the contraction and expulsion of the detached embryo.
+                How to Use 
+                Taken orally with water under healthcare supervision.
+                You can click on the audio below to listen to a short introduction to Mifepak in Pidgin if you want to.""",
+                "Penegra": """Penegra is a DKT product that contains Sidenafil Citrate. It is used to treat erectile dysfunction. Erectile Dysfunction refers to the consistent/recurrent inability of a man to obtain an erection sufficient for satisfactory sexual activities.""",
+                "HIV Self-test kit": "OraQuick (by DKT) is an oral swab in-home test for HIV-1 and HIV-2. It is a private and accurate way to test for HIV without the use of needles or blood and in the convenience of your home with results in as little as 20 minutes. It is the first in-home oral HIV Self-Test to be approved by WHO, NAFDAC, FMOH, and US-FDA.",
+                "Diaphragm": "A diaphragm or cap is a barrier method of contraception. It fits inside your vagina and prevents sperm passing through the cervix (the entrance of your womb)"
 }
     return messages.get(key_value, SOMETHING_IS_WRONG)

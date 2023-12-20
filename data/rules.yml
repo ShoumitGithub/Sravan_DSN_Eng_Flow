@@ -69,4 +69,37 @@ rules:
 - rule: family method
   steps:
     - intent: family_method
+    - action: request_family_planning_using_method_form
+    - active_loop: request_family_planning_using_method_form
+    - active_loop: null
     - action: action_how_long_prevent_pregnancy
+
+- rule: start using another method
+  steps:
+    - intent: start_using_another_method
+    - action: action_previous_contraception_usage
+    - action: request_family_planning_using_method_form
+    - active_loop: request_family_planning_using_method_form
+    - active_loop: null
+    - action: request_switching_another_reason
+    - active_loop: request_switching_another_reason
+    - active_loop: null
+    - action: action_how_long_prevent_pregnancy
+
+- rule: About side effects rule
+  steps:
+    - intent: about_side_effects
+    - action: request_want_their_side_effect
+    - active_loop: request_want_their_side_effect
+    - active_loop: null
+    - action: action_response_about_selected_side_effect
+    - action: request_side_effect_experience
+    - active_loop: request_side_effect_experience
+    - active_loop: null
+
+- rule: about family planning products
+  steps:
+    - intent: about_planning_products
+    - action: request_select_planning_product
+    - active_loop: request_select_planning_product
+    - active_loop: null

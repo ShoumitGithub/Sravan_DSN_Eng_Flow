@@ -20,15 +20,3 @@ slots:
         conditions:
           - active_loop: request_permanent_form
             requested_slot: permanent_method
-responses:
-  utter_ask_permanent_method:
-    - text: |
-        Permanent family planning methods means the person will no longer be able to reproduce again.\n
-        Male: Vasectomy\n 
-        Female: Tubal ligation\n            
-        Click on any of them to get a short explanation on them.
-      buttons:
-        - title: "Vasectomy"
-          payload: "Vasectomy"
-        - title: "Tubal Litigation"
-          payload: "Tubal Litigation"

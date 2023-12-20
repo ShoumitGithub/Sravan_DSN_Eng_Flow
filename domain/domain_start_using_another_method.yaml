@@ -1,0 +1,24 @@
+version: "3.1"
+
+intents:
+  - start_using_another_method
+
+actions:
+  - validate_request_switching_another_reason
+  - action_ask_switch_another_reason
+  - action_previous_contraception_usage
+
+forms:
+  request_switching_another_reason:
+    required_slots:
+      - switch_another_reason
+
+slots:
+  switch_another_reason:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_switching_another_reason
+            requested_slot: switch_another_reason

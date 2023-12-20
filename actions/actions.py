@@ -14,10 +14,11 @@ class ActionRestarted(Action):
         return "action_chat_restart"
 
     async def run(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
+            self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message("Chat has been restarted.")
+        dispatcher.utter_message("Thanks For using the bot, Please say Hello if you want to use bot again")
         return []
+
 
 class ActionHowLongPreventPregnancy(Action):
 
@@ -25,14 +26,14 @@ class ActionHowLongPreventPregnancy(Action):
         return "action_how_long_prevent_pregnancy"
 
     def run(
-        self,
-        dispatcher: "CollectingDispatcher",
-        tracker: Tracker,
-        domain: "DomainDict",
+            self,
+            dispatcher: "CollectingDispatcher",
+            tracker: Tracker,
+            domain: "DomainDict",
     ) -> List[Dict[Text, Any]]:
-
         dispatcher.utter_message(response='utter_ask_prevent_pregnancy_time')
         return []
+
 
 class ActionGreetMessage(Action):
     def name(self) -> Text:
@@ -42,21 +43,17 @@ class ActionGreetMessage(Action):
                   dispatcher: CollectingDispatcher,
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        message= "Hey! How are you today?"
-
-        dispatcher.utter_message(text=message)
-
-        message= "My name is Honey. I am a family planning counsellor. I am here to help with family\n\n"\
-                "I can answer your family planning questions, refer to an agent to speak with and also refer you to a family planning clinic."
+        message = "Hey! How are you today?"
 
         dispatcher.utter_message(text=message)
 
-        message= "Before we continue, I would like to get some of your details to help you better."
-
+        message = "My name is Honey. I am a family planning counsellor. I am here to help with family\n\n" \
+                  "I can answer your family planning questions, refer to an agent to speak with and also " \
+                  "refer you to a family planning clinic."
+        dispatcher.utter_message(text=message)
+        message = "Before we continue, I would like to get some of your details to help you better."
         dispatcher.utter_message(text=message)
         return []
-
 
 
 class ActionPath(Action):
@@ -68,11 +65,12 @@ class ActionPath(Action):
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         buttons = [
-                        {"title": "I want to ask about family planning.", "payload": "I want to ask about family planning."},
-                        {"title": "I want the nearest family planning clinic to me.", "payload": "I want the nearest family planning clinic to me."},
-                        {"title": "Other reproductive health issues.", "payload": "Other reproductive health issues."},
-                        {"title": "I have a question.", "payload": "I have a question."}
-                    ]
+            {"title": "I want to ask about family planning.", "payload": "I want to ask about family planning."},
+            {"title": "I want the nearest family planning clinic to me.",
+             "payload": "I want the nearest family planning clinic to me."},
+            {"title": "Other reproductive health issues.", "payload": "Other reproductive health issues."},
+            {"title": "I have a question.", "payload": "I have a question."}
+        ]
 
         dispatcher.utter_message("What would you like to know about?", buttons=buttons, button_type="vertical")
         return []
@@ -88,13 +86,14 @@ class ActionFamilyMethod(Action):
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         buttons = [{"title": "I want to start using a method.", "payload": " I want to start using a method."},
-                   {"title": " I want to start using another method.",
-                    "payload": " I want to start using another method."},
-                   {"title": "  I want to know about side effects.",
-                    "payload": "  I want to know about side effects."},
+                   {"title": "I want to start using another method.",
+                    "payload": "/start_using_another_method"},
+                   {"title": "I want to know about side effects.",
+                    "payload": "/about_side_effects"},
                    {"title": "  I want to know about family planning products.",
-                    "payload": " I want to know about family planning products."}]
-        dispatcher.utter_button_message("What do you want to know about family planning?", buttons ,  button_type="vertical")
+                    "payload": "/about_planning_products"}]
+        dispatcher.utter_button_message("What do you want to know about family planning?", buttons,
+                                        button_type="vertical")
         return []
 
 
@@ -118,7 +117,10 @@ class ValidateRequestFamilyPlanningUsingMethodForm(FormValidationAction):
             updated_slots.remove("reason_for_not_satisfied")
 
         if get_slot_value(tracker, 'satisfied_last_method') == 'Yes':
-            updated_slots.remove("reason_for_not_satisfied")
+            try:
+                updated_slots.remove("reason_for_not_satisfied")
+            except ValueError:
+                pass
 
         print(f"updated Slots: {updated_slots}")
         return updated_slots
@@ -745,11 +747,11 @@ class ValidateRequest03MonthsForm(FormValidationAction):
         return {'injectable_database': slot_value}
 
     def validate_male_condom_database(self,
-                                     slot_value: Any,
-                                     dispatcher: CollectingDispatcher,
-                                     tracker: Tracker,
-                                     domain: DomainDict,
-                                     ):
+                                      slot_value: Any,
+                                      dispatcher: CollectingDispatcher,
+                                      tracker: Tracker,
+                                      domain: DomainDict,
+                                      ):
 
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
@@ -757,11 +759,11 @@ class ValidateRequest03MonthsForm(FormValidationAction):
         return {'male_condom_database': slot_value}
 
     def validate_injectable_medical_conditions(self,
-                                     slot_value: Any,
-                                     dispatcher: CollectingDispatcher,
-                                     tracker: Tracker,
-                                     domain: DomainDict,
-                                     ):
+                                               slot_value: Any,
+                                               dispatcher: CollectingDispatcher,
+                                               tracker: Tracker,
+                                               domain: DomainDict,
+                                               ):
         if slot_value and slot_value.lower() == 'yes':
             dispatcher.utter_message(text=""""Ok, sorry about your medical condition but it is not advisable for you to adopt this method of contraception. 
             Please speak to your doctor before using this method of contraceptive.\n

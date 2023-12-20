@@ -1,0 +1,39 @@
+version: "3.1"
+
+intents:
+  - about_side_effects
+
+actions:
+#  - validate_request_want_their_side_effect
+  - action_ask_which_method_side_effect
+  - action_ask_are_you_experiencing_side_effects
+  - action_response_about_selected_side_effect
+  - validate_request_side_effect_experience
+
+forms:
+  request_want_their_side_effect:
+    required_slots:
+      - which_method_side_effect
+
+  request_side_effect_experience:
+    required_slots:
+      - are_you_experiencing_side_effects
+
+slots:
+  which_method_side_effect:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_want_their_side_effect
+            requested_slot: which_method_side_effect
+
+  are_you_experiencing_side_effects:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_side_effect_experience
+            requested_slot: are_you_experiencing_side_effects

@@ -96,7 +96,6 @@ forms:
       - followed_method_before
       - satisfied_last_method
       - reason_for_not_satisfied
-      - prevent_pregnancy_time
 
   select_do_you_understand:
     required_slots:
@@ -279,15 +278,6 @@ slots:
         conditions:
           - active_loop: request_family_planning_using_method_form
             requested_slot: satisfied_last_method
-
-  prevent_pregnancy_time:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_text
-        conditions:
-          - active_loop: request_family_planning_using_method_form
-            requested_slot: prevent_pregnancy_time
 
   reason_for_not_satisfied:
     type: text
@@ -1040,6 +1030,19 @@ responses:
       - title: "Permanently"
         payload: "/prevent_pregnancy_permanently"
       button_type: vertical
+
+  utter_planning_info:
+    - text: "What do you want to know about family planning?"
+      buttons:
+        - title: "I want to start using a method."
+          payload: /start_family_planning
+        - title: "I want to start using another method."
+          payload: /start_using_another_method
+        - title: "I want to know about side effect."
+          payload: /get_products
+        - title: "I want to know about family planning products."
+          payload: /side_effects
+      button_type: "vertical"
 
   # 0-3 Months flow
   utter_0_3_months_response:
