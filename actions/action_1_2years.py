@@ -42,23 +42,32 @@ class AskForSlotImplantsAdvantage(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Contraceptive implants are small, flexible rods inserted under the skin, " \
-                  "typically in the arm. They release hormones (usually progestin) to prevent pregnancy. " \
-                  "They are long-term birth control methods also called long-acting reversible contraception, " \
-                  "or LARC. They provide contraception, lasting up to 3 - 5 years but can be removed at any time. " \
-                  "They work by preventing the release of egg and thickening the cervical mucus making it " \
+                  "typically in the arm. They release hormones (usually progestin) to prevent pregnancy.\n" \
+                  "  \nThey are long-term birth control methods also called long-acting reversible contraception, " \
+                  "or LARC. They provide contraception, lasting up to 3 - 5 years but can be removed at any time.\n" \
+                  "  \nThey work by preventing the release of egg and thickening the cervical mucus making it " \
                   "difficult for sperm to reach the egg.\n" \
-                  "Click to listen to a short explanation of implants in Pidgin, if you want to.\n" \
+
+        dispatcher.utter_message(text=message)    
+
+        message=  "Click to listen to a short explanation of implants in Pidgin, if you want to.\n" \
                   f"{create_hyper_link(url_description='Audio embedding (Implants)', url='https://drive.google.com/file/d/1_xdNkGpLTO-y3zWcJTMk7eRz7qTG-1a9/view?usp=drive_link')}\n" \
-                  "Now let me tell you some of the advantages and disadvantages of contraceptive implants.\n" \
-                  "Advantages\n" \
+                  
+        dispatcher.utter_message(text=message)
+                  
+        message=  "Now let me tell you some of the advantages and disadvantages of contraceptive implants.\n" \
+                  "  \nAdvantages\n" \
                   "1. They can be used at any time in the menstrual cycle, are very effective, and are removed whenever you want to get pregnant.\n" \
-                  " 2. It gives total privacy, no one will know you have it and does not interfere with sex.\n" \
+                  "2. It gives total privacy, no one will know you have it and does not interfere with sex.\n" \
                   "3. No frequent clinical follow-up is needed after initial insertion.\n" \
                   "4. It is estrogen-free so many people can use it\n" \
                   "5. They are long-acting and may help prevent ectopic pregnancy.\n" \
                   "6. Does not disturb breast milk production.\n" \
                   "7. There is no delay in return to fertility when they are removed.\n" \
-                  "Do you understand"
+                  
+        dispatcher.utter_message(text=message)
+
+        message=  "Do you understand"
         dispatcher.utter_message(text=message)
         return []
 
@@ -71,7 +80,7 @@ class AskForSlotImplantsDisadvantage(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Now to the disadvantages of contraceptive implants.\n" \
-                  "Disadvantages\n" \
+                  "  \nDisadvantages\n" \
                   "1. Insertion and removal involve minor surgery and must be performed by a trained professional.\n" \
                   "2. You cannot discontinue the method by yourself.\n" \
                   "3. They might have some side effects such as:\n" \
@@ -81,8 +90,11 @@ class AskForSlotImplantsDisadvantage(Action):
                   "d. Breast tenderness.\n" \
                   "e. Weight gain.\n" \
                   "f. Menstrual changes.\n" \
-                  "g. Spotting and irregular vaginal bleeding.\n" \
-                  "Are you with me\n"
+                  "g. Spotting and irregular vaginal bleeding." 
+                  
+        dispatcher.utter_message(text=message)
+
+        message=  "Are you with me"
         dispatcher.utter_message(text=message, buttons=create_yes_or_no_button(), button_type='vertical')
         return []
 
@@ -95,13 +107,16 @@ class AskForSlotImplantsWhoCanAndCannotUse(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "On who can use and who cannot use implants.\n" \
-                  "Who can use\n" \
+                  "  \nWho can use\n" \
                   "1. You can use an implant if you want to prevent pregnancy for up to 1 to 3 years.\n" \
                   "2. If you are a breastfeeding mother (from 6 weeks after birth)\n" \
                   "3. If you cannot estrogen.\n" \
                   "4. If you don't have migrainous headaches.\n" \
-                  "5. If you have endometrial or ovarian cancer, you can still use this method.\n" \
-                  "Do you get me"
+                  "5. If you have endometrial or ovarian cancer, you can still use this method.\n"
+        
+        dispatcher.utter_message(text=message)          
+        
+        message=  "Do you get me"
         dispatcher.utter_message(text=message)
         return []
 
@@ -127,7 +142,7 @@ class AskForSlotImplantsDatabase(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Let me tell you some of the effective and available contraceptive implants.\n" \
-                  "Click on any of them to get their full details."
+                  "  \nClick on any of them to get their full details."
         buttons = create_button(["Levoplant", "Jadelle", "Implanon NXT"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type='vertical')
         return []
@@ -167,8 +182,9 @@ class ValidateRequest02YearsForm(FormValidationAction):
         if slot_value and slot_value.lower() == 'yes':
             dispatcher.utter_message(text="Ok, sorry about your medical condition but it is not advisable "
                                           "for you to use contraceptive implants."
-                                          " Please speak to your doctor before using this method of contraception.\n"
-                                          "Do you understand? It is very important.")
+                                          " Please speak to your doctor before using this method of contraception.\n")
+            
+            dispatcher.utter_message(text="Do you understand? It is very important.")
 
         return {'implants_medical_condition': slot_value}
 

@@ -17,7 +17,7 @@ class ActionRestarted(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
         dispatcher.utter_message("Thanks For using the bot, Please say Hello if you want to use bot again")
-        return []
+        return [Restarted()]
 
 
 class ActionHowLongPreventPregnancy(Action):
@@ -43,15 +43,18 @@ class ActionGreetMessage(Action):
                   dispatcher: CollectingDispatcher,
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        message = "Hey! How are you today?"
+
+        message= "Hey! How are you today?"
 
         dispatcher.utter_message(text=message)
 
-        message = "My name is Honey. I am a family planning counsellor. I am here to help with family\n\n" \
-                  "I can answer your family planning questions, refer to an agent to speak with and also " \
-                  "refer you to a family planning clinic."
+        message= "My name is Honey. I am a family planning counsellor. I am here to help with family\n"\
+                 "  \nI can answer your family planning questions, refer to an agent to speak with and also refer you to a family planning clinic."
+
         dispatcher.utter_message(text=message)
-        message = "Before we continue, I would like to get some of your details to help you better."
+
+        message= "Before we continue, I would like to get some of your details to help you better."
+
         dispatcher.utter_message(text=message)
         return []
 
@@ -159,7 +162,7 @@ class AskForSlot03MonthsMethod(Action):
     ) -> List[EventType]:
         button_details = create_button(["Daily contraceptive pills", "Emergency contraceptive pills",
                                         "Injectable contraceptives", "Diaphragm", "Female condom", "Male condom"])
-        dispatcher.utter_message(text="The short-term family planning methods are: \n"
+        dispatcher.utter_message(text="The short-term family planning methods are:\n\n"
                                       "1. Daily contraceptive pills\n"
                                       "2. Emergency contraceptive pills\n"
                                       "3. The barrier contraceptives which are the diaphragms and"
@@ -181,24 +184,32 @@ class AskForSlotDailyPillsAdvantage(Action):
                                        url_description='Audio embedding (Daily pills)')
         message = "Daily pills are combined oral contraceptive (COC) pills for pregnancy prevention, dermatological " \
                   "and gynecological conditions, and management of menstrual irregularities (heavy bleeding, " \
-                  "painful menstruation, premenstrual syndrome).\n" \
-                  "  \nThey work by thickening the mucus around the cervix, which makes it difficult for sperm to enter " \
-                  "the uterus and reach any eggs that may have been released. " \
+                  "painful menstruation, premenstrual syndrome).\n\n" \
+                  "They work by thickening the mucus around the cervix, which makes it difficult for sperm to enter " \
+                  "the uterus and reach any eggs that may have been released.\n\n" \
                   "Most combination pills come in either a 21-day pack (Dianofem and Desofem) or a 28-day pack (" \
                   "Levofem). One pill is taken each day at about the same time for 21 days. Depending on your pack, " \
                   "you will either have a 7-day break (as in the 21-day pack) or you will take the pill that contains " \
-                  "Iron for 7 days (the 28-day pack). \n" \
-                  "Click to listen to a short introduction of daily pills in Pidgin, if you want to.\n" \
+                  "Iron for 7 days (the 28-day pack).\n" \
+                  
+        dispatcher.utter_message(text=message)
+
+        message=  "Click to listen to a short introduction of daily pills in Pidgin, if you want to.\n" \
                   f"{audio_link}\n" \
-                  f"Now let me tell you some of the advantages and disadvantages of daily pills.\n" \
-                  f"Advantages \n" \
+                  
+        dispatcher.utter_message(text=message)
+
+        message=  f"Now let me tell you some of the advantages and disadvantages of daily pills.\n\n" \
+                  f"Advantages\n" \
                   f"1. They are very effective if used correctly.\n" \
                   f"2. Very safe for the majority of women.\n" \
                   f"3. Return to fertility is very fast.\n" \
-                  f"4. They regularize the menstrual cycle, reduce heavy menstrual flow, and " \
-                  f"reduce menstrual and ovulation pain.\n" \
+                  f"4. They regularize the menstrual cycle, reduce heavy menstrual flow, and reduce menstrual and ovulation pain.\n" \
                   f"5. They are simple and easy to use.\n" \
-                  f"Do you understand?"
+        
+        dispatcher.utter_message(text=message)
+
+        message=  f"Do you understand?"
         dispatcher.utter_message(text=message)
         return []
 
@@ -389,13 +400,14 @@ class AskForSlotInjectableExplanation(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Injectable contraceptives are a form of hormonal birth control for women. They consist of monthly " \
-                  "injections of combined formulations containing an estrogen and a progestin to prevent pregnancy. " \
-                  "The injection works by preventing the ovaries from releasing an egg each month. It also thickens " \
-                  "the fluid around the cervix. They can be used for pregnancy prevention for 1 to 3 months.\n" \
-                  "Do you understand?"
+                  "injections of combined formulations containing an estrogen and a progestin to prevent pregnancy.\n" \
+                  "  \nThe injection works by preventing the ovaries from releasing an egg each month. It also thickens " \
+                  "the fluid around the cervix. They can be used for pregnancy prevention for 1 to 3 months." 
+        dispatcher.utter_message(text=message)
+
+        message= "Do you understand?"
         dispatcher.utter_message(text=message)
         return []
-
 
 class AskForSlotInjectableAdvantage(Action):
     def name(self) -> Text:
@@ -405,16 +417,19 @@ class AskForSlotInjectableAdvantage(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Ok, let me tell you some of the advantages and disadvantages of injectable contraceptives.\n" \
-                  "Advantages\n" \
+                  "  \nAdvantages\n" \
                   "1. They are highly effective and safe.\n" \
-                  "2. They do not interfere with sexual intercourse." \
-                  "3. They can be self administered or provided by a trained non-medical personnel." \
-                  "4. They protect against ectopic pregnancy." \
-                  "5.They reduce symptoms of endometriosis." \
-                  "6. They are convenient, easy to use and administered once in a month.\n" \
-                  "Do you understand?"
+                  "2. They do not interfere with sexual intercourse.\n" \
+                  "3. They can be self administered or provided by a trained non-medical personnel.\n" \
+                  "4. They protect against ectopic pregnancy.\n" \
+                  "5. They reduce symptoms of endometriosis.\n" \
+                  "6. They are convenient, easy to use and administered once in a month." 
+                  
+        dispatcher.utter_message(text=message)
+        message= "Do you understand?"
         dispatcher.utter_message(text=message)
         return []
+
 
 
 class AskForSlotInjectableDisadvantage(Action):
@@ -424,20 +439,24 @@ class AskForSlotInjectableDisadvantage(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = "Now to the disadvantages of injectable contraceptives." \
-                  "Disadvantages\n" \
-                  "1. They require regular visit to the to the clinic (monthly)" \
+        message = "Now to the disadvantages of injectable contraceptives.\n" \
+                  "  \nDisadvantages\n" \
+                  "1. They require regular visit to the to the clinic (monthly)\n" \
                   "2. Return to fertility is delayed.\n" \
-                  "3.Their common sides effects include:" \
+                  "3. Their common sides effects include:\n" \
                   "a. Weight changes.\n" \
                   "b. Headache.\n" \
                   "c. Dizziness.\n" \
                   "d. Breast tenderness.\n" \
                   "e. Mood changes.\n" \
                   "f. Menstrual change.\n" \
-                  "g. Decreased libido.\n" \
-                  "But don't worry, these side effects goes away with time.\n" \
-                  "Are you with me?."
+                  "g. Decreased libido."
+        
+        dispatcher.utter_message(text=message)
+
+        message= "But don't worry, these side effects goes away with time.\n"\
+                 "  \nAre you with me?."
+        
         dispatcher.utter_message(text=message, buttons=create_yes_or_no_button(), button_type="vertical")
         return []
 
@@ -450,13 +469,15 @@ class AskForSlotInjectablesWhoCanAndCannotUseInjectables(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "On who can use and who cannot use injectables.\n" \
-                  "Who can use\n" \
+                  "  \nWho can use\n" \
                   "1. Women who cannot use combined oral contraceptives.\n" \
                   "2. If you are a breastfeeding mother (from six months after birth)\n" \
                   "3. If you just had an abortion or miscarriage and still want to prevent pregnancy.\n" \
                   "4. If you dont't have migrainous headaches.\n" \
-                  "5. If you have endometrial or ovarian cancer, you can still use this method.\n" \
-                  "Do you get me"
+                  "5. If you have endometrial or ovarian cancer, you can still use this method.\n" 
+        dispatcher.utter_message(text=message)          
+
+        message=  "Do you get me"
         dispatcher.utter_message(text=message)
         return []
 
@@ -482,7 +503,7 @@ class AskForSlotInjectableDatabase(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Let me tell you some of the effective and available Injectable contraceptives.\n" \
-                  "Click on any of them to get their full details."
+                  "  \nClick on any of them to get their full details."
         dispatcher.utter_message(text=message, buttons=create_button(["Progesta", "Sayana Press"]),
                                  button_type="vertical")
         return []
@@ -500,8 +521,10 @@ class AskForSlotDiaphragmExplanation(Action):
                   "it (spermicides kill sperm). The diaphragm must be left in place for at least 6 hours after sex.  " \
                   "The diaphragm is a vaginal barrier contraceptive that is" "woman-controlled, nonhormonal, " \
                   "and appropriate for women who cannot or do not want to use hormonal contraceptive methods, " \
-                  "intrauterine devices, or condoms.\n" \
-                  f"{create_hyper_link(url='https://drive.google.com/file/d/1iRQyVnIdZ4MznYlUUVzyhwaPSSlDjobY/view?usp=drive_link', url_description='Audio  embedding (Diaphragm)')}"
+                  "intrauterine devices, or condoms.\n"                   
+        dispatcher.utter_message(text=message)
+
+        message=f"Click to listen to a short introduction of diaphragm in Pidgin, if you want.\n{create_hyper_link(url='https://drive.google.com/file/d/1iRQyVnIdZ4MznYlUUVzyhwaPSSlDjobY/view?usp=drive_link', url_description='Audio  embedding (Diaphragm)')}"
         dispatcher.utter_message(text=message)
         return []
 
@@ -514,17 +537,21 @@ class AskForSlotDiaphragmAdvantage(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Now let me tell you some of the advantages and disadvantages of Diaphragms.\n" \
-                  "Advantages\n" \
+                  "  \nAdvantages\n" \
                   "1. Diaphragms do not have hormones, so no side effects.\n" \
                   "2. Good option for women who prefer non-hormonal contraceptive methods.\n" \
                   "3. They may be fitted at any time (post-partum mothers must wait for 6 weeks after delivery or mid-trimester abortion)\n" \
                   "4. They can be inserted up to 6 hours before sex to avoid interruption.\n" \
                   "5. Only used when needed and gives the woman absolute control.\n" \
-                  "6. One size fits most women.\n" \
+                  "6. One size fits most women.\n"\
                   "7. Portable and convenient - it comes with a specially designed case that is discreet and fits in a bag.\n" \
                   "8. Easy to use - insertion and removal gets better with practice.\n" \
-                  "9. Can be used for up to 2 years with proper care.\n" \
-                  "Do you understand"
+                  "9. Can be used for up to 2 years with proper care."
+                  
+        dispatcher.utter_message(text=message)
+
+        message="Do you understand"
+
         dispatcher.utter_message(text=message)
         return []
 
@@ -536,17 +563,19 @@ class AskForSlotDiaphragmDisadvantage(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = """"Now to the disadvantages of using a Diaphragm.
-Disadvantages
-1. They are not readily available in Nigeria.
-2. They may be expensive to some users.
-3. The user must remember to insert the diaphragm before intercourse and keep it in place for at least 6 hours after sex (but not more than 24 hours) 
-4. They require special care and storage.
-5. They can cause urinary tract infections.
-6. A different size of diaphragm may be required after childbirth or if a woman gains weight.
-7. They can be damaged by excessive use or poor storage \n
-Are you with me?"
-"""
+        message = "Now to the disadvantages of using a Diaphragm.\n"\
+                    "  \nDisadvantages\n"\
+                    "1. They are not readily available in Nigeria.\n"\
+                    "2. They may be expensive to some users.\n"\
+                    "3. The user must remember to insert the diaphragm before intercourse and keep it in place for at least 6 hours after sex (but not more than 24 hours)\n"\
+                    "4. They require special care and storage.\n"\
+                    "5. They can cause urinary tract infections.\n"\
+                    "6. A different size of diaphragm may be required after childbirth or if a woman gains weight.\n"\
+                    "7. They can be damaged by excessive use or poor storage"
+                    
+        dispatcher.utter_message(text=message)
+
+        message= "Are you with me?"
         dispatcher.utter_message(text=message)
         return []
 
@@ -558,19 +587,23 @@ class AskForSlotDiaphragmWhoCanAndCannotUse(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = """On who can use and who cannot use diaphragms.
-Who can use
-1. If you want a safe and effective non-hormonal form of contraceptive.
-2. If you cannot use hormonal methods of contraception for medical reasons.
-3. If you are breastfeeding.
-4. If you have sexual intercourse occasionally.
-Who cannot use
-1. If you have an allergy or are sensitive to latex rubber or spermicide.
-2. If you have severe uterine prolapse (when the uterus descends toward or into the vagina)
-3. If have recurrent urinary tract infections.
-4. If you lack facilities (soap and water) to taking care of the diaphragm.\n
-Do you understand
-"""
+        message = "On who can use and who cannot use diaphragms.\n"\
+                    "  \nWho can use\n"\
+                    "1. If you want a safe and effective non-hormonal form of contraceptive.\n"\
+                    "2. If you cannot use hormonal methods of contraception for medical reasons.\n"\
+                    "3. If you are breastfeeding.\n"\
+                    "4. If you have sexual intercourse occasionally."
+        dispatcher.utter_message(text=message)            
+
+        message =   "Who cannot use\n"\
+                    "1. If you have an allergy or are sensitive to latex rubber or spermicide.\n"\
+                    "2. If you have severe uterine prolapse (when the uterus descends toward or into the vagina)\n"\
+                    "3. If have recurrent urinary tract infections.\n"\
+                    "4. If you lack facilities (soap and water) to taking care of the diaphragm."
+        
+        dispatcher.utter_message(text=message) 
+
+        message= "Do you understand"
         dispatcher.utter_message(text=message, buttons=create_yes_or_no_button(), button_type="vertical")
         return []
 
@@ -594,16 +627,26 @@ class AskForSlotFemaleCondom(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = """Female condoms are a barrier method of contraception worn inside the vagina. They are made of thin soft plastic and have two ﬂexible rings – a removable ring at the closed end to help insertion and a fixed ring at the open end, which sits on the vulva to hold the condom in place They prevent pregnancy by stopping sperm from meeting an egg. 
-"Some of its advantages include:
-1. No medical prescription is required.
-2. Female condoms are widely available.
-3. They have no side effects.
-4. They protect against sexually transmitted infections.
-5. They are cheap.
-6. Woman has control over usage and use only when needed."
-and one of its disadvantages is that it might make unpleasant noise during intercourse.\n
-Do you understand"""
+        message = "Female condoms are a barrier method of contraception worn inside the vagina."\
+                    "They are made of thin soft plastic and have two ﬂexible rings - a removable ring at the closed end to help insertion and a fixed "\
+                    "ring at the open end, which sits on the vulva to hold the condom in place They prevent pregnancy by stopping sperm from meeting an egg."
+        
+        dispatcher.utter_message(text=message)
+
+        message= "Some of its advantages include:\n"\
+                "1. No medical prescription is required.\n"\
+                "2. Female condoms are widely available.\n"\
+                "3. They have no side effects.\n"\
+                "4. They protect against sexually transmitted infections.\n"\
+                "5. They are cheap.\n"\
+                "6. Woman has control over usage and use only when needed."
+                
+        dispatcher.utter_message(text=message)   
+
+        message= "and one of its disadvantages is that it might make unpleasant noise during intercourse."
+        dispatcher.utter_message(text=message)
+
+        message=  "Do you understand"
         dispatcher.utter_message(text=message, buttons=create_yes_or_no_button(), button_type="vertical")
         return []
 
@@ -615,14 +658,18 @@ class AskForSlotFemaleWhoCanAndCannotUseCondom(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = """On who can use and who cannot use female condoms.
-Who can use
-1. If you want a safe and effective non-hormonal form of contraceptive.
-2. If you cannot use hormonal methods of contraception for medical reasons.
-3. If you have sexual intercourse occasionally.
-4. If you have multiple sexual partners
-Then if you have genital /uterine prolapse (when the uterus descends toward or into the vagina), you cannot use the female condom.\n
-Do you understand"""
+        message = "On who can use and who cannot use female condoms.\n"\
+                    "  \nWho can use\n"\
+                    "1. If you want a safe and effective non-hormonal form of contraceptive.\n"\
+                   "2. If you cannot use hormonal methods of contraception for medical reasons.\n"\
+                    "3. If you have sexual intercourse occasionally.\n"\
+                   "4. If you have multiple sexual partners"
+        
+        dispatcher.utter_message(text=message)
+        message= "Then if you have genital /uterine prolapse (when the uterus descends toward or into the vagina), you cannot use the female condom."
+        dispatcher.utter_message(text=message)
+
+        message= "Do you understand"
         dispatcher.utter_message(text=message, buttons=create_yes_or_no_button(), button_type="vertical")
         return []
 
@@ -634,13 +681,21 @@ class AskForSlotFemaleCondomShow(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = """Ok, let me show you what a female condom looks like and how to use it.
-        You can visit your nearest health shop to purchase
-Female condoms are a barrier method of contraception worn inside the vagina. 
-They are made of thin, soft plastic and have two ﬂexible rings – a removable ring at the closed end to help insertion and a fixed ring at the open end, which sits on the vulva to hold the condom in place. 
-They prevent pregnancy by stopping sperm from meeting an egg. 
-You can click to watch a video on how to insert and remove a female condom in Pidgin.
-You can visit your nearest chemist/pharmacy to buy."""
+        message = "Ok, let me show you what a female condom looks like and how to use it."
+        dispatcher.utter_message(text=message)
+
+        message= "You can visit your nearest health shop to purchase"\
+                    "Female condoms are a barrier method of contraception worn inside the vagina. "\
+                    "They are made of thin, soft plastic and have two ﬂexible rings - a removable ring at the closed end to help insertion and a fixed ring at the open end, which sits on the vulva to hold the condom in place." \
+                    "They prevent pregnancy by stopping sperm from meeting an egg. "
+        
+        dispatcher.utter_message(text=message)
+
+        message= "You can click to watch a video on how to insert and remove a female condom in Pidgin."
+        dispatcher.utter_message(text=message)
+        
+        message=  "You can visit your nearest chemist/pharmacy to buy."
+        
         dispatcher.utter_message(text=message)
         return []
 
@@ -652,8 +707,14 @@ class AskForSlotAskMaleCondomExplanation(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = """"""
+        message = "A condom is a thin covering that fits over a hard penis. It decreases the risk of pregnancy"\
+                    "and sexually transmitted infections (STIs) by stopping sperm and body fluids from passing between partners."
+        
         dispatcher.utter_message(text=message)
+
+        message = "You can click the audio to listen to how to insert a condom correctly in Pidgin if you want to."
+        dispatcher.utter_message(text=message)
+
         return []
 
 
@@ -664,10 +725,8 @@ class AskForSlotMaleCondomDatabase(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = """A condom is a thin covering that fits over a hard penis. It decreases the risk of pregnancy and sexually transmitted infections (STIs) by stopping sperm and body fluids from passing between partners.
-You can click the audio to listen to how to insert a condom correctly in Pidgin if you want to.\n
-Let me tell you some of the effective and available condoms.
-Click on any of them to get their full details."""
+        message = "Let me tell you some of the effective and available condoms.\n"\
+                    "  \nClick on any of them to get their full details."
         dispatcher.utter_message(text=message, buttons=create_button(["Kiss", "Fiesta", "Durex", "Trojan",
                                                                       "Gold Circle"]), button_type="vertical")
         return []
@@ -722,8 +781,7 @@ class ValidateRequest03MonthsForm(FormValidationAction):
             dispatcher.utter_message(text="Who cannot use\n"
                                           "1. If you are a breastfeeding mother from 6 weeks to 6 months postpartum.\n"
                                           "2. If you are a smoker and over 35 years old.\n"
-                                          "3. If you have any of the following medical conditions, it is not "
-                                          "advisable to take daily piils:\n "
+                                          "3. If you have any of the following medical conditions, it is not advisable to take daily piils:\n"
                                           "a. Blood Pressure.\n"
                                           "b. Venous thromboembolism.\n"
                                           "c. Stroke.\n"
@@ -765,9 +823,13 @@ class ValidateRequest03MonthsForm(FormValidationAction):
                                                domain: DomainDict,
                                                ):
         if slot_value and slot_value.lower() == 'yes':
-            dispatcher.utter_message(text=""""Ok, sorry about your medical condition but it is not advisable for you to adopt this method of contraception. 
-            Please speak to your doctor before using this method of contraceptive.\n
-            Do you understand? It is very important.""")
+
+            message= "Ok, sorry about your medical condition but it is not advisable for you to adopt this method of contraception.\n"\
+                        "  \nPlease speak to your doctor before using this method of contraceptive."
+            dispatcher.utter_message(text=message)
+
+            message= "Do you understand? It is very important."
+            dispatcher.utter_message(text=message)
 
         return {'injectable_medical_conditions': slot_value}
 
