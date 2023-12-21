@@ -2,10 +2,44 @@ from typing import List
 
 # Constants
 from rasa_sdk import Tracker
+import requests
 
 
 SOMETHING_IS_WRONG = "Something is Wrong"
 VERTICAL_BUTTON_TYPE = 'vertical'
+
+
+class ChatGPT(object):
+    def __init__(self, api_key):
+        self.url = "https://api.openai.com/v1/chat/completions"
+        self.model = "gpt-3.5-turbo"
+        self.headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        }
+
+    def ask(self, question):
+        body = {
+            "model": self.model,
+            "messages": [
+                {"role": "system", "content": "You are a helpful bot."},
+                {"role": "user", "content": question},
+            ],
+        }
+        result = requests.post(
+            url=self.url,
+            headers=self.headers,
+            json=body,
+        )
+
+        if result.status_code == 200:
+            chatgpt_response = result.json()
+            return chatgpt_response["choices"][0]["message"]["content"]
+        else:
+            return "Sorry, I couldn't generate a response at the moment. Please try again later."
+
+
+chatGPT = ChatGPT("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")
 
 
 def get_slot_value(tracker: Tracker, slot_name):

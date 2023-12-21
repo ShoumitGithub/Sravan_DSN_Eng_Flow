@@ -7,17 +7,25 @@ from rasa_sdk.types import DomainDict
 from actions.helper import *
 
 
-class ActionRestarted(Action):
-    """ This is for restarting the chat"""
+class ActionRestart(Action):
 
     def name(self) -> Text:
-        return "action_chat_restart"
+        return "action_restart"
 
     async def run(
-            self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
+      self, dispatcher, tracker: Tracker, domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
+        language = get_slot_value(tracker, 'language')
+        state = get_slot_value(tracker, 'state')
+        age_group = get_slot_value(tracker, 'age_group')
+        gender = get_slot_value(tracker, 'gender')
+        lga = get_slot_value(tracker, 'lga')
+        martial_status = get_slot_value(tracker, 'martial_status')
         dispatcher.utter_message("Thanks For using the bot, Please say Hello if you want to use bot again")
-        return [Restarted()]
+        return [Restarted(), SlotSet('language', language), SlotSet('state', state),
+                SlotSet('age_group', age_group), SlotSet('gender', gender),  SlotSet('lga', lga),
+                SlotSet('martial_status', martial_status)
+                ]
 
 
 class ActionHowLongPreventPregnancy(Action):
@@ -48,12 +56,12 @@ class ActionGreetMessage(Action):
 
         dispatcher.utter_message(text=message)
 
-        message= "My name is Honey. I am a family planning counsellor. I am here to help with family\n"\
+        message = "My name is Honey. I am a family planning counsellor. I am here to help with family\n"\
                  "  \nI can answer your family planning questions, refer to an agent to speak with and also refer you to a family planning clinic."
 
         dispatcher.utter_message(text=message)
 
-        message= "Before we continue, I would like to get some of your details to help you better."
+        message = "Before we continue, I would like to get some of your details to help you better."
 
         dispatcher.utter_message(text=message)
         return []
@@ -70,9 +78,11 @@ class ActionPath(Action):
         buttons = [
             {"title": "I want to ask about family planning.", "payload": "I want to ask about family planning."},
             {"title": "I want the nearest family planning clinic to me.",
-             "payload": "I want the nearest family planning clinic to me."},
-            {"title": "Other reproductive health issues.", "payload": "Other reproductive health issues."},
-            {"title": "I have a question.", "payload": "I have a question."}
+             "payload": "/nearest_family_planning_clinic"},
+            {"title": "Other reproductive health issues.",
+             "payload": "/other_reproductive_health_issues"},
+            {"title": "I have a question.",
+             "payload": "/ask_gpt"}
         ]
 
         dispatcher.utter_message("What would you like to know about?", buttons=buttons, button_type="vertical")
@@ -138,21 +148,44 @@ class ActionNextActions(Action):
                   dispatcher: CollectingDispatcher,
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        next_response = {'0-3 months': 'utter_0_3_months_response',
-                         '1-2 years': 'utter_1_2_years_response',
-                         '3-4 years': 'utter_3_4_years_response',
-                         '5-10 years': 'utter_5_10_years_response',
-                         '1-2 permanently': 'utter_permanently_response',
+
+        print(f"latest intent: {tracker.latest_message['intent'].get('name')}")
+        next_response = {'prevent_pregnancy_0_3_months': 'utter_0_3_months_response',
+                         'prevent_pregnancy_1_2_years': 'utter_1_2_years_response',
+                         'prevent_pregnancy_3_4_years': 'utter_3_4_years_response',
+                         'prevent_pregnancy_5_10_years': 'utter_5_10_years_response',
+                         'prevent_pregnancy_permanently': 'utter_permanently_response',
 
                          }
-
+        print(f"Message info: {next_response.get(tracker.latest_message['intent'].get('name'), 'Invalid Option Selected')}")
         dispatcher.utter_message(response=next_response.get(get_slot_value(tracker, 'prevent_pregnancy_time'),
                                                             "Invalid Option Selected"))
         return []
 
 
-# 0_3 Months flow
+class ActionAskDoYouUnderstand(Action):
+    def name(self) -> Text:
+        return "action_ask_do_you_understand"
 
+    def run(self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        print(f"in action_ask_do_you_understand latest intent: {tracker.latest_message['intent'].get('name')}")
+        latest_intent = tracker.latest_message['intent'].get('name')
+        next_response = {'prevent_pregnancy_0_3_months': "If you want to prevent pregnancy within 0-3 months, the short term family planning methods or \n the Injectables will be the best for you.",
+                         'prevent_pregnancy_1_2_years': "If you want to prevent pregnancy within 1-2 years, you can use any of the short-acting family planning methods, the Injectables or the Implants.",
+                         'prevent_pregnancy_3_4_years': "If you want to prevent pregnancy for up to  3 - 4 years, it is advisable to adopt long-acting reversible contraception or LARC methods.",
+                         'prevent_pregnancy_5_10_years': "If you want to prevent pregnancy for up to  5 - 10 years,  it is advisable to adopt long-acting reversible contraception or LARC method."
+
+                         }
+        dispatcher.utter_message(text=next_response.get(latest_intent))
+        dispatcher.utter_message(text="Do you understand?")
+        return []
+
+
+# 0_3 Months flow
 class AskForSlot03MonthsMethod(Action):
     def name(self) -> Text:
         return "action_ask_0_3_months_method"

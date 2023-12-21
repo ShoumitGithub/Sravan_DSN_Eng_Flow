@@ -5,7 +5,7 @@ rules:
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
-  - action: action_chat_restart
+  - action: action_restart
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
@@ -33,6 +33,9 @@ rules:
 - rule: 0-3 months
   steps:
     - intent: prevent_pregnancy_0_3_months
+    - action: select_do_you_understand
+    - active_loop: select_do_you_understand
+    - active_loop: null
     - action: request_0_3_months_form
     - active_loop: request_0_3_months_form
     - active_loop: null
@@ -40,6 +43,9 @@ rules:
 - rule: 1-2 years
   steps:
     - intent: prevent_pregnancy_1_2_years
+    - action: select_do_you_understand
+    - active_loop: select_do_you_understand
+    - active_loop: null
     - action: request_1_2_years_form
     - active_loop: request_1_2_years_form
     - active_loop: null
@@ -47,6 +53,9 @@ rules:
 - rule: 3-4 years
   steps:
       - intent: prevent_pregnancy_3_4_years
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_3_4_years_form
       - active_loop: request_3_4_years_form
       - active_loop: null
@@ -54,6 +63,9 @@ rules:
 - rule: 5-10 years
   steps:
       - intent: prevent_pregnancy_5_10_years
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_5_10_years_form
       - active_loop: request_5_10_years_form
       - active_loop: null
@@ -102,4 +114,33 @@ rules:
     - intent: about_planning_products
     - action: request_select_planning_product
     - active_loop: request_select_planning_product
+    - active_loop: null
+
+- rule: Nearest family planning clinic
+  steps:
+    - intent: nearest_family_planning_clinic
+    - action: request_local_confirmation_form
+    - active_loop: request_local_confirmation_form
+    - active_loop: null
+    - action: action_is_local_information_correct
+    - action: request_user_data_form
+    - active_loop: request_user_data_form
+    - active_loop: null
+    - action: request_select_clinic_form
+    - active_loop: request_select_clinic_form
+    - active_loop: null
+    - action: action_call_message
+
+- rule: reproductive
+  steps:
+    - intent: other_reproductive_health_issues
+    - action: request_reproductive_health_issue_form
+    - active_loop: request_reproductive_health_issue_form
+    - active_loop: null
+
+- rule: FAQ
+  steps:
+    - intent: ask_gpt
+    - action: request_faq_form
+    - active_loop: request_faq_form
     - active_loop: null

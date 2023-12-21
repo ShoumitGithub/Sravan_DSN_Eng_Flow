@@ -44,6 +44,9 @@ stories:
   - story: prevent pregnancy 0-3 months
     steps:
       - intent: prevent_pregnancy_0_3_months
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_0_3_months_form
       - active_loop: request_0_3_months_form
       - active_loop: null
@@ -56,6 +59,9 @@ stories:
       - active_loop: null
       - action: action_how_long_prevent_pregnancy
       - intent: prevent_pregnancy_0_3_months
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_0_3_months_form
       - active_loop: request_0_3_months_form
       - active_loop: null
@@ -63,6 +69,9 @@ stories:
   - story: prevent pregnancy 1-2 years
     steps:
       - intent: prevent_pregnancy_1_2_years
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_1_2_years_form
       - active_loop: request_1_2_years_form
       - active_loop: null
@@ -75,6 +84,9 @@ stories:
       - active_loop: null
       - action: action_how_long_prevent_pregnancy
       - intent: prevent_pregnancy_1_2_years
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_1_2_years_form
       - active_loop: request_1_2_years_form
       - active_loop: null
@@ -87,6 +99,9 @@ stories:
       - active_loop: null
       - action: action_how_long_prevent_pregnancy
       - intent: prevent_pregnancy_5_10_years
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_5_10_years_form
       - active_loop: request_5_10_years_form
       - active_loop: null
@@ -94,6 +109,9 @@ stories:
   - story: 5-10 years
     steps:
       - intent: prevent_pregnancy_5_10_years
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_5_10_years_form
       - active_loop: request_5_10_years_form
       - active_loop: null
@@ -101,6 +119,9 @@ stories:
   - story: 3-4 years
     steps:
       - intent: prevent_pregnancy_3_4_years
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_3_4_years_form
       - active_loop: request_3_4_years_form
       - active_loop: null
@@ -121,6 +142,9 @@ stories:
       - active_loop: null
       - action: action_how_long_prevent_pregnancy
       - intent: prevent_pregnancy_3_4_years
+      - action: select_do_you_understand
+      - active_loop: select_do_you_understand
+      - active_loop: null
       - action: request_3_4_years_form
       - active_loop: request_3_4_years_form
       - active_loop: null
@@ -201,7 +225,7 @@ stories:
       - active_loop: request_select_planning_product
       - active_loop: null
 
-  - story: family planning and About family planning priducts
+  - story: family planning and About family planning products
     steps:
       - intent: family_planning
       - action: request_no_of_children_form
@@ -211,4 +235,54 @@ stories:
       - intent: about_planning_products
       - action: request_select_planning_product
       - active_loop: request_select_planning_product
+      - active_loop: null
+
+  - story: Nearest family planning clinic
+    steps:
+      - intent: nearest_family_planning_clinic
+      - action: request_local_confirmation_form
+      - active_loop: request_local_confirmation_form
+      - active_loop: null
+      - action: action_is_local_information_correct
+      - action: request_user_data_form
+      - active_loop: request_user_data_form
+      - active_loop: null
+      - action: request_select_clinic_form
+      - active_loop: request_select_clinic_form
+      - active_loop: null
+      - action: action_call_message
+
+  - story: greet and nearest family planning clinic
+    steps:
+      - intent: greet
+      - action: action_greet_message
+      - action: request_user_data_form
+      - active_loop: request_user_data_form
+      - active_loop: null
+      - action: action_path
+      - intent: nearest_family_planning_clinic
+      - action: request_local_confirmation_form
+      - active_loop: request_local_confirmation_form
+      - active_loop: null
+      - action: action_is_local_information_correct
+      - action: request_user_data_form
+      - active_loop: request_user_data_form
+      - active_loop: null
+      - action: request_select_clinic_form
+      - active_loop: request_select_clinic_form
+      - active_loop: null
+      - action: action_call_message
+
+  - story: Side effects
+    steps:
+      - intent: other_reproductive_health_issues
+      - action: request_reproductive_health_issue_form
+      - active_loop: request_reproductive_health_issue_form
+      - active_loop: null
+
+  - story: FAQ
+    steps:
+      - intent: ask_gpt
+      - action: request_faq_form
+      - active_loop: request_faq_form
       - active_loop: null

@@ -14,8 +14,12 @@ intents:
   - prevent_pregnancy_1_2_years
   - prevent_pregnancy_3_4_years
   - prevent_pregnancy_5_10_years
+  - nearest_family_planning_clinic
+  - other_reproductive_health_issues
+  - ask_gpt
 
 actions:
+  - action_restart
   - action_how_long_prevent_pregnancy
   - action_path
   - action_family_method
@@ -74,7 +78,7 @@ actions:
   - action_ask_iud_show
   - action_ask_iud_yes
   - action_greet_message
-  - action_chat_restart
+  - action_ask_do_you_understand
 
 forms:
   request_user_data_form:
@@ -962,11 +966,11 @@ responses:
       - title: "I want to ask about family Planning."
         payload: I want to ask about family planning.
       - title: "I want the nearest family planning clinic to me."
-        payload: refer_me
+        payload: /nearest_family_planning_clinic
       - title: "Other reproductive health issues."
-        payload: other_issues
+        payload: /other_reproductive_health_issues
       - title: "I have a question"
-        payload: ask_gpt
+        payload: /ask_gpt
       button_type: vertical
   utter_ask_no_of_children:
     - text: |
@@ -1044,16 +1048,6 @@ responses:
           payload: /side_effects
       button_type: "vertical"
 
-  # 0-3 Months flow
-  utter_0_3_months_response:
-    - text: "If you want to prevent pregnancy within 0-3 months, the short term family planning methods or \n the Injectables will be the best for you."
-
-
-  utter_planning_do_you_understand_1:
-    - text: "Do you understand?"
-
-  utter_planning_do_you_understand_2:
-    - text: "Do you understand?"
 
   utter_do_you_have_any_medical_conditions:
     - text: Do you have any of the medical conditions listed?
@@ -1065,15 +1059,6 @@ responses:
         - title: I don't know
           payload: i don't know
 
-  utter_1_2_years_response:
-    - text: "If you want to prevent pregnancy within 1-2 years, you can use any of the short-acting family planning methods, the Injectables or the Implants."
-  utter_3_4_years_response:
-    - text: "If you want to prevent pregnancy for up to  3 - 4 years, 
-            it is advisable to adopt long-acting reversible contraception or LARC methods."
-  utter_5_10_years_response:
-    - text: "If you want to prevent pregnancy for up to  5 - 10 years, 
-            it is advisable to adopt long-acting reversible contraception or LARC method."
-
   utter_permanently_response:
     - text: "Permanent family planning methods means the person will no longer be able to reproduce again.\n
             Male: Vasectomy\n  
@@ -1084,9 +1069,6 @@ responses:
           payload: Vasectomy
         - title: "Tubal Litigation"
           payload: Tubal Litigation
-
-  utter_ask_do_you_understand:
-    - text: "Do you understand?"
 
   utter_ask_3_4_years_method:
     - text: "Long-acting reversible contraception, or LARC are:\n
