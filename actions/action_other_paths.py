@@ -19,7 +19,7 @@ class ActionAskEnterFaq(Action):
         domain: "DomainDict",
     ) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(text="Ok, what is your question?\n"
-                                      "Please note that I am a family planning bot and can only respond "
+                                      "  \nPlease note that I am a family planning bot and can only respond "
                                       "to questions relating to family planning.")
         return []
 

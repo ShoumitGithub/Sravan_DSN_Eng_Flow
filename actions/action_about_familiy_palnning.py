@@ -37,17 +37,18 @@ class ActionAskLubricantsAndGels(Action):
         hyper_link = create_hyper_link(url='https://drive.google.com/file/d/11HpoH3h5FBItO8nhjqOjMBOU6g9MiAVn/view?usp=drive_link',
                                        url_description='Audio embedding (Lubricants)')
         message = f"""Lubricants, also known as gels or lubes, are specially formulated fluids used during sexual 
-        activity. They help reduce friction, discomfort and vaginal dryness, enhancing pleasure and preventing 
-        condom breakage. Lubricants come in water-based, silicone-based, or oil-based varieties. 
-        Water-based lubes are safe to use with all condoms and sex toys. Water-based lubricants 
-        do not alter the pH of the vagina, does not stain clothings, and can be easily washed off with water, 
-        while silicone and oil-based lubes should only be used with certain condom materials.
-        Click to listen to a short introduction of Lubricant in Pidgin, if you want.\n
+activity. They help reduce friction, discomfort and vaginal dryness, enhancing pleasure and preventing condom breakage. Lubricants come in water-based, silicone-based, or oil-based varieties. 
+Water-based lubes are safe to use with all condoms and sex toys. Water-based lubricants 
+do not alter the pH of the vagina, does not stain clothings, and can be easily washed off with water, 
+while silicone and oil-based lubes should only be used with certain condom materials.
+                    
+Click to listen to a short introduction of Lubricant in Pidgin, if you want."""
+
+        dispatcher.utter_message(text=message)
         {hyper_link}
-        """
         dispatcher.utter_message(text=message)
         message = "Here are some of the effective and available lubricants and gels.\n" \
-                  "Click on any of them to get their full details."
+                  "  \nClick on any of them to get their full details."
         buttons = create_button(["Fiesta intim gel", "KY Jelly"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type='vertical')
         return []
@@ -62,7 +63,7 @@ class ActionIudDatabase(Action):
     ) -> List[EventType]:
 
         message = "Here are some of the effective and available lUDs.\n" \
-                  "Click on any of them to get their full details."
+                  "  \nClick on any of them to get their full details."
         buttons = create_button(["Lydia IUD", "Eliora"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type='vertical')
         return []
@@ -77,11 +78,14 @@ class ActionMisoprostolDatabase(Action):
     ) -> List[EventType]:
 
         message = """Misoprostol is a synthetic prostaglandin medication used to prevent and treat stomach and duodenal ulcers, induce labour, cause an abortion, and treat postpartum bleeding due to poor contraction of the uterus.
-It is an effective cervical ripening agent before first-trimester surgical abortion.\n
-It is recommended especially for women between 12 and 14 weeks of gestation, adolescents, and women in whom cervical dilation is expected to be difficult, either due to patient factors or provider inexperience."""
+It is an effective cervical ripening agent before first-trimester surgical abortion.\n"""
+
         dispatcher.utter_message(text=message)
-        message = """Here are some of the effective and available misoprostol products. 
-        Click on any of them to get their full details."""
+
+        message="""It is recommended especially for women between 12 and 14 weeks of gestation, adolescents, and women in whom cervical dilation is expected to be difficult, either due to patient factors or provider inexperience."""
+        dispatcher.utter_message(text=message)
+        message = "Here are some of the effective and available misoprostol products.\n"\
+                    "  \nClick on any of them to get their full details."
         buttons = create_button(["Miso-Fem", "Mifepak"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type='vertical')
         return []

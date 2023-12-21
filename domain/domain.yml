@@ -826,7 +826,7 @@ responses:
       button_type: vertical
   utter_ask_martial_status:
     - text: |
-        What is your Gender?
+        What best describes you?
       buttons:
       - title: "Single"
         payload: "Single"

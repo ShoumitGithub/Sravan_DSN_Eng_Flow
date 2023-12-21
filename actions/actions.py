@@ -216,10 +216,10 @@ class AskForSlotDailyPillsAdvantage(Action):
                                        url_description='Audio embedding (Daily pills)')
         message = "Daily pills are combined oral contraceptive (COC) pills for pregnancy prevention, dermatological " \
                   "and gynecological conditions, and management of menstrual irregularities (heavy bleeding, " \
-                  "painful menstruation, premenstrual syndrome).\n\n" \
-                  "They work by thickening the mucus around the cervix, which makes it difficult for sperm to enter " \
-                  "the uterus and reach any eggs that may have been released.\n\n" \
-                  "Most combination pills come in either a 21-day pack (Dianofem and Desofem) or a 28-day pack (" \
+                  "painful menstruation, premenstrual syndrome).\n" \
+                  "  \nThey work by thickening the mucus around the cervix, which makes it difficult for sperm to enter " \
+                  "the uterus and reach any eggs that may have been released.\n" \
+                  "  \nMost combination pills come in either a 21-day pack (Dianofem and Desofem) or a 28-day pack (" \
                   "Levofem). One pill is taken each day at about the same time for 21 days. Depending on your pack, " \
                   "you will either have a 7-day break (as in the 21-day pack) or you will take the pill that contains " \
                   "Iron for 7 days (the 28-day pack).\n"
@@ -229,13 +229,13 @@ class AskForSlotDailyPillsAdvantage(Action):
                   f"{audio_link}\n"
         dispatcher.utter_message(text=message)
 
-        message = f"Now let me tell you some of the advantages and disadvantages of daily pills.\n\n" \
-                  f"Advantages\n" \
+        message = f"Now let me tell you some of the advantages and disadvantages of daily pills.\n" \
+                  f"  \nAdvantages\n" \
                   f"1. They are very effective if used correctly.\n" \
                   f"2. Very safe for the majority of women.\n" \
                   f"3. Return to fertility is very fast.\n" \
                   f"4. They regularize the menstrual cycle, reduce heavy menstrual flow, and reduce menstrual and ovulation pain.\n" \
-                  f"5. They are simple and easy to use.\n"
+                  f"5. They are simple and easy to use."
         dispatcher.utter_message(text=message)
 
         message = f"Do you understand?"
@@ -251,7 +251,7 @@ class AskForSlotDailyPillsDisadvantage(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Now to the disadvantages of daily pills.\n" \
-                  "Disadvantages\n" \
+                  "  \nDisadvantages\n" \
                   "1. They must be taken daily which might be difficult to comply with.\n" \
                   "2. They might cause mild and temporary side effect which usually goes away after some weeks such " \
                   "as:\n" \
@@ -259,8 +259,10 @@ class AskForSlotDailyPillsDisadvantage(Action):
                   "b. Nausea or vomiting.\n" \
                   "c. Spotting or bleeding at intervals.\n" \
                   "d. Breast tenderness and soreness to touch.\n" \
-                  "e. Mood changes.\n" \
-                  "Are you with me?"
+                  "e. Mood changes."
+        dispatcher.utter_message(text=message)
+
+        message=   "Are you with me?"
         button_details = create_button(["Yes", "No"])
         dispatcher.utter_message(text=message, buttons=button_details, button_type="vertical")
         return []
@@ -273,13 +275,16 @@ class AskForSlotWhoCanAndCannotDailyPills(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = "On who can use and who cannot use daily pills.\n Who can use \n" \
-                  "1.You can use daily pills if you want a short-term contraceptive method.\n" \
+        message = "On who can use and who cannot use daily pills.\n"\
+                  "  \nWho can use \n" \
+                  "1. You can use daily pills if you want a short-term contraceptive method.\n" \
                   "2. If you are a breastfeeding mother (from six months after birth)\n" \
                   "3. If you have irregular menstrual cycle.\n" \
                   "4. If you don't have migrainous headaches.\n" \
                   "5. If you are taking antibiotics, antifungal or antiparasitic medications.\n" \
-                  "Do you understand?"
+                  
+        dispatcher.utter_message(text=message)
+        message="Do you understand?"
         dispatcher.utter_message(text=message)
         return []
 

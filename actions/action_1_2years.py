@@ -27,7 +27,7 @@ class AskForSlot12YearsMethod(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "You can use either the daily pills, the emergency pills, the injectables or the implants.\n" \
-                  "Choose any them from the options to get the full details about them."
+                  "  \nChoose any them from the options to get the full details about them."
         buttons = create_button(['Daily contraceptive pills', 'Emergency contraceptive pills',
                                  'Injectable contraceptives', 'Contraceptive implants'])
         dispatcher.utter_message(text=message, buttons=buttons, button_type=VERTICAL_BUTTON_TYPE)
@@ -184,6 +184,7 @@ class ValidateRequest02YearsForm(FormValidationAction):
                                           "for you to use contraceptive implants."
                                           " Please speak to your doctor before using this method of contraception.\n")
             
+
             dispatcher.utter_message(text="Do you understand? It is very important.")
 
         return {'implants_medical_condition': slot_value}

@@ -19,11 +19,10 @@ class ActionAsk5To10YearMethod(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = """The long-acting reversible contraception, or LARC method ideal for 5 to 10 pregnancy prevention are 
-1. The IUS
-2. The IUD
-
-Click on any of them to get the full details about them."""
+        message = "The long-acting reversible contraception, or LARC method ideal for 5 to 10 pregnancy prevention are\n"\
+                    "1. The IUS\n"\
+                    "2. The IUD\n"\
+                    "  \nClick on any of them to get the full details about them."
         buttons = create_button(["IUS", "IUD"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type='vertical')
         return []
@@ -83,7 +82,7 @@ class ActionAskIudMedicalCondition510(ActionAskIudMedicalCondition):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = """So do you currently have or previously had any of the medical conditions listed?"""
-        button = create_button(["Yes", "No", "I don’t know"])
+        button = create_button(["Yes", "No", "I don't know"])
         dispatcher.utter_message(text=message, buttons=button)
         return []
 
@@ -105,9 +104,11 @@ class ActionAskIudYes510(ActionAskIudYes):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = """OK, sorry about your medical condition but it is not advisable for you to use IUD. 
-        Please speak to your doctor before using this method of contraception.\n
-        Do you understand? It is very important."""
+        message = "Ok, sorry about your medical condition but it is not advisable for you to use IUS.\n"\
+                    "  \nPlease speak to your doctor before using this method of contraception."
+        
+        dispatcher.utter_message(text=message)
+        message= "Do you understand? It is very important."
 
         dispatcher.utter_message(text=message)
         return []
@@ -125,16 +126,16 @@ class ValidateRequest5To10YearsForm(FormValidationAction):
                                             domain: DomainDict,
                                             ):
         if slot_value is not None:
-            message = """Who cannot use
-                        You cannot use IUS if you have any of the following medical conditions.
-                        a. Uncontrolled hypertension.
-                        b. Stroke.
-                        c. Heart Disease.
-                        d. Liver Disease.
-                        e. Breast Cancer.
-                        f. Cervical cancer.
-                        g. Kidney infection.
-                        h. Unexplained vaginal bleeding"""
+            message = "Who cannot use\n"\
+                        "You cannot use IUS if you have any of the following medical conditions.\n"\
+                        "a. Uncontrolled hypertension.\n"\
+                        "b. Stroke.\n"\
+                        "c. Heart Disease.\n"\
+                        "d. Liver Disease.\n"\
+                        "e. Breast Cancer.\n"\
+                        "f. Cervical cancer.\n"\
+                        "g. Kidney infection.\n"\
+                        "h. Unexplained vaginal bleeding"
             dispatcher.utter_message(text=message)
 
         return {'ius_who_can_and_cannot_use_5_10': slot_value}

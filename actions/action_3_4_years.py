@@ -28,8 +28,10 @@ class ActionAsk3To4YearMethod(Action):
     ) -> List[EventType]:
         message = "You can still adopt the short-acting family planning methods or the barrier contraceptives " \
                   "if you don't want any device insertion into your body.\n" \
-                  "  \nOk.\n" \
-                  "Long-acting reversible contraception, or LARC are:\n" \
+                  "  \nOk."
+        dispatcher.utter_message(text=message)
+
+        message=  "Long-acting reversible contraception, or LARC are:\n" \
                   "1. The Injectables.\n" \
                   "2. The Implants.\n" \
                   "3. The IUS.\n" \
@@ -63,10 +65,8 @@ class ActionAskIusHowWorks(Action):
 
         dispatcher.utter_message(text=message)
 
-        message = "How they work is that"
-        dispatcher.utter_message(text=message)
-
-        message=  "For pregnancy prevention, it works by thickening the mucus in the cervix to " \
+        message=  "How they work is that\n"\
+                  "  \nFor pregnancy prevention, it works by thickening the mucus in the cervix to " \
                   "stop sperm from fertilizing an egg. It also thins out the lining of the uterus and suppresses " \
                   "ovulation and for gynaecological conditions, it reduces the endometrial lining of the womb making " \
                   "the period lighter and less painful."
@@ -99,11 +99,11 @@ class ActionAskIusAdvantage(Action):
                     "7. It maintains normal libido.\n"\
                     "8. Reduces the risk of ovarian cancer and endometrial cancer.\n"\
                     "9. Lower overall risk of ectopic pregnancy than women not on contraception.\n"\
-                    "For gynecological use:\n"\
+                    "  \nFor gynecological use:\n"\
                     "1. Starts working within 24 hours after insertion.\n"\
                     "2. Highly effective for the treatment of abnormally heavy menstrual bleeding.\n"\
                     "3. Lowers the risk of anemia due to menstrual blood loss.\n"\
-                    "4. Effective alternative to surgery especially for women who cannot afford to pay for surgery."\
+                    "4. Effective alternative to surgery especially for women who cannot afford to pay for surgery."
                     
         dispatcher.utter_message(text=message)
 
@@ -120,7 +120,7 @@ class ActionAskIusDisadvantage(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Now to the disadvantages of IUS.\n"\
-                    "  \nDisadvantages"\
+                    "  \nDisadvantages\n"\
                     "1. Your periods may become irregular or stop completely, which may not be suitable for some people.\n"\
                     "2. Self-limiting follicular cysts may develop in the first few cycles.\n"\
                     "3. If you get an infection when you have an IUS fitted, it could lead to a pelvic infection if it's not treated.\n"\
@@ -130,7 +130,7 @@ class ActionAskIusDisadvantage(Action):
                     "b. Nausea or vomiting.\n"\
                     "c. Breast tenderness.\n"\
                     "d. Lower abdominal cramps.\n"\
-                    "e. Irregular uterine/vaginal bleeding.\n"\
+                    "e. Irregular uterine/vaginal bleeding."\
                     
         dispatcher.utter_message(text=message)
 
@@ -347,7 +347,7 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
                                              domain: DomainDict,
                                      ):
         if slot_value is not None:
-            message = "Who cannot usen\n"\
+            message = "Who cannot use\n"\
                         "You cannot use IUS if you have any of the following medical conditions.\n"\
                         "a. Uncontrolled hypertension.\n"\
                         "b. Stroke.\n"\

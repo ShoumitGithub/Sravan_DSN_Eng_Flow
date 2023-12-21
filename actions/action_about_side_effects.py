@@ -76,50 +76,56 @@ class ActionResponseAboutSelectedSideEffect(Action):
     ) -> List[Dict[Text, Any]]:
 
         response = {"Contraceptive implants": """Here are some of the side effects associated with contraceptive implants.
-                                                1. Headache.
-                                                2. Nausea or vomiting.
-                                                3. Dizziness.
-                                                4. Breast tenderness.
-                                                5. Weight gain.
-                                                6. Menstrual changes.
-                                                7. Spotting and irregular vaginal bleeding\n
-                                                They usually go away after some weeks""",
+                    
+1. Headache.
+2. Nausea or vomiting.
+3. Dizziness.
+4. Breast tenderness.
+5. Weight gain.
+6. Menstrual changes.
+7. Spotting and irregular vaginal bleeding\n
+They usually go away after some weeks""",
                     "Daily contraceptive pills": """Here are some of the side effects associated with daily contraceptives
-                                                    1. Mild headache.
-                                                    2. Nausea or vomiting.
-                                                    3. Spotting or bleeding at intervals.
-                                                    4. Breast tenderness and soreness to touch.
-                                                    5. Mood changes\n
-                                                    They usually go away after some weeks""",
+                    
+1. Mild headache.
+2. Nausea or vomiting.
+3. Spotting or bleeding at intervals.
+4. Breast tenderness and soreness to touch.
+5. Mood changes\n
+They usually go away after some weeks""",
                     "Emergency contraceptive pills": """Here are some of the side effects associated with emergency contraceptives.
-                                                        1. Mild headache.
-                                                        2. Nausea or vomiting.
-                                                        3. Dizziness.
-                                                        4. Breast tenderness.
-                                                        5. Lower abdominal discomfort.
-                                                        6. Menstrual change (period may come early)\n
-                                                        They usually go away after some days.""",
+                    
+1. Mild headache.
+2. Nausea or vomiting.
+3. Dizziness.
+4. Breast tenderness.
+5. Lower abdominal discomfort.
+6. Menstrual change (period may come early)\n
+They usually go away after some days.""",
                     "Injectable contraceptives": """Here are some of the side effects associated with injectables contraceptives.
-                                                    1. Weight changes.
-                                                    2. Headache.
-                                                    3. Dizziness.
-                                                    4. Breast tenderness.
-                                                    5. Mood changes.
-                                                    6. Menstrual change.
-                                                    7. Decreased libido\n
-                                                    They usually go away after some weeks""",
+                    
+1. Weight changes.
+2. Headache.
+3. Dizziness.
+4. Breast tenderness.
+5. Mood changes.
+6. Menstrual change.
+7. Decreased libido\n
+They usually go away after some weeks""",
                     "IUD": """Here are some of the side effects associated with IUD.
-                                1. Irregular and heavy period or bleeding.
-                                2. Menstrual cramps.
-                                3. Abnormal vaginal discharge.\n
-                                They usually go away after some weeks""",
+                    
+1. Irregular and heavy period or bleeding.
+2. Menstrual cramps.
+3. Abnormal vaginal discharge.\n
+They usually go away after some weeks""",
                     "IUS": """Here are some of the side effects associated with contraceptive IUS.
-                                1. Headache.
-                                2. Nausea or vomiting.
-                                3. Breast tenderness.
-                                4. Lower abdominal cramps.
-                                5. Irregular uterine/vaginal bleeding.\n
-                                They usually go away after some weeks"""
+                    
+1. Headache.
+2. Nausea or vomiting.
+3. Breast tenderness.
+4. Lower abdominal cramps.
+5. Irregular uterine/vaginal bleeding.\n
+They usually go away after some weeks"""
                     }
         dispatcher.utter_message(text=response.get(get_slot_value(tracker=tracker, slot_name='which_method_side_effect')
                                                    , SOMETHING_IS_WRONG))
