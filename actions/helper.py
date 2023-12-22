@@ -81,15 +81,15 @@ def get_database_message(key_value: str):
 
                 "Desofem": "Desofem is a safe and effective daily pill used in the treatment of certain menstrual "\
                            "disorders as well as to prevent pregnancy.\n"\
-                           "  \nHow to Use One" \
-                           "pill is taken around the same "\
+                           "  \nHow to Use\n" \
+                           "One pill is taken around the same "\
                            "time daily for 21 days followed by a 7-day break, then continue with the next pack.",
 
                 "Dianofem": "Dianofem is a safe and effective pill that contains a combination of an antiandrogen ("\
                             "Cyprolerone Acetate 2mg) and estrogen (Ethinylestradiol 0.035mg) used for the treatment "\
                             "of dermatological and gynecological conditions in women. It also prevents pregnancy. It "\
                             "contains 21 tablets with no placebo (inactive pills).\n"\
-                            "  \nHow to Use"
+                            "  \nHow to Use\n"
                             "Take one tablet daily "
                             "for 21 days, followed by a 7-day break where no tablets are taken. Start the next pack "
                             "after the 7-day break.",
@@ -99,7 +99,7 @@ def get_database_message(key_value: str):
                             "still be taken within 5 days (120 hours) of unprotected\n\n"\
                             "You can click on the audio below to listen to a short introduction of Postpill "\
                             "in Pidgin if you want to.\n\n"
-                            f"{create_hyper_link(url='https://drive.google.com/file/d/15O1QpDcxI9Zf1XvoR8REp788YVQcC-Hp/view?usp=drive_link', url_description='Audio embedding (Postpill)')}\n"
+                            f"{create_hyper_link(url='https://drive.google.com/file/d/15O1QpDcxI9Zf1XvoR8REp788YVQcC-Hp/view?usp=drive_link', url_description='Audio embedding (Postpill)')}\n\n"
                             f"You can buy Postpill at any pharmacy or health store around you.",
 
                 "Postinor 2": "POSTINOR is an Emergency Contraceptive Pill (ECP) that safely prevents unwanted "\
@@ -129,6 +129,12 @@ def get_database_message(key_value: str):
                             "You can click on the audio below to listen to a short introduction to Progesta in Pidgin "\
                             "if you want to.\n"
                             f"{create_hyper_link(url='https://drive.google.com/file/d/1rKNyg-etSIiFn1U-XwKNyNkRW8yw_ZSr/view?usp=drive_link', url_description='Audio embedding (Progesta)')}",
+
+                "Sayana Press": """Sayana Press is indicated for long-term female contraception. Each subcutaneous injection prevents ovulation and provides contraception for at least 13 weeks\n
+You can click on the audio below to listen to a short introduction of Sayana press in Pidgin, if you want to.
+                    
+<audio link>\n
+You can also click to watch a video on how to inject a Sayana Press in Pidgin.""",
 
                 "Kiss": """Kiss condoms are gently lubricated to provide you with a silky, natural feeling for increased pleasure and sensitivity.\n
 You can buy the Kiss condom at any pharmacy or health store around you.
@@ -182,7 +188,7 @@ You can visit you nearest health shop to purchase.
                                 "to remove it.\n"\
                                 "  \nThis method is completely and quickly reversible "\
                                 "because it releases a very low dose of hormone, which leaves the body quickly "\
-                                "when removed, so you woman can get pregnant without delay.\n\n",\
+                                "when removed, so you woman can get pregnant without delay.\n\n"\
                                 " Some of its common side effects are\n"\
                                 "• Headaches.\n"\
                                 "• Dizziness.\n"\
@@ -190,7 +196,7 @@ You can visit you nearest health shop to purchase.
                                 "• Nausea\n"\
                                 "• Stomach cramping/bloating.\n"\
                                 "• Weight gain.\n"\
-                                "• Vaginal irritation/discharge may occur."
+                                "• Vaginal irritation/discharge may occur.",
                                 
                 "Fiesta intim gel": """Fiesta Gels are classy and smooth, with a wet sensation for heightened sexual pleasure.
                     
@@ -246,8 +252,17 @@ Who can use
 2. Mature minors - Adolescents under the age of 18 who are married, pregnant or sexually active.
 3. Children - 12 and above with supervision of guardian.
                     
-Individuals taking antiretroviral drugs for prevention or treatment of HIV cannot use this kit""",
+Individuals taking antiretroviral drugs for prevention or treatment of HIV cannot use this kit\n
+You can click to watch a video on how to use a HIV Self-Test kit
+                    
+<video link>\n
+Please call 7790 if you would like to buy this HIV Self-Test kit.
+""",
 
-                "Diaphragm": "A diaphragm or cap is a barrier method of contraception. It fits inside your vagina and prevents sperm passing through the cervix (the entrance of your womb)"
+                "Diaphragm": """A diaphragm or cap is a barrier method of contraception. It fits inside your vagina and prevents sperm passing through the cervix (the entrance of your womb)\n
+You can click to watch a video on how to insert and remove a diaphragm and how to use a diaphragm gel in pidgin.
+                    
+<video embedding>\n
+You can visit your nearest pharmacy or health shop to purchase"""
 }
     return messages.get(key_value, SOMETHING_IS_WRONG)

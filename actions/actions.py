@@ -718,8 +718,7 @@ class AskForSlotFemaleCondomShow(Action):
         message = "Ok, let me show you what a female condom looks like and how to use it."
         dispatcher.utter_message(text=message)
 
-        message = "You can visit your nearest health shop to purchase" \
-                  "Female condoms are a barrier method of contraception worn inside the vagina. " \
+        message = "Female condoms are a barrier method of contraception worn inside the vagina. " \
                   "They are made of thin, soft plastic and have two ﬂexible rings - a removable ring at the closed end to help insertion and a fixed ring at the open end, which sits on the vulva to hold the condom in place." \
                   "They prevent pregnancy by stopping sperm from meeting an egg. "
 

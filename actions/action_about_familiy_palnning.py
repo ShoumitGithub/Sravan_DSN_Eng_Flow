@@ -46,7 +46,7 @@ Click to listen to a short introduction of Lubricant in Pidgin, if you want."""
 
         dispatcher.utter_message(text=message)
         {hyper_link}
-        dispatcher.utter_message(text=message)
+        #dispatcher.utter_message(text=message)
         message = "Here are some of the effective and available lubricants and gels.\n" \
                   "  \nClick on any of them to get their full details."
         buttons = create_button(["Fiesta intim gel", "KY Jelly"])
@@ -78,6 +78,7 @@ class ActionMisoprostolDatabase(Action):
     ) -> List[EventType]:
 
         message = """Misoprostol is a synthetic prostaglandin medication used to prevent and treat stomach and duodenal ulcers, induce labour, cause an abortion, and treat postpartum bleeding due to poor contraction of the uterus.
+                    
 It is an effective cervical ripening agent before first-trimester surgical abortion.\n"""
 
         dispatcher.utter_message(text=message)
@@ -166,7 +167,20 @@ class ValidateSelectPlanningProduct(FormValidationAction):
 
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
-        return {"family_planning_product": slot_value}
+        return {"family_planning_method": slot_value}
+    
+
+    def validate_family_planning_method(self,
+                                         slot_value: Any,
+                                         dispatcher: CollectingDispatcher,
+                                         tracker: Tracker,
+                                         domain: DomainDict,
+                                         ):
+
+        if slot_value in ["Penegra", "HIV Self-test kit", "Diaphragm"]:
+            dispatcher.utter_message(text=get_database_message(slot_value))
+        return {"family_planning_method":slot_value}
+
 
     async def required_slots(
             self,
@@ -176,7 +190,6 @@ class ValidateSelectPlanningProduct(FormValidationAction):
             domain: "DomainDict",
     ) -> List[Text]:
         updated_slots = domain_slots.copy()
-        if get_slot_value(tracker, 'family_planning_method') in ["Penegra", "HIV Self-test kit", "Diaphragm",
-                                                                 "Female condom"]:
+        if get_slot_value(tracker, 'family_planning_method') in ["Penegra", "HIV Self-test kit", "Diaphragm"]:
             updated_slots.remove('family_planning_product')
         return updated_slots

@@ -37,7 +37,7 @@ class ActionAskSelectReproductiveIssue(Action):
     ) -> List[Dict[Text, Any]]:
         message = "What other issue would you like to know about?"
         buttons = create_button(["HIV", "Abortion", "Sexually Transmitted Disease (STI)", "Menstruation",
-                                 "Sec"])
+                                 "Sex"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type='vertical')
         return []
 
