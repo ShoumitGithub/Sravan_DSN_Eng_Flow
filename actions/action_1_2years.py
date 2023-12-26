@@ -12,7 +12,7 @@ from actions.helper import *
 class ActionAskDailyPillsAdvantage12(AskForSlotDailyPillsAdvantage):
     def name(self) -> Text:
         return "action_ask_daily_pills_advantage_1_2"
-
+    
 
 class AskForSlotDailyPillsDisadvantage12(AskForSlotDailyPillsDisadvantage):
     def name(self) -> Text:
@@ -153,6 +153,88 @@ class ValidateRequest02YearsForm(FormValidationAction):
     def name(self):
         return 'validate_request_1_2_years_form'
 
+    def validate_daily_medical_conditions(self,
+                                          slot_value: Any,
+                                          dispatcher: CollectingDispatcher,
+                                          tracker: Tracker,
+                                          domain: DomainDict,
+                                          ):
+        print("in validate medical condition")
+        print(slot_value)
+        if slot_value.lower() == 'yes':
+            dispatcher.utter_message(text="Ok, it is not advisable for you to take daily pills. "
+                                          "Please speak to your doctor before using this method of contraceptive.")
+
+        return {'daily_medical_conditions': slot_value}
+
+    def validate_daily_implants_database(self,
+                                              slot_value: Any,
+                                              dispatcher: CollectingDispatcher,
+                                              tracker: Tracker,
+                                              domain: DomainDict,
+                                              ):
+
+        print(f"in solt validate daily contraceptive database: {slot_value}")
+        dispatcher.utter_message(text=get_database_message(slot_value))
+        return {'daily_contraceptive_database': slot_value}
+
+
+    def validate_daily_contraceptive_database(self,
+                                              slot_value: Any,
+                                              dispatcher: CollectingDispatcher,
+                                              tracker: Tracker,
+                                              domain: DomainDict,
+                                              ):
+
+        print(f"in solt validate daily contraceptive database: {slot_value}")
+        dispatcher.utter_message(text=get_database_message(slot_value))
+        return {'daily_contraceptive_database': slot_value}
+
+    def validate_emergency_contraceptive_database(self,
+                                                  slot_value: Any,
+                                                  dispatcher: CollectingDispatcher,
+                                                  tracker: Tracker,
+                                                  domain: DomainDict,
+                                                  ):
+        
+        print(f"------------------------------------ {slot_value}")
+        dispatcher.utter_message(text=get_database_message(slot_value))
+        return {'emergency_contraceptive_database': slot_value}
+
+    def validate_injectable_who_can_and_cannot_use_injectables(self,
+                                                               slot_value: Any,
+                                                               dispatcher: CollectingDispatcher,
+                                                               tracker: Tracker,
+                                                               domain: DomainDict,
+                                                               ):
+        if slot_value is not None:
+            dispatcher.utter_message(text="Who cannot use\n"
+                                          "1. If you are a breastfeeding mother from 6 weeks to 6 months postpartum.\n"
+                                          "2. If you are a smoker and over 35 years old.\n"
+                                          "3. If you have any of the following medical conditions, it is not advisable to take daily piils:\n"
+                                          "a. Blood Pressure.\n"
+                                          "b. Venous thromboembolism.\n"
+                                          "c. Stroke.\n"
+                                          "d. Heart Disease.\n"
+                                          "e. Liver Disease.\n"
+                                          "f. Breast Cancer.\n"
+                                          "g. Diabetes.\n"
+                                          "h. Vascular Disease.\n"
+                                          "i. Vaginal bleeding")
+            return {'injectable_who_can_and_cannot_use_injectables': slot_value}
+
+    def validate_injectable_database(self,
+                                     slot_value: Any,
+                                     dispatcher: CollectingDispatcher,
+                                     tracker: Tracker,
+                                     domain: DomainDict,
+                                     ):
+        if slot_value is not None:
+            dispatcher.utter_message(text=get_database_message(slot_value))
+        print(f"------------------------------------ {slot_value}")
+            
+
+        return {'injectable_database': slot_value}    
     def validate_implants_who_can_and_cannot_use(self,
                                                  slot_value: Any,
                                                  dispatcher: CollectingDispatcher,
@@ -172,6 +254,7 @@ class ValidateRequest02YearsForm(FormValidationAction):
                                           "g. Kidney infection.\n"
                                           "h. Vaginal bleeding.")
         return {'implants_who_can_and_cannot_use': slot_value}
+    
 
     def validate_implants_medical_condition(self,
                                             slot_value: Any,

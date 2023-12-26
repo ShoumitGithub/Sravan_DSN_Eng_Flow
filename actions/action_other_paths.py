@@ -138,7 +138,7 @@ class RequestReproductiveHealthIssue(FormValidationAction):
 
         if slot_value is not None:
             dispatcher.utter_message("We need to implement CHATGPT API")
-        return {'about_reproductive_problem': slot_value}
+        return {'about_reproductive_problem': slot_value} 
 
     async def required_slots(
         self,

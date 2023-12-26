@@ -361,6 +361,31 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
 
         return {'ius_who_can_and_cannot_use': slot_value}
 
+    def validate_injectable_database(self,
+                                     slot_value: Any,
+                                     dispatcher: CollectingDispatcher,
+                                     tracker: Tracker,
+                                     domain: DomainDict,
+                                     ):
+        if slot_value is not None:
+            dispatcher.utter_message(text=get_database_message(slot_value))
+        print(f"------------------------------------ {slot_value}")
+            
+
+        return {'injectable_database': slot_value}
+    
+     
+    def validate_daily_contraceptive_database(self,
+                                              slot_value: Any,
+                                              dispatcher: CollectingDispatcher,
+                                              tracker: Tracker,
+                                              domain: DomainDict,
+                                              ):
+
+        print(f"in solt validate daily contraceptive database: {slot_value}")
+        dispatcher.utter_message(text=get_database_message(slot_value))
+        return {'daily_contraceptive_database': slot_value}
+    
     def validate_ius_medical_condition(self,
                                      slot_value: Any,
                                      dispatcher: CollectingDispatcher,
@@ -380,6 +405,17 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
         return {'ius_medical_condition': slot_value}
 
 
+    def validate_implants_database(self,
+                                              slot_value: Any,
+                                              dispatcher: CollectingDispatcher,
+                                              tracker: Tracker,
+                                              domain: DomainDict,
+                                              ):
+
+        print(f"in solt validate daily contraceptive database: {slot_value}")
+        dispatcher.utter_message(text=get_database_message(slot_value))
+        return {'daily_contraceptive_database': slot_value}
+    
     def validate_iud_who_can_and_cannot_use( self,
                                              slot_value: Any,
                                              dispatcher: CollectingDispatcher,

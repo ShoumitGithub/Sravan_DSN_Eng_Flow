@@ -167,6 +167,7 @@ class ValidateSelectPlanningProduct(FormValidationAction):
 
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
+
         return {"family_planning_method": slot_value}
     
 
@@ -193,3 +194,4 @@ class ValidateSelectPlanningProduct(FormValidationAction):
         if get_slot_value(tracker, 'family_planning_method') in ["Penegra", "HIV Self-test kit", "Diaphragm"]:
             updated_slots.remove('family_planning_product')
         return updated_slots
+ 

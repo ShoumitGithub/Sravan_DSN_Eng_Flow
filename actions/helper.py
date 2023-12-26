@@ -100,7 +100,8 @@ def get_database_message(key_value: str):
                             "You can click on the audio below to listen to a short introduction of Postpill "\
                             "in Pidgin if you want to.\n\n"
                             f"{create_hyper_link(url='https://drive.google.com/file/d/15O1QpDcxI9Zf1XvoR8REp788YVQcC-Hp/view?usp=drive_link', url_description='Audio embedding (Postpill)')}\n\n"
-                            f"You can buy Postpill at any pharmacy or health store around you.",
+                            f"You can buy Postpill at any pharmacy or health store around you."\
+                            f""    ,
 
                 "Postinor 2": "POSTINOR is an Emergency Contraceptive Pill (ECP) that safely prevents unwanted "\
                               "accidental pregnancy within 72 hours after unprotected sexual intercourse.\n"\
@@ -266,3 +267,13 @@ You can click to watch a video on how to insert and remove a diaphragm and how t
 You can visit your nearest pharmacy or health shop to purchase"""
 }
     return messages.get(key_value, SOMETHING_IS_WRONG)
+
+
+
+def send_audio_to_telegram(chat_id, audio_path):
+    bot_token = "6701847577:AAHpT02s6ceOHpdK67vubphaAQ7kuXG-rks"
+    api_url = f"https://api.telegram.org/bot{bot_token}/sendAudio"
+    params = {"chat_id": chat_id}
+    files = {"audio": (audio_path, open(audio_path, "rb"))}
+    requests.post(api_url, params=params, files=files)
+    #self.check_response_status(response, "Audio")

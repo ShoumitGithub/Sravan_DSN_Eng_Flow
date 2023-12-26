@@ -4,7 +4,7 @@ from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, ActiveLoop, SlotSet, FollowupAction
 from rasa_sdk.types import DomainDict
-from actions.helper import *1
+from actions.helper import *
 
 
 class AskForSlot12YearsMethod(Action):

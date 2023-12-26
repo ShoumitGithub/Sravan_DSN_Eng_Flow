@@ -421,7 +421,7 @@ class AskForSlotEmergencyContraceptiveDatabase(Action):
     ) -> List[EventType]:
         message = "Let me tell you some of the effective and available daily contraceptive pills. \n" \
                   "Click on any of them to get their full details."
-        buttons = create_button(["Postpill", "Postinor 2"])
+        buttons = create_button(["Postpill","Postinor 2"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type="vertical")
         return []
 
@@ -651,6 +651,8 @@ class AskForSlotDiaphragmShow(Action):
     ) -> List[EventType]:
         message = """Ok, let me show you what a diaphragm looks like and how to use it."""
         dispatcher.utter_message(text=message)
+        dispatcher.utter_message(text=get_database_message("Diaphragm"))
+
         return []
 
 
@@ -801,6 +803,8 @@ class ValidateRequest03MonthsForm(FormValidationAction):
                                                   tracker: Tracker,
                                                   domain: DomainDict,
                                                   ):
+        
+        print(f"------------------------------------ {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
         return {'emergency_contraceptive_database': slot_value}
 
@@ -834,6 +838,8 @@ class ValidateRequest03MonthsForm(FormValidationAction):
                                      ):
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
+        print(f"------------------------------------ {slot_value}")
+            
 
         return {'injectable_database': slot_value}
 
