@@ -5,6 +5,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, ActiveLoop, SlotSet, Restarted
 from rasa_sdk.types import DomainDict
 from actions.helper import *
+from actions.cliniclocation import *
 
 
 class ActionAskEnterFaq(Action):
@@ -104,7 +105,12 @@ class ActionAskClinicInformation(Action):
         domain: "DomainDict",
     ) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Drop down of clinic")
+        # dispatcher.utter_message(text="Drop down of clinic")
+
+        state= get_slot_value(tracker, 'state')
+        lga= get_slot_value(tracker, 'lga')
+        
+        dispatcher.utter_message(text= get_clinic_info(state, lga))
         return []
 
 

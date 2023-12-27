@@ -5,6 +5,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, ActiveLoop, SlotSet, Restarted
 from rasa_sdk.types import DomainDict
 from actions.helper import *
+from actions.cliniclocation import *
 
 
 class ActionRestart(Action):
