@@ -55,7 +55,7 @@ class ActionGreetMessage(Action):
 
         dispatcher.utter_message(text=message)
 
-        message = "My name is Honey. I am a family planning counsellor. I am here to help with family\n" \
+        message = "My name is Honey. I am a family planning counsellor. I am here to help with family planning knowledge and give you counseling.\n" \
                   "  \nI can answer your family planning questions, refer to an agent to speak with and also refer you to a family planning clinic."
 
         dispatcher.utter_message(text=message)
@@ -173,7 +173,7 @@ class ActionAskDoYouUnderstand(Action):
         print(f"in action_ask_do_you_understand latest intent: {tracker.latest_message['intent'].get('name')}")
         latest_intent = tracker.latest_message['intent'].get('name')
         next_response = {
-            'prevent_pregnancy_0_3_months': "If you want to prevent pregnancy within 0-3 months, the short term family planning methods or \n the Injectables will be the best for you.",
+            'prevent_pregnancy_0_3_months': "If you want to prevent pregnancy within 0-3 months, the short-term family planning methods or \n the Injectables will be the best for you.",
             'prevent_pregnancy_1_2_years': "If you want to prevent pregnancy within 1-2 years, you can use any of the short-acting family planning methods, the Injectables or the Implants.",
             'prevent_pregnancy_3_4_years': "If you want to prevent pregnancy for up to  3 - 4 years, it is advisable to adopt long-acting reversible contraception or LARC methods.",
             'prevent_pregnancy_5_10_years': "If you want to prevent pregnancy for up to  5 - 10 years,  it is advisable to adopt long-acting reversible contraception or LARC method."
@@ -194,12 +194,12 @@ class AskForSlot03MonthsMethod(Action):
     ) -> List[EventType]:
         button_details = create_button(["Daily contraceptive pills", "Emergency contraceptive pills",
                                         "Injectable contraceptives", "Diaphragm", "Female condom", "Male condom"])
-        dispatcher.utter_message(text="The short-term family planning methods are:\n\n"
-                                      "1. Daily contraceptive pills\n"
-                                      "2. Emergency contraceptive pills\n"
-                                      "3. The barrier contraceptives which are the diaphragms and"
-                                      "condoms and then the Injectables.\n"
-                                      "Click on any of them to get the full details about them.",
+        dispatcher.utter_message(text="The short-term family planning methods are:\n\n"\
+                                      "1. Daily contraceptive pills\n"\
+                                      "2. Emergency contraceptive pills\n"\
+                                      "3. The barrier contraceptives which are the diaphragms and "\
+                                      "condoms and then the Injectables.\n"\
+                                      "  \nClick on any of them to get the full details about them.",
                                  buttons=button_details, button_type="vertical")
         return []
 
@@ -323,7 +323,7 @@ class AskForSlotDailyContraceptiveDatabase(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Let me tell you some of the effective and available daily contraceptive pills.\n" \
-                  "Click on any of them to get their full details."
+                  "  \nClick on any of them to get their full details."
         buttons = create_button(["Levofem", "Desofem", "Dianofem"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type="vertical")
         return []
@@ -449,7 +449,8 @@ class AskForSlotInjectableExplanation(Action):
         message = "Injectable contraceptives are a form of hormonal birth control for women. They consist of monthly " \
                   "injections of combined formulations containing an estrogen and a progestin to prevent pregnancy.\n" \
                   "  \nThe injection works by preventing the ovaries from releasing an egg each month. It also thickens " \
-                  "the fluid around the cervix. They can be used for pregnancy prevention for 1 to 3 months."
+                  "the fluid around the cervix.\n"\
+                  "  \nThey can be used for pregnancy prevention for 1 to 3 months."
         dispatcher.utter_message(text=message)
 
         message = "Do you understand?"
@@ -908,8 +909,8 @@ class ValidateRequest03MonthsForm(FormValidationAction):
         # print(f"Before calling required: {slots}")
         if get_slot_value(tracker, '0_3_months_method'):
             slots = required_slots(slots, slot_mappings.get(get_slot_value(tracker, '0_3_months_method'), "Dummy"))
-        # print(f"After calling required: {slots}")
-        if get_slot_value(tracker, 'daily_medical_conditions') == "Yes":
-            slots.remove('daily_contraceptive_database')
+        print(f"After calling required: {slots}")
+        # if get_slot_value(tracker, 'daily_medical_conditions') == "Yes":
+        #     slots.remove('daily_contraceptive_database')
 
         return slots

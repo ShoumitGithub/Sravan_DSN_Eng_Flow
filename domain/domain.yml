@@ -2836,7 +2836,7 @@ responses:
         - title: "No"
           payload: No
   utter_ask_followed_method_before:
-    - text: "Ok, Which of these methods have you tried before?"
+    - text: "Ok, Which of these methods did you try before?"
       buttons:
       - title: "Condoms and Diaphragms"
         payload: "/previous_Condoms_and_Diaphragms"
