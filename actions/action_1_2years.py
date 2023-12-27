@@ -176,7 +176,7 @@ class ValidateRequest02YearsForm(FormValidationAction):
 
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
-        return {'daily_contraceptive_database': slot_value}
+        return {'daily_implants_database': slot_value}
 
 
     def validate_daily_contraceptive_database(self,
@@ -197,7 +197,7 @@ class ValidateRequest02YearsForm(FormValidationAction):
                                                   domain: DomainDict,
                                                   ):
         
-        print(f"------------------------------------ {slot_value}")
+        print(f"in solt validate emergency_contraceptive_database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
         return {'emergency_contraceptive_database': slot_value}
 
@@ -231,7 +231,7 @@ class ValidateRequest02YearsForm(FormValidationAction):
                                      ):
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
-        print(f"------------------------------------ {slot_value}")
+        print(f"-------injectable_database--------- {slot_value}")
             
 
         return {'injectable_database': slot_value}    

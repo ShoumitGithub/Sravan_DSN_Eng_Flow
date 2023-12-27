@@ -7,6 +7,26 @@ from rasa_sdk.types import DomainDict
 from actions.helper import *
 
 
+
+
+class ActionSendAudio(Action):
+
+    def name(self) -> Text:
+        return "action_send_audio"
+
+    async def run(
+        self,
+        dispatcher: "CollectingDispatcher",
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message("in the send audio_1")
+        send_audio_to_telegram(tracker.sender_id, "Daily.mp3")
+        dispatcher.utter_message("in the send audio")
+        return []
+
+
+
 class ActionRestart(Action):
 
     def name(self) -> Text:

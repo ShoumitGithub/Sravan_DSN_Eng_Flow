@@ -385,7 +385,18 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
         return {'daily_contraceptive_database': slot_value}
-    
+
+    def validate_emergency_contraceptive_database(self,
+                                                  slot_value: Any,
+                                                  dispatcher: CollectingDispatcher,
+                                                  tracker: Tracker,
+                                                  domain: DomainDict,
+                                                  ):
+        
+        print(f"-------emergency_contraceptive_database--------------- {slot_value}")
+        dispatcher.utter_message(text=get_database_message(slot_value))
+        return {'emergency_contraceptive_database': slot_value}
+
     def validate_ius_medical_condition(self,
                                      slot_value: Any,
                                      dispatcher: CollectingDispatcher,
@@ -405,7 +416,7 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
         return {'ius_medical_condition': slot_value}
 
 
-    def validate_implants_database(self,
+    def validate_daily_implants_database(self,
                                               slot_value: Any,
                                               dispatcher: CollectingDispatcher,
                                               tracker: Tracker,
@@ -414,7 +425,7 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
 
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
-        return {'daily_contraceptive_database': slot_value}
+        return {'daily_implants_database': slot_value}
     
     def validate_iud_who_can_and_cannot_use( self,
                                              slot_value: Any,

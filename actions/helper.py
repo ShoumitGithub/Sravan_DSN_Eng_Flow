@@ -271,7 +271,7 @@ You can visit your nearest pharmacy or health shop to purchase"""
 
 
 def send_audio_to_telegram(chat_id, audio_path):
-    bot_token = "6701847577:AAHpT02s6ceOHpdK67vubphaAQ7kuXG-rks"
+    bot_token = "6981584077:AAGZIjltmtWJ5J_6Hr_SQ1TjYZRbLCzX75Y"
     api_url = f"https://api.telegram.org/bot{bot_token}/sendAudio"
     params = {"chat_id": chat_id}
     files = {"audio": (audio_path, open(audio_path, "rb"))}

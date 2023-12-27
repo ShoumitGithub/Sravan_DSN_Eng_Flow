@@ -19,6 +19,7 @@ intents:
   - ask_gpt
 
 actions:
+  - action_send_audio
   - action_restart
   - action_how_long_prevent_pregnancy
   - action_path

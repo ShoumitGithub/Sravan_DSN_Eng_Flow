@@ -17,6 +17,7 @@ rules:
   steps:
     - intent: greet
     - action: action_greet_message
+    - action: action_send_audio
     - action: request_user_data_form
     - active_loop: request_user_data_form
     - active_loop: null
