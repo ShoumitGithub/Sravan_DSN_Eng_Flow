@@ -5,7 +5,6 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, ActiveLoop, SlotSet, Restarted
 from rasa_sdk.types import DomainDict
 from actions.helper import *
-from actions.cliniclocation import *
 
 
 class ActionRestart(Action):
@@ -344,8 +343,12 @@ class AskForSlotEmergencyPillExplanation(Action):
                   "if fertilization occurs, it may prevent the fertilized egg from attaching to the womb. Emergency " \
                   "pills are very effective when taken before sex especially during ovulation or within 24 to 72 " \
                   "hours after unprotected sex. Please note that they have no effect on already established " \
-                  "pregnancy. \n" \
-                  "Do you understand?"
+                  "pregnancy."
+                  
+        dispatcher.utter_message(text=message)
+
+        message= "Do you understand?"
+
         dispatcher.utter_message(text=message)
         return []
 
@@ -401,15 +404,24 @@ class AskForSlotEmergencyWhoCanAndCannotUseContraceptive(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = "On who can use and who cannot use emergency pills.\n Who can use \n" \
+        message = "On who can use and who cannot use emergency pills.\n"\
+                  "  \nWho can use\n"\
                   "All women can use emergency contraceptive pills safely and effectively, including women who cannot " \
-                  "use continuing hormonal contraceptive methods\n. " \
-                  "Because of the short-term nature of their use there are no medical conditions that make " \
-                  "emergency contraceptive pills unsafe for any woman. " \
-                  "Who cannot use\n " \
-                  "Not suitable for women wth confirmed or suspected pregnancy.\n" \
-                  "Do you understand?"
+                  "use continuing hormonal contraceptive methods.\n" \
+                  "  \nBecause of the short-term nature of their use there are no medical conditions that make " \
+                  "emergency contraceptive pills unsafe for any woman."
+        
         dispatcher.utter_message(text=message)
+
+        message=  "Who cannot use\n" \
+                  "  \nNot suitable for women with confirmed or suspected pregnancy."
+                  
+        dispatcher.utter_message(text=message)
+
+        message= "Do you understand?"
+
+        dispatcher.utter_message(text=message)
+
         return []
 
 
@@ -728,6 +740,12 @@ class AskForSlotFemaleCondomShow(Action):
         dispatcher.utter_message(text=message)
 
         message = "You can click to watch a video on how to insert and remove a female condom in Pidgin."
+        dispatcher.utter_message(text=message)
+
+        message="How to insert a female condom\nhttps://youtu.be/W3yRSR3ppmI?si=EbR12zOq4VDQ6EZA"
+        dispatcher.utter_message(text=message)
+
+        message="\nHow to remove a female condom\nhttps://youtu.be/7me1jsqg3Wg?si=oZSGdmrkngtG2uvz"
         dispatcher.utter_message(text=message)
 
         message = "You can visit your nearest chemist/pharmacy to buy."

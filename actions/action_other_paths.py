@@ -108,7 +108,7 @@ class ActionAskClinicInformation(Action):
         # dispatcher.utter_message(text="Drop down of clinic")
 
         state= get_slot_value(tracker, 'state')
-        lga= get_slot_value(tracker, 'lga')
+        lga= get_slot_value(tracker, 'lga').upper()
         
         dispatcher.utter_message(text= get_clinic_info(state, lga))
         return []
