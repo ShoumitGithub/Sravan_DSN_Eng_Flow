@@ -5,6 +5,10 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, ActiveLoop, SlotSet, Restarted
 from rasa_sdk.types import DomainDict
 from actions.helper import *
+<<<<<<< HEAD
+=======
+from actions.cliniclocation import *
+>>>>>>> origin/main
 
 
 
@@ -75,7 +79,11 @@ class ActionGreetMessage(Action):
 
         dispatcher.utter_message(text=message)
 
+<<<<<<< HEAD
         message = "My name is Honey. I am a family planning counsellor. I am here to help with family planning knowledge and give you counseling.\n" \
+=======
+        message = "My name is Honey. I am a family planning counsellor. I am here to help with family\n" \
+>>>>>>> origin/main
                   "  \nI can answer your family planning questions, refer to an agent to speak with and also refer you to a family planning clinic."
 
         dispatcher.utter_message(text=message)
@@ -193,7 +201,11 @@ class ActionAskDoYouUnderstand(Action):
         print(f"in action_ask_do_you_understand latest intent: {tracker.latest_message['intent'].get('name')}")
         latest_intent = tracker.latest_message['intent'].get('name')
         next_response = {
+<<<<<<< HEAD
             'prevent_pregnancy_0_3_months': "If you want to prevent pregnancy within 0-3 months, the short-term family planning methods or \n the Injectables will be the best for you.",
+=======
+            'prevent_pregnancy_0_3_months': "If you want to prevent pregnancy within 0-3 months, the short term family planning methods or \n the Injectables will be the best for you.",
+>>>>>>> origin/main
             'prevent_pregnancy_1_2_years': "If you want to prevent pregnancy within 1-2 years, you can use any of the short-acting family planning methods, the Injectables or the Implants.",
             'prevent_pregnancy_3_4_years': "If you want to prevent pregnancy for up to  3 - 4 years, it is advisable to adopt long-acting reversible contraception or LARC methods.",
             'prevent_pregnancy_5_10_years': "If you want to prevent pregnancy for up to  5 - 10 years,  it is advisable to adopt long-acting reversible contraception or LARC method."
@@ -214,12 +226,21 @@ class AskForSlot03MonthsMethod(Action):
     ) -> List[EventType]:
         button_details = create_button(["Daily contraceptive pills", "Emergency contraceptive pills",
                                         "Injectable contraceptives", "Diaphragm", "Female condom", "Male condom"])
+<<<<<<< HEAD
         dispatcher.utter_message(text="The short-term family planning methods are:\n\n"\
                                       "1. Daily contraceptive pills\n"\
                                       "2. Emergency contraceptive pills\n"\
                                       "3. The barrier contraceptives which are the diaphragms and "\
                                       "condoms and then the Injectables.\n"\
                                       "  \nClick on any of them to get the full details about them.",
+=======
+        dispatcher.utter_message(text="The short-term family planning methods are:\n\n"
+                                      "1. Daily contraceptive pills\n"
+                                      "2. Emergency contraceptive pills\n"
+                                      "3. The barrier contraceptives which are the diaphragms and"
+                                      "condoms and then the Injectables.\n"
+                                      "Click on any of them to get the full details about them.",
+>>>>>>> origin/main
                                  buttons=button_details, button_type="vertical")
         return []
 
@@ -343,7 +364,11 @@ class AskForSlotDailyContraceptiveDatabase(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Let me tell you some of the effective and available daily contraceptive pills.\n" \
+<<<<<<< HEAD
                   "  \nClick on any of them to get their full details."
+=======
+                  "Click on any of them to get their full details."
+>>>>>>> origin/main
         buttons = create_button(["Levofem", "Desofem", "Dianofem"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type="vertical")
         return []
@@ -357,6 +382,7 @@ class AskForSlotEmergencyPillExplanation(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
+<<<<<<< HEAD
         message = "Emergency contraceptive pills are pills taken immediately after unprotected sex to prevent pregnancy.\n" \
                   "They contain 1.5mg Levonorgestrel and it is a one-dose medication.\n" \
                   "  \nThey work by stopping the release of an egg from your ovary. It may prevent sperm from fertilizing the egg and " \
@@ -368,6 +394,16 @@ class AskForSlotEmergencyPillExplanation(Action):
 
         message= "Do you understand?"
 
+=======
+        message = "Emergency contraceptive pills are pills taken immediately after unprotected sex to prevent " \
+                  "pregnancy. They contain 1.5mg Levonorgestrel and it is a one-dose medication. They work by " \
+                  "stopping the release of an egg from your ovary. It may prevent sperm from fertilizing the egg and " \
+                  "if fertilization occurs, it may prevent the fertilized egg from attaching to the womb. Emergency " \
+                  "pills are very effective when taken before sex especially during ovulation or within 24 to 72 " \
+                  "hours after unprotected sex. Please note that they have no effect on already established " \
+                  "pregnancy. \n" \
+                  "Do you understand?"
+>>>>>>> origin/main
         dispatcher.utter_message(text=message)
         return []
 
@@ -385,6 +421,7 @@ class AskForSlotEmergencyPillAdvantage(Action):
                   "2. They are convenient, readily available and easy to use.\n" \
                   "3. The one-dose regimen ensures compliance.\n" \
                   "4. They reduce the need for abortion.\n" \
+<<<<<<< HEAD
                   "5. Their side effects are of very short duration.\n" \
                   "6. Quick and easiest option for preventing unplanned pregnancy."
                   
@@ -392,6 +429,11 @@ class AskForSlotEmergencyPillAdvantage(Action):
 
         message= "Do you understand?"
 
+=======
+                  "5.Their side effects are of very short duration.\n" \
+                  "6. Quick and easiest option for preventing unplanned pregnancy.\n" \
+                  "Do you understand?"
+>>>>>>> origin/main
         dispatcher.utter_message(text=message)
         return []
 
@@ -404,21 +446,32 @@ class AskForSlotEmergencyPillDisadvantage(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Now to the disadvantages of emergency pills.\n" \
+<<<<<<< HEAD
                   "  \nDisadvantages\n" \
                   "1. They must be taken daily within 3 days of unprotected sex.\n" \
                   "2. They are less effective than regular contraceptives. \n" \
+=======
+                  " Disadvantages \n" \
+                  "1. They must be taken daily within 3 days of unprotected sex.\n" \
+                  " 2. They are less effective than regular contraceptives. \n" \
+>>>>>>> origin/main
                   "3. They might cause mild and temporary side effect which usually goes away after some days such as: " \
                   "a. Mild headache.\n" \
                   "b. Nausea or vomiting.\n" \
                   "c. Dizziness.\n" \
                   "d. Breast tenderness.\n" \
                   "e. Lower abdominal discomfort.\n" \
+<<<<<<< HEAD
                   "f. Menstrual change (period may come early)"
         
         dispatcher.utter_message(text=message)
         
         message="Are you with me?"
                   
+=======
+                  "f. Menstrual change (period may come early)\n" \
+                  "Are you with me?"
+>>>>>>> origin/main
         buttons = create_button(["Yes", "No"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type="vertical")
         return []
@@ -431,6 +484,7 @@ class AskForSlotEmergencyWhoCanAndCannotUseContraceptive(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
+<<<<<<< HEAD
         message = "On who can use and who cannot use emergency pills.\n"\
                   "  \nWho can use\n"\
                   "All women can use emergency contraceptive pills safely and effectively, including women who cannot " \
@@ -449,6 +503,17 @@ class AskForSlotEmergencyWhoCanAndCannotUseContraceptive(Action):
 
         dispatcher.utter_message(text=message)
 
+=======
+        message = "On who can use and who cannot use emergency pills.\n Who can use \n" \
+                  "All women can use emergency contraceptive pills safely and effectively, including women who cannot " \
+                  "use continuing hormonal contraceptive methods\n. " \
+                  "Because of the short-term nature of their use there are no medical conditions that make " \
+                  "emergency contraceptive pills unsafe for any woman. " \
+                  "Who cannot use\n " \
+                  "Not suitable for women wth confirmed or suspected pregnancy.\n" \
+                  "Do you understand?"
+        dispatcher.utter_message(text=message)
+>>>>>>> origin/main
         return []
 
 
@@ -476,8 +541,12 @@ class AskForSlotInjectableExplanation(Action):
         message = "Injectable contraceptives are a form of hormonal birth control for women. They consist of monthly " \
                   "injections of combined formulations containing an estrogen and a progestin to prevent pregnancy.\n" \
                   "  \nThe injection works by preventing the ovaries from releasing an egg each month. It also thickens " \
+<<<<<<< HEAD
                   "the fluid around the cervix.\n"\
                   "  \nThey can be used for pregnancy prevention for 1 to 3 months."
+=======
+                  "the fluid around the cervix. They can be used for pregnancy prevention for 1 to 3 months."
+>>>>>>> origin/main
         dispatcher.utter_message(text=message)
 
         message = "Do you understand?"
@@ -770,12 +839,15 @@ class AskForSlotFemaleCondomShow(Action):
         message = "You can click to watch a video on how to insert and remove a female condom in Pidgin."
         dispatcher.utter_message(text=message)
 
+<<<<<<< HEAD
         message="How to insert a female condom\nhttps://youtu.be/W3yRSR3ppmI?si=EbR12zOq4VDQ6EZA"
         dispatcher.utter_message(text=message)
 
         message="\nHow to remove a female condom\nhttps://youtu.be/7me1jsqg3Wg?si=oZSGdmrkngtG2uvz"
         dispatcher.utter_message(text=message)
 
+=======
+>>>>>>> origin/main
         message = "You can visit your nearest chemist/pharmacy to buy."
 
         dispatcher.utter_message(text=message)
@@ -936,8 +1008,14 @@ class ValidateRequest03MonthsForm(FormValidationAction):
         # print(f"Before calling required: {slots}")
         if get_slot_value(tracker, '0_3_months_method'):
             slots = required_slots(slots, slot_mappings.get(get_slot_value(tracker, '0_3_months_method'), "Dummy"))
+<<<<<<< HEAD
         print(f"After calling required: {slots}")
         # if get_slot_value(tracker, 'daily_medical_conditions') == "Yes":
         #     slots.remove('daily_contraceptive_database')
+=======
+        # print(f"After calling required: {slots}")
+        if get_slot_value(tracker, 'daily_medical_conditions') == "Yes":
+            slots.remove('daily_contraceptive_database')
+>>>>>>> origin/main
 
         return slots

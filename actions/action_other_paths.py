@@ -108,6 +108,7 @@ class ActionAskClinicInformation(Action):
         # dispatcher.utter_message(text="Drop down of clinic")
 
         state= get_slot_value(tracker, 'state')
+<<<<<<< HEAD
         lga= get_slot_value(tracker, 'lga').upper()
         
         dispatcher.utter_message(text= get_clinic_info(state, lga))
@@ -115,6 +116,11 @@ class ActionAskClinicInformation(Action):
         message= "Note that these are clinics in partnership with DKT to offer family planning services."
 
         dispatcher.utter_message(text=message)
+=======
+        lga= get_slot_value(tracker, 'lga')
+        
+        dispatcher.utter_message(text= get_clinic_info(state, lga))
+>>>>>>> origin/main
         return []
 
 

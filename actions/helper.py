@@ -135,8 +135,12 @@ def get_database_message(key_value: str):
 You can click on the audio below to listen to a short introduction of Sayana press in Pidgin, if you want to.
                     
 <audio link>\n
+<<<<<<< HEAD
 You can also click to watch a video on how to inject a Sayana Press in Pidgin.
 How to inject a Sayana Press\nhttps://youtu.be/bXi_6rbJhsk?si=86G6gnUmQaUCQ7t_\n""",
+=======
+You can also click to watch a video on how to inject a Sayana Press in Pidgin.""",
+>>>>>>> origin/main
 
                 "Kiss": """Kiss condoms are gently lubricated to provide you with a silky, natural feeling for increased pleasure and sensitivity.\n
 You can buy the Kiss condom at any pharmacy or health store around you.
@@ -206,14 +210,22 @@ How to Use
 Pour a small amount of Fiesta Intim natural gel on your palm and apply directly on your erect penis. For extra pleasure, you can also apply on the woman's intimate area.\n
 You can click to watch a video on how to use this lubricant in Pidgin.
                     
+<<<<<<< HEAD
 https://youtu.be/VtrXlRVaP-c?si=0HYn95zcGnXp6lBP\n
+=======
+<video_link>\n
+>>>>>>> origin/main
 You can purchase it at your nearest pharmacy or health shop.""",
 
                 "KY Jelly": """KY Jelly is a water-based, fragrance-free, non-greasy formula that quickly prepares you for sexual intimacy & eases the discomfort of personal dryness.\n
 You can click to watch a video on how to insert and remove a female condom in Pidgin.\n
+<<<<<<< HEAD
 How to insert a Diaphragm\nhttps://youtu.be/zw76siSZ2E4?si=cjaKJAvcHyWLobOR\n
 How to remove a Diaphragm\nhttps://youtu.be/ettTJHL209w?si=Ojwf4Q1K2pircJjK\n
 How to use a Diaphragm gel\nhttps://youtu.be/6VV1Wi67o4Y?si=KMsC2QkhQwr-WgGv\n
+=======
+<video link>\n
+>>>>>>> origin/main
 You can visit your nearest chemist/pharmacy to buy.
 """,
 
@@ -259,7 +271,11 @@ Who can use
 Individuals taking antiretroviral drugs for prevention or treatment of HIV cannot use this kit\n
 You can click to watch a video on how to use a HIV Self-Test kit
                     
+<<<<<<< HEAD
 https://youtu.be/ap08kSitc1c?si=duUYyhpaS_TABv63\n
+=======
+<video link>\n
+>>>>>>> origin/main
 Please call 7790 if you would like to buy this HIV Self-Test kit.
 """,
 
@@ -271,7 +287,11 @@ You can visit your nearest pharmacy or health shop to purchase"""
 }
     return messages.get(key_value, SOMETHING_IS_WRONG)
 
+<<<<<<< HEAD
 import time
+=======
+
+>>>>>>> origin/main
 
 def send_audio_to_telegram(chat_id, audio_path):
     bot_token = "6981584077:AAGZIjltmtWJ5J_6Hr_SQ1TjYZRbLCzX75Y"
@@ -279,5 +299,9 @@ def send_audio_to_telegram(chat_id, audio_path):
     params = {"chat_id": chat_id}
     files = {"audio": (audio_path, open(audio_path, "rb"))}
     requests.post(api_url, params=params, files=files)
+<<<<<<< HEAD
 #    time.sleep(5)
     #self.check_response_status(response, "Audio")
+=======
+    #self.check_response_status(response, "Audio")
+>>>>>>> origin/main
