@@ -1,0 +1,84 @@
+version: "3.1"
+
+intents:
+  - nearest_family_planning_clinic
+  - other_reproductive_health_issues
+  - ask_gpt
+
+actions:
+  - action_is_local_information_correct
+  - action_ask_is_local_info_correct
+  - action_ask_clinic_information
+  - action_call_message
+  - action_ask_select_reproductive_issue
+  - action_ask_about_reproductive_problem
+  - validate_request_reproductive_health_issue_form
+  - action_ask_enter_faq
+  - validate_request_faq_form
+
+forms:
+  request_local_confirmation_form:
+    required_slots:
+      - is_local_info_correct
+
+  request_select_clinic_form:
+    required_slots:
+      - clinic_information
+
+  request_reproductive_health_issue_form:
+    required_slots:
+      - select_reproductive_issue
+      - about_reproductive_problem
+
+  request_faq_form:
+    required_slots:
+      - enter_faq
+
+
+slots:
+
+  enter_faq:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_faq_form
+            requested_slot: enter_faq
+
+  about_reproductive_problem:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_reproductive_health_issue_form
+            requested_slot: about_reproductive_problem
+
+  select_reproductive_issue:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_reproductive_health_issue_form
+            requested_slot: select_reproductive_issue
+
+  is_local_info_correct:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_local_confirmation_form
+            requested_slot: is_local_info_correct
+
+  clinic_information:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_select_clinic_form
+            requested_slot: clinic_information
+
