@@ -183,10 +183,12 @@ class ActionAskIusShow(Action):
         dispatcher.utter_message(text=message)
         message=    "Eloira, which is an IUS different from an IUD due to the absence of copper. A hormone (Levonorgestrel) "\
                     "replaces the copper. It is used to treat gynecological conditions and pregnancy prevention."\
-                    "Eloira, which is an IUS different from an IUD due to the absence of copper." \
-                    "A hormone (Levonorgestrel) replaces the copper. It is used "\
-                    "to treat gynecological conditions and pregnancy prevention."
+                    # "Eloira, which is an IUS different from an IUD due to the absence of copper." \
+                    # "A hormone (Levonorgestrel) replaces the copper. It is used "\
+                    # "to treat gynecological conditions and pregnancy prevention."
         dispatcher.utter_message(text=message)
+        dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/f41p5ei87ril6qassuiel2ul?v=1695034181128")
+
         return []
 
 
@@ -298,6 +300,7 @@ class ActionAskIudShow(Action):
                     "serve as an emergency contraceptive if used within 5days of unprotected sexual intercourse.\n"\
                     "  \nIts mechanism of action is to inhibit sperm penetration due to the toxicity of copper to sperm"
         dispatcher.utter_message(text=message)
+        dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/hfzgb1qs4f2f7prnw7jxvzsq?v=1695034123315")
         return []
 
 
@@ -370,12 +373,15 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
         print(f"------------------------------------ {slot_value}")
-            
-
-        return {'injectable_database': slot_value}
+        if slot_value == "Progesta":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/fwty6spob6fvmzy7d6kigsbv?v=1699596361639")
+        if slot_value == "Sayana Press":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/fwty6spob6fvmzy7d6kigsbv?v=1699596361639")
     
+
+        return {'injectable_database': slot_value} 
      
-    def validate_daily_contraceptive_database(self,
+    def validate_daily_contraceptive_database(self, 
                                               slot_value: Any,
                                               dispatcher: CollectingDispatcher,
                                               tracker: Tracker,
@@ -384,6 +390,13 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
 
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
+        if slot_value =="Levofem":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/me84zjejcyqsy5bn0j1kag6x?v=1695032418409")
+        if slot_value =="Desofem":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/jt5uf3v5zbns3z9ahg6g1yt7?v=1695033075331")
+        if slot_value =="Dianofem":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/me84zjejcyqsy5bn0j1kag6x?v=1695032418409")
+        
         return {'daily_contraceptive_database': slot_value}
     
     def validate_ius_medical_condition(self,
@@ -414,7 +427,7 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
 
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
-        return {'daily_contraceptive_database': slot_value}
+        return {'implants_database': slot_value}
     
     def validate_iud_who_can_and_cannot_use( self,
                                              slot_value: Any,

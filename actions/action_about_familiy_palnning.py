@@ -150,6 +150,7 @@ class ActionAskFamilyPlanningProduct(Action):
                     "Misoprostol": ActionMisoprostolDatabase}
         family_planning_method = get_slot_value(tracker, 'family_planning_method')
         print(f"family_planning_method: {family_planning_method}")
+        print(f"{database[family_planning_method]().run(dispatcher, tracker, domain)}")
         database[family_planning_method]().run(dispatcher, tracker, domain)
         return []
 
@@ -167,6 +168,29 @@ class ValidateSelectPlanningProduct(FormValidationAction):
 
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
+        if slot_value ==  "Miso-Fem":
+            send_audio_to_telegram(tracker.sender_id,"miso_fem.mp3")
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/rnibjxcqxalhj5bdya73t6de?v=1695033442476")
+        if slot_value ==  "Mifepak":
+            send_audio_to_telegram(tracker.sender_id,"mifepak.mp3")
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/nyk51muabe30nnrh2brm1ann?v=1695038721346")
+        if slot_value == "Fiesta intim gel":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/ve5s9r2zy5xql0w4xgwhz0h5?v=1695035450247")
+        if slot_value == "KY Jelly":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/rrkyravygai48dhokh93mewh?v=1695485135707")
+        if slot_value == "Female condom":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/jav5wf2tigjpmzhgbj9z0nxr?v=1698191892025")
+        print(f"male_condom_database: {slot_value}")
+        if slot_value == "Durex":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/u89m2yhtn2h4mwg1zrmc4vsu?v=1695046934183")
+        if slot_value == "Trojan":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/jt1ntxpoa9s0k4aq3j8m1akj?v=1695046181629")
+        if slot_value == "Kiss":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/jt1ntxpoa9s0k4aq3j8m1akj?v=1695046181629")
+        if slot_value == "Gold Circle":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/r0x11v0us12fl25uzsps4u09?v=1695046576299")
+        if slot_value == "Fiesta":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/khhlwsa9tt3xgoq2vh3yyhuv?v=1695046660975")
 
         return {"family_planning_method": slot_value}
     
@@ -180,6 +204,11 @@ class ValidateSelectPlanningProduct(FormValidationAction):
 
         if slot_value in ["Penegra", "HIV Self-test kit", "Diaphragm"]:
             dispatcher.utter_message(text=get_database_message(slot_value))
+        if slot_value == "Penegra":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/siuf2nmqf64trpx21r9lcm5w?v=1695033735916")
+            send_audio_to_telegram(tracker.sender_id,"Penegra.mp3")
+        if slot_value == "HIV Self-test kit":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/welytc2vq8j6ty950xofaquj?v=1695034713635")
         return {"family_planning_method":slot_value}
 
 
@@ -191,7 +220,10 @@ class ValidateSelectPlanningProduct(FormValidationAction):
             domain: "DomainDict",
     ) -> List[Text]:
         updated_slots = domain_slots.copy()
+        print(f"slot_1{updated_slots}")
         if get_slot_value(tracker, 'family_planning_method') in ["Penegra", "HIV Self-test kit", "Diaphragm"]:
             updated_slots.remove('family_planning_product')
+        print(f"slot_1{updated_slots}")    
+            
         return updated_slots
  

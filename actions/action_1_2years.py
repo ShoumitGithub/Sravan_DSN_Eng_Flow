@@ -176,7 +176,9 @@ class ValidateRequest02YearsForm(FormValidationAction):
 
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
-        return {'daily_contraceptive_database': slot_value}
+        if slot_value=="Levoplant":#"Levoplant", "Jadelle", "Implanon NXT"
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/eizomdztlafy60mp42xn4rwn?v=1695034049069")
+        return {'daily_implants_database': slot_value}
 
 
     def validate_daily_contraceptive_database(self,
@@ -188,6 +190,13 @@ class ValidateRequest02YearsForm(FormValidationAction):
 
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
+        if slot_value =="Levofem":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/me84zjejcyqsy5bn0j1kag6x?v=1695032418409")
+        if slot_value =="Desofem":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/jt5uf3v5zbns3z9ahg6g1yt7?v=1695033075331")
+        if slot_value =="Dianofem":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/me84zjejcyqsy5bn0j1kag6x?v=1695032418409")
+        
         return {'daily_contraceptive_database': slot_value}
 
     def validate_emergency_contraceptive_database(self,
@@ -199,6 +208,11 @@ class ValidateRequest02YearsForm(FormValidationAction):
         
         print(f"------------------------------------ {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
+        if slot_value == "Postpill":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/empvv7jez37bc3q35iteegbi?v=1695031858327")
+        if slot_value == "Postinor 2":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/empvv7jez37bc3q35iteegbi?v=1695031858327")
+        
         return {'emergency_contraceptive_database': slot_value}
 
     def validate_injectable_who_can_and_cannot_use_injectables(self,
@@ -232,7 +246,11 @@ class ValidateRequest02YearsForm(FormValidationAction):
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
         print(f"------------------------------------ {slot_value}")
-            
+        if slot_value == "Progesta":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/fwty6spob6fvmzy7d6kigsbv?v=1699596361639")
+        if slot_value == "Sayana Press":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/y96zv9w050zzhom701pni0hk?v=1699596149796")
+            send_audio_to_telegram(tracker.sender_id,"SayanaPress.mp3")
 
         return {'injectable_database': slot_value}    
     def validate_implants_who_can_and_cannot_use(self,

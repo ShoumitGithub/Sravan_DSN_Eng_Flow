@@ -225,8 +225,8 @@ class AskForSlotDailyPillsAdvantage(Action):
                   "Iron for 7 days (the 28-day pack).\n"
         dispatcher.utter_message(text=message)
 
-        message = "Click to listen to a short introduction of daily pills in Pidgin, if you want to.\n" \
-                  f"{audio_link}\n"
+        # message = "Click to listen to a short introduction of daily pills in Pidgin, if you want to.\n" \
+        #           f"{audio_link}\n"
         dispatcher.utter_message(text=message)
 
         message = f"Now let me tell you some of the advantages and disadvantages of daily pills.\n" \
@@ -240,8 +240,8 @@ class AskForSlotDailyPillsAdvantage(Action):
 
         message = f"Do you understand?"
         dispatcher.utter_message(text=message)
+        send_audio_to_telegram(tracker.sender_id,"Daily.mp3")
         return []
-
 
 class AskForSlotDailyPillsDisadvantage(Action):
     def name(self) -> Text:
@@ -337,14 +337,13 @@ class AskForSlotEmergencyPillExplanation(Action):
     def run(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        message = "Emergency contraceptive pills are pills taken immediately after unprotected sex to prevent " \
-                  "pregnancy. They contain 1.5mg Levonorgestrel and it is a one-dose medication. They work by " \
-                  "stopping the release of an egg from your ovary. It may prevent sperm from fertilizing the egg and " \
-                  "if fertilization occurs, it may prevent the fertilized egg from attaching to the womb. Emergency " \
-                  "pills are very effective when taken before sex especially during ovulation or within 24 to 72 " \
-                  "hours after unprotected sex. Please note that they have no effect on already established " \
-                  "pregnancy."
-                  
+        message = "Emergency contraceptive pills are pills taken immediately after unprotected sex to prevent pregnancy.\n" \
+                  "They contain 1.5mg Levonorgestrel and it is a one-dose medication.\n" \
+                  "  \nThey work by stopping the release of an egg from your ovary. It may prevent sperm from fertilizing the egg and " \
+                  "if fertilization occurs, it may prevent the fertilized egg from attaching to the womb.\n" \
+                  "  \nEmergency pills are very effective when taken before sex especially during ovulation or within 24 to 72 hours after unprotected sex.\n" \
+                  "  \nPlease note that they have no effect on already established pregnancy."
+                               
         dispatcher.utter_message(text=message)
 
         message= "Do you understand?"
@@ -366,9 +365,13 @@ class AskForSlotEmergencyPillAdvantage(Action):
                   "2. They are convenient, readily available and easy to use.\n" \
                   "3. The one-dose regimen ensures compliance.\n" \
                   "4. They reduce the need for abortion.\n" \
-                  "5.Their side effects are of very short duration.\n" \
-                  "6. Quick and easiest option for preventing unplanned pregnancy.\n" \
-                  "Do you understand?"
+                  "5. Their side effects are of very short duration.\n" \
+                  "6. Quick and easiest option for preventing unplanned pregnancy."
+                  
+        dispatcher.utter_message(text=message)
+
+        message= "Do you understand?"
+
         dispatcher.utter_message(text=message)
         return []
 
@@ -381,17 +384,21 @@ class AskForSlotEmergencyPillDisadvantage(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         message = "Now to the disadvantages of emergency pills.\n" \
-                  " Disadvantages \n" \
+                  "  \nDisadvantages\n" \
                   "1. They must be taken daily within 3 days of unprotected sex.\n" \
-                  " 2. They are less effective than regular contraceptives. \n" \
+                  "2. They are less effective than regular contraceptives. \n" \
                   "3. They might cause mild and temporary side effect which usually goes away after some days such as: " \
                   "a. Mild headache.\n" \
                   "b. Nausea or vomiting.\n" \
                   "c. Dizziness.\n" \
                   "d. Breast tenderness.\n" \
                   "e. Lower abdominal discomfort.\n" \
-                  "f. Menstrual change (period may come early)\n" \
-                  "Are you with me?"
+                  "f. Menstrual change (period may come early)"
+        
+        dispatcher.utter_message(text=message)
+        
+        message="Are you with me?"
+                  
         buttons = create_button(["Yes", "No"])
         dispatcher.utter_message(text=message, buttons=buttons, button_type="vertical")
         return []
@@ -752,6 +759,8 @@ class AskForSlotFemaleCondomShow(Action):
         message = "You can visit your nearest chemist/pharmacy to buy."
 
         dispatcher.utter_message(text=message)
+        dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/jav5wf2tigjpmzhgbj9z0nxr?v=1698191892025")
+
         return []
 
 
@@ -769,7 +778,8 @@ class AskForSlotAskMaleCondomExplanation(Action):
 
         message = "You can click the audio to listen to how to insert a condom correctly in Pidgin if you want to."
         dispatcher.utter_message(text=message)
-
+        send_audio_to_telegram(tracker.sender_id,"Male_Condom.mp3")
+        send_audio_to_telegram(tracker.sender_id,"insert_condom.mp3")
         return []
 
 
@@ -805,7 +815,7 @@ class ValidateRequest03MonthsForm(FormValidationAction):
                                           "Please speak to your doctor before using this method of contraceptive.")
 
         return {'daily_medical_conditions': slot_value}
-
+    
     def validate_daily_contraceptive_database(self,
                                               slot_value: Any,
                                               dispatcher: CollectingDispatcher,
@@ -815,6 +825,13 @@ class ValidateRequest03MonthsForm(FormValidationAction):
 
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
+        if slot_value =="Levofem":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/me84zjejcyqsy5bn0j1kag6x?v=1695032418409")
+        if slot_value =="Desofem":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/jt5uf3v5zbns3z9ahg6g1yt7?v=1695033075331")
+        if slot_value =="Dianofem":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/me84zjejcyqsy5bn0j1kag6x?v=1695032418409")
+        
         return {'daily_contraceptive_database': slot_value}
 
     def validate_emergency_contraceptive_database(self,
@@ -849,7 +866,7 @@ class ValidateRequest03MonthsForm(FormValidationAction):
                                           "h. Vascular Disease.\n"
                                           "i. Vaginal bleeding")
             return {'injectable_who_can_and_cannot_use_injectables': slot_value}
-
+        
     def validate_injectable_database(self,
                                      slot_value: Any,
                                      dispatcher: CollectingDispatcher,
@@ -859,9 +876,13 @@ class ValidateRequest03MonthsForm(FormValidationAction):
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
         print(f"------------------------------------ {slot_value}")
-            
+        if slot_value == "Progesta":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/fwty6spob6fvmzy7d6kigsbv?v=1699596361639")
+        if slot_value == "Sayana Press":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/fwty6spob6fvmzy7d6kigsbv?v=1699596361639")
+    
 
-        return {'injectable_database': slot_value}
+        return {'injectable_database': slot_value} 
 
     def validate_male_condom_database(self,
                                       slot_value: Any,
@@ -872,6 +893,19 @@ class ValidateRequest03MonthsForm(FormValidationAction):
 
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
+            print(f"male_condom_database: {slot_value}")
+        if slot_value == "Durex":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/u89m2yhtn2h4mwg1zrmc4vsu?v=1695046934183")
+        if slot_value == "Trojan":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/jt1ntxpoa9s0k4aq3j8m1akj?v=1695046181629")
+        if slot_value == "Kiss":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/jt1ntxpoa9s0k4aq3j8m1akj?v=1695046181629")
+        if slot_value == "Gold Circle":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/r0x11v0us12fl25uzsps4u09?v=1695046576299")
+        if slot_value == "Fiesta":
+            dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/khhlwsa9tt3xgoq2vh3yyhuv?v=1695046660975")
+
+
 
         return {'male_condom_database': slot_value}
 

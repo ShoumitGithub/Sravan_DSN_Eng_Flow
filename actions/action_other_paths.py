@@ -111,6 +111,10 @@ class ActionAskClinicInformation(Action):
         lga= get_slot_value(tracker, 'lga').upper()
         
         dispatcher.utter_message(text= get_clinic_info(state, lga))
+
+        message= "Note that these are clinics in partnership with DKT to offer family planning services."
+
+        dispatcher.utter_message(text=message)
         return []
 
 

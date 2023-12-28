@@ -134,7 +134,7 @@ def get_database_message(key_value: str):
                 "Sayana Press": """Sayana Press is indicated for long-term female contraception. Each subcutaneous injection prevents ovulation and provides contraception for at least 13 weeks\n
 You can click on the audio below to listen to a short introduction of Sayana press in Pidgin, if you want to.
                     
-<audio link>\n
+\n
 You can also click to watch a video on how to inject a Sayana Press in Pidgin.
 How to inject a Sayana Press\nhttps://youtu.be/bXi_6rbJhsk?si=86G6gnUmQaUCQ7t_\n""",
 
@@ -274,7 +274,7 @@ You can visit your nearest pharmacy or health shop to purchase"""
 import time
 
 def send_audio_to_telegram(chat_id, audio_path):
-    bot_token = "6981584077:AAGZIjltmtWJ5J_6Hr_SQ1TjYZRbLCzX75Y"
+    bot_token = "6848167753:AAH1RxCvS3a3Kqn2TM8AevRHOC726k-UcUg"
     api_url = f"https://api.telegram.org/bot{bot_token}/sendAudio"
     params = {"chat_id": chat_id}
     files = {"audio": (audio_path, open(audio_path, "rb"))}
