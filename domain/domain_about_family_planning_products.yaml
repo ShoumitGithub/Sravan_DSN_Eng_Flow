@@ -1,0 +1,38 @@
+version: "3.1"
+
+intents:
+  - about_planning_products
+
+actions:
+  - validate_request_select_planning_product
+  - action_ask_family_planning_method
+  - action_ask_family_planning_product
+
+
+
+forms:
+  request_select_planning_product:
+    required_slots:
+      - family_planning_method
+      - family_planning_product
+
+
+slots:
+  family_planning_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_select_planning_product
+            requested_slot: family_planning_method
+
+  family_planning_product:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_select_planning_product
+            requested_slot: family_planning_product
+

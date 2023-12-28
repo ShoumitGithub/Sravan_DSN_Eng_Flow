@@ -1,0 +1,22 @@
+---
+version: "3.1"
+intents:
+  - prevent_pregnancy_permanently
+
+actions:
+  - action_permanent_display_response
+
+forms:
+  request_permanent_form:
+    required_slots:
+      - permanent_method
+
+slots:
+  permanent_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_permanent_form
+            requested_slot: permanent_method

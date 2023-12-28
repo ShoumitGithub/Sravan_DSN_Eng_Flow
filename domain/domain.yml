@@ -1,0 +1,2966 @@
+---
+version: "3.1"
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - family_planning
+  - family_method
+  - prevent_pregnancy_0_3_months
+  - prevent_pregnancy_1_2_years
+  - prevent_pregnancy_3_4_years
+  - prevent_pregnancy_5_10_years
+  - nearest_family_planning_clinic
+  - other_reproductive_health_issues
+  - ask_gpt
+
+actions:
+  - action_restart
+  - action_how_long_prevent_pregnancy
+  - action_path
+  - action_family_method
+  - validate_request_family_planning_using_method_form
+  - action_next_options
+  - validate_request_0_3_months_form
+  - validate_request_1_2_years_form
+  - validate_request_3_4_years_form
+  - action_ask_0_3_months_method
+  - action_ask_daily_pills_advantage
+  - action_ask_daily_pills_disadvantage
+  - action_ask_daily_who_can_use_pills
+  - action_ask_daily_medical_conditions
+  - action_ask_daily_contraceptive_database
+  - action_ask_emergency_pill_explanation
+  - action_ask_emergency_pill_advantage
+  - action_ask_emergency_pill_disadvantage
+  - action_ask_emergency_who_can_and_cannot_use_contraceptive
+  - action_ask_emergency_contraceptive_database
+  - action_next_planning_action
+  - action_ask_injectable_explanation
+  - action_ask_injectable_advantage
+  - action_ask_injectable_disadvantage
+  - action_ask_injectable_who_can_and_cannot_use_injectables
+  - action_ask_injectable_medical_conditions
+  - action_ask_injectable_database
+  - action_ask_diaphragm_explanation
+  - action_ask_diaphragm_advantage
+  - action_ask_diaphragm_disadvantage
+  - action_ask_diaphragm_who_can_and_cannot_use
+  - action_ask_diaphragm_show
+  - action_ask_female_condom
+  - action_ask_female_who_can_and_cannot_use_condom
+  - action_ask_female_condom_show
+  - action_ask_male_condom_explanation
+  - action_ask_male_condom_database
+  - action_ask_implants_advantage
+  - action_ask_implants_disadvantage
+  - action_ask_implants_who_can_and_cannot_use
+  - action_ask_implants_medical_condition
+  - action_ask_implants_database
+  - action_ask_1_2_years_method
+  - action_ask_3_4_year_method
+  - action_ask_ius_explanation
+  - action_ask_ius_how_works
+  - action_ask_ius_advantage
+  - action_ask_ius_disadvantage
+  - action_ask_ius_who_can_and_cannot_use
+  - action_ask_ius_medical_condition
+  - action_ask_ius_yes
+  - action_ask_ius_show
+  - action_ask_iud_advantage
+  - action_ask_iud_disadvantage
+  - action_ask_iud_who_can_and_cannot_use
+  - action_ask_iud_medical_condition
+  - action_ask_iud_show
+  - action_ask_iud_yes
+  - action_greet_message
+  - action_ask_do_you_understand
+
+forms:
+  request_user_data_form:
+    required_slots:
+      - language
+      - gender
+      - age_group
+      - martial_status
+      - state
+      - lga
+
+  request_no_of_children_form:
+    required_slots:
+      - no_of_children
+
+  request_family_planning_using_method_form:
+    required_slots:
+      - is_planned_family_planning_before
+      - followed_method_before
+      - satisfied_last_method
+      - reason_for_not_satisfied
+
+  select_do_you_understand:
+    required_slots:
+      - do_you_understand
+
+  request_0_3_months_form:
+    required_slots:
+      - 0_3_months_method
+      - daily_pills_advantage
+      - daily_pills_disadvantage
+      - daily_who_can_use_pills
+      - daily_medical_conditions
+      - daily_contraceptive_database
+      - emergency_pill_explanation
+      - emergency_pill_advantage
+      - emergency_pill_disadvantage
+      - emergency_who_can_and_cannot_use_contraceptive
+      - emergency_contraceptive_database
+      - injectable_explanation
+      - injectable_advantage
+      - injectable_disadvantage
+      - injectable_who_can_and_cannot_use_injectables
+      - injectable_medical_conditions
+      - injectable_database
+      - diaphragm_explanation
+      - diaphragm_advantage
+      - diaphragm_disadvantage
+      - diaphragm_who_can_and_cannot_use
+      - diaphragm_show
+      - female_condom
+      - female_who_can_and_cannot_use_condom
+      - female_condom_show
+      - male_condom_database
+
+  request_1_2_years_form:
+    required_slots:
+      - 1_2_years_method
+      - daily_pills_advantage
+      - daily_pills_disadvantage
+      - daily_who_can_use_pills
+      - daily_medical_conditions
+      - daily_contraceptive_database
+      - emergency_pill_explanation
+      - emergency_pill_advantage
+      - emergency_pill_disadvantage
+      - emergency_who_can_and_cannot_use_contraceptive
+      - emergency_contraceptive_database
+      - injectable_explanation
+      - injectable_advantage
+      - injectable_disadvantage
+      - injectable_who_can_and_cannot_use_injectables
+      - injectable_medical_conditions
+      - injectable_database
+      - implants_advantage
+      - implants_disadvantage
+      - implants_who_can_and_cannot_use
+      - implants_medical_condition
+      - implants_database
+
+  request_3_4_years_form:
+    required_slots:
+      - 3_4_year_method
+      - daily_pills_advantage
+      - daily_pills_disadvantage
+      - daily_who_can_use_pills
+      - daily_medical_conditions
+      - daily_contraceptive_database
+      - emergency_pill_explanation
+      - emergency_pill_advantage
+      - emergency_pill_disadvantage
+      - emergency_who_can_and_cannot_use_contraceptive
+      - emergency_contraceptive_database
+      - injectable_explanation
+      - injectable_advantage
+      - injectable_disadvantage
+      - injectable_who_can_and_cannot_use_injectables
+      - injectable_medical_conditions
+      - injectable_database
+      - implants_advantage
+      - implants_disadvantage
+      - implants_who_can_and_cannot_use
+      - implants_medical_condition
+      - implants_database
+      - ius_how_works
+      - ius_advantage
+      - ius_disadvantage
+      - ius_who_can_and_cannot_use
+      - ius_medical_condition
+      - ius_yes
+      - ius_show
+      - iud_advantage
+      - iud_disadvantage
+      - iud_who_can_and_cannot_use
+      - iud_medical_condition
+      - iud_yes
+      - iud_show
+slots:
+
+  gender:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_user_data_form
+            requested_slot: gender
+  language:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_user_data_form
+            requested_slot: language
+  age_group:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_user_data_form
+            requested_slot: age_group
+  martial_status:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_user_data_form
+            requested_slot: martial_status
+  state:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_user_data_form
+            requested_slot: state
+  lga:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_user_data_form
+            requested_slot: lga
+
+  no_of_children:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_no_of_children_form
+            requested_slot: no_of_children
+
+  is_planned_family_planning_before:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_family_planning_using_method_form
+            requested_slot: is_planned_family_planning_before
+
+  followed_method_before:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_family_planning_using_method_form
+            requested_slot: followed_method_before
+
+  satisfied_last_method:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_family_planning_using_method_form
+            requested_slot: satisfied_last_method
+
+  reason_for_not_satisfied:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_family_planning_using_method_form
+            requested_slot: reason_for_not_satisfied
+
+  do_you_understand:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: select_do_you_understand
+            requested_slot: do_you_understand
+
+  injectable_explanation:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: injectable_explanation
+          - active_loop: request_1_2_years_form
+            requested_slot: injectable_explanation
+          - active_loop: request_3_4_years_form
+            requested_slot: injectable_explanation
+
+  injectable_advantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: injectable_advantage
+          - active_loop: request_1_2_years_form
+            requested_slot: injectable_advantage
+          - active_loop: request_3_4_years_form
+            requested_slot: injectable_advantage
+
+  injectable_disadvantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: injectable_disadvantage
+          - active_loop: request_1_2_years_form
+            requested_slot: injectable_disadvantage
+          - active_loop: request_3_4_years_form
+            requested_slot: injectable_disadvantage
+
+
+  injectable_medical_conditions:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: injectable_medical_conditions
+          - active_loop: request_1_2_years_form
+          - active_loop: request_0_3_months_form
+            requested_slot: injectable_medical_conditions
+          - active_loop: request_3_4_years_form
+          - active_loop: request_0_3_months_form
+            requested_slot: injectable_medical_conditions
+
+  injectable_who_can_and_cannot_use_injectables:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: injectable_who_can_and_cannot_use_injectables
+          - active_loop: request_1_2_years_form
+            requested_slot: injectable_who_can_and_cannot_use_injectables
+          - active_loop: request_3_4_years_form
+            requested_slot: injectable_who_can_and_cannot_use_injectables
+
+  injectable_database:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: injectable_database
+          - active_loop: request_1_2_years_form
+            requested_slot: injectable_database
+          - active_loop: request_3_4_years_form
+            requested_slot: injectable_database
+
+  diaphragm_explanation:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: diaphragm_explanation
+
+  diaphragm_advantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: diaphragm_advantage
+
+  diaphragm_disadvantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: diaphragm_disadvantage
+
+  diaphragm_who_can_and_cannot_use:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: diaphragm_who_can_and_cannot_use
+
+
+  diaphragm_show:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: diaphragm_show
+
+  female_condom:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: female_condom
+
+  female_who_can_and_cannot_use_condom:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: female_who_can_and_cannot_use_condom
+
+  female_condom_show:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: female_condom_show
+
+  male_condom_database:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: male_condom_database
+
+#  0_3_months_method:
+#    type: text
+#    influence_conversation: false
+#    mappings:
+#      - type: from_text
+#        conditions:
+#          - active_loop: request_0_3_months_form
+#            requested_slot: 0_3_months_method
+
+  1_2_years_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_1_2_years_form
+            requested_slot: 1_2_years_method
+
+
+  0_3_months_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: 0_3_months_method
+
+  daily_pills_advantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: daily_pills_advantage
+          - active_loop: request_1_2_years_form
+            requested_slot: daily_pills_advantage
+          - active_loop: request_3_4_years_form
+            requested_slot: daily_pills_advantage
+
+  daily_pills_disadvantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: daily_pills_disadvantage
+          - active_loop: request_1_2_years_form
+            requested_slot: daily_pills_disadvantage
+          - active_loop: request_3_4_years_form
+            requested_slot: daily_pills_disadvantage
+
+  daily_who_can_use_pills:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: daily_who_can_use_pills
+          - active_loop: request_1_2_years_form
+            requested_slot: daily_who_can_use_pills
+          - active_loop: request_3_4_years_form
+            requested_slot: daily_who_can_use_pills
+
+
+  daily_medical_conditions:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: daily_medical_conditions
+          - active_loop: request_1_2_years_form
+            requested_slot: daily_medical_conditions
+          - active_loop: request_3_4_years_form
+            requested_slot: daily_medical_conditions
+
+  daily_contraceptive_database:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: daily_contraceptive_database
+          - active_loop: request_1_2_years_form
+            requested_slot: daily_contraceptive_database
+          - active_loop: request_3_4_years_form
+            requested_slot: daily_contraceptive_database
+
+  emergency_pill_advantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: emergency_pill_advantage
+          - active_loop: request_1_2_years_form
+            requested_slot: emergency_pill_advantage
+          - active_loop: request_3_4_years_form
+            requested_slot: emergency_pill_advantage
+
+  emergency_pill_disadvantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: emergency_pill_disadvantage
+          - active_loop: request_1_2_years_form
+            requested_slot: emergency_pill_disadvantage
+          - active_loop: request_3_4_years_form
+            requested_slot: emergency_pill_disadvantage
+
+
+  emergency_who_can_and_cannot_use_contraceptive:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: emergency_who_can_and_cannot_use_contraceptive
+          - active_loop: request_1_2_years_form
+            requested_slot: emergency_who_can_and_cannot_use_contraceptive
+          - active_loop: request_3_4_years_form
+            requested_slot: emergency_who_can_and_cannot_use_contraceptive
+
+
+  emergency_contraceptive_database:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: emergency_contraceptive_database
+          - active_loop: request_1_2_years_form
+            requested_slot: emergency_contraceptive_database
+          - active_loop: request_3_4_years_form
+            requested_slot: emergency_contraceptive_database
+
+  emergency_pill_explanation:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_0_3_months_form
+            requested_slot: emergency_pill_explanation
+          - active_loop: request_1_2_years_form
+            requested_slot: emergency_pill_explanation
+          - active_loop: request_3_4_years_form
+            requested_slot: emergency_pill_explanation
+
+  implants_advantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_1_2_years_form
+            requested_slot: implants_advantage
+          - active_loop: request_3_4_years_form
+            requested_slot: implants_advantage
+
+  implants_disadvantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_1_2_years_form
+            requested_slot: implants_disadvantage
+          - active_loop: request_3_4_years_form
+            requested_slot: implants_disadvantage
+
+  implants_medical_condition:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_1_2_years_form
+            requested_slot: implants_medical_condition
+          - active_loop: request_3_4_years_form
+            requested_slot: implants_medical_condition
+
+  implants_database:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_1_2_years_form
+            requested_slot: implants_database
+          - active_loop: request_3_4_years_form
+            requested_slot: implants_database
+
+  implants_who_can_and_cannot_use:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_1_2_years_form
+            requested_slot: implants_who_can_and_cannot_use
+          - active_loop: request_3_4_years_form
+            requested_slot: implants_who_can_and_cannot_use
+
+  3_4_year_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: 3_4_year_method
+
+  ius_how_works:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_how_works
+
+  ius_advantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_advantage
+
+
+  ius_disadvantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_disadvantage
+
+  ius_who_can_and_cannot_use:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_who_can_and_cannot_use
+
+  ius_medical_condition:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_medical_condition
+
+
+  ius_show:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_show
+
+  iud_advantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_advantage
+
+  iud_disadvantage:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_disadvantage
+
+  iud_who_can_and_cannot_use:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_who_can_and_cannot_use
+
+  iud_medical_condition:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_medical_condition
+
+  iud_show:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_show
+
+  ius_yes:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: ius_yes
+
+  iud_yes:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: request_3_4_years_form
+            requested_slot: iud_yes
+
+responses:
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+    - text: Did that help you?
+  utter_happy:
+    - text: Great, carry on!
+  utter_goodbye:
+    - text: Bye
+  utter_iamabot:
+    - text: I am a bot, powered by Rasa.
+  utter_greet:
+    - text: >-
+        Hey! How are you today?
+         My name is Honey. I am a family planning counsellor. I am here to help with family 
+         planning knowledge and give you counselling.
+         I can answer your family planning questions, refer to an agent to speak with and also 
+         refer you to a family planning clinic.
+         Before we continue, I would like to get some of your details to help you better.
+  utter_ask_language:
+    - text: |
+        Please choose your preferred language
+      buttons:
+        - title: English
+          payload: English
+        - title: Hausa
+          payload: Hausa
+        - title: Yoruba
+          payload: Yoruba
+      button_type: vertical
+  utter_ask_gender:
+    - text: |
+        What is your Gender?
+      buttons:
+        - title: Male
+          payload: male
+        - title: Female
+          payload: female
+        - title: Prefer not to say
+          payload: Prefer not to say
+      button_type: vertical
+  utter_ask_age_group:
+    - text: |
+        What is your age group?
+      buttons:
+      - title: "15-25"
+        payload: "15-25"
+      - title: "26-35"
+        payload: "26-35"
+      - title: "36-45"
+        payload: "36-45"
+      - title: "46-55"
+        payload: "46-55"
+      button_type: vertical
+  utter_ask_martial_status:
+    - text: |
+        What best describes you?
+      buttons:
+      - title: "Single"
+        payload: "Single"
+      - title: "Married"
+        payload: "Married"
+      - title: "Prefer not to say"
+        payload: "Prefer not to say"
+      button_type: vertical
+  utter_ask_state:
+  - text: Which state are you chatting from?
+    buttons:
+      - title: "Abia"
+        payload: "Abia"
+      - title: "Adamawa"
+        payload: "Adamawa"
+      - title: "Akwa Ibom"
+        payload: "Akwa Ibom"
+      - title: "Anambra"
+        payload: "Anambra"
+      - title: "Bauchi"
+        payload: "Bauchi" 
+      - title: "Bayelsa"
+        payload: "Bayelsa"
+      - title: "Benue"
+        payload: "Benue"
+      - title: "Borno"
+        payload: "Borno"
+      - title: "Cross River"
+        payload: "Cross River"
+      - title: "Delta"
+        payload: "Delta"
+      - title: "Ebonyi"
+        payload: "Ebonyi"
+      - title: "Edo"
+        payload: "Edo"
+      - title: "Ekiti"
+        payload: "Ekiti"
+      - title: "Enugu"
+        payload: "Enugu"
+      - title: "Gombe"
+        payload: "Gombe"
+      - title: "Imo"
+        payload: "Imo"
+      - title: "Jigawa"
+        payload: "Jigawa"
+      - title: "Kaduna"
+        payload: "Kaduna"
+      - title: "Kano"
+        payload: "Kano"
+      - title: "Kastina"
+        payload: "Kastina"
+      - title: "Kebbi"
+        payload: "Kebbi"
+      - title: "Kogi"
+        payload: "Kogi"
+      - title: "Kwara"
+        payload: "Kwara"
+      - title: "Lagos"
+        payload: "Lagos"
+      - title: "Nasarawa"
+        payload: "Nasarawa"
+      - title: "Niger"
+        payload: "Niger"
+      - title: "Ogun"
+        payload: "Ogun"
+      - title: "Ondo"
+        payload: "Ondo"
+      - title: "Osun"
+        payload: "Osun"
+      - title: "Oyo"
+        payload: "Oyo"
+      - title: "Plateau"
+        payload: "Plateau"
+      - title: "Rivers"
+        payload: "Rivers"
+      - title: "Sokoto"
+        payload: "Sokoto"
+      - title: "Taraba"
+        payload: "Taraba"
+      - title: "Yobe"
+        payload: "Yobe"
+      - title: "Zamfara"
+        payload: "Zamfara"
+      - title: "FCT Abuja"
+        payload: "FCT Abuja"
+    button_type: vertical
+
+
+  utter_ask_lga:
+    - condition:
+        - type: slot
+          name: state
+          value: "Anambra"
+      text: "Choose the local government you are chatting from."
+      buttons:
+        - title: "Aguata"
+          payload: "Aguata"
+        - title: "Anambra East"
+          payload: "Anambra East"
+        - title: "Anambra West"
+          payload: "Anambra West"
+        - title: "Anaocha"
+          payload: "Anaocha"
+        - title: "Awka North"
+          payload: "Awka North"
+        - title: "Awka south"
+          payload: "Awka south"
+        - title: "Ayamelum"
+          payload: "Ayamelum"
+        - title: "Dunukofia"
+          payload: "Dunukofia"
+        - title: "Ekwusigo"
+          payload: "Ekwusigo"
+        - title: "Idemili North"
+          payload: "Idemili North"
+        - title: "Idemili South"
+          payload: "Idemili South"
+        - title: "Ihiala"
+          payload: "Ihiala"
+        - title: "Njikoka"
+          payload: "Njikoka"
+        - title: "Nnewi North"
+          payload: "Nnewi North"
+        - title: "Nnewi South"
+          payload: "Nnewi South"
+        - title: "Ogbaru"
+          payload: "Ogbaru"
+        - title: "Onitsha North"
+          payload: "Onitsha North"
+        - title: "Onitsha South"
+          payload: "Onitsha South"
+        - title: "Orumba North"
+          payload: "Orumba North"
+        - title: "Orumba South"
+          payload: "Orumba South"
+        - title: "Oyi"
+          payload: "Oyi"
+      button_type: vertical
+      
+    - condition:
+        - type: slot
+          name: state
+          value: "Kaduna"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: "Birni-Gwari"
+          payload: "Birni-Gwari"
+        - title: "Chikun"
+          payload: "Chikun"
+        - title: "Giwa"
+          payload: "Giwa"
+        - title: "Igabi"
+          payload: "Igabi"
+        - title: "Ikara"
+          payload: "Ikara"
+        - title: "Jaba"
+          payload: "Jaba"
+        - title: "Jema'a"
+          payload: "Jema'a"
+        - title: "Kachia"
+          payload: "Kachia"
+        - title: "Kaduna South"
+          payload: "Kaduna South"
+        - title: "Kaduna North"
+          payload: "Kaduna North"
+        - title: "Kagarko"
+          payload: "Kagarko"
+        - title: "Kajuru"
+          payload: "Kajuru"
+        - title: "Kaura"
+          payload: "Kaura"
+        - title: "Kauru"
+          payload: "Kauru"
+        - title: "Kubau"
+          payload: "Kubau"
+        - title: "Kudan"
+          payload: "Kudan"
+        - title: "Lere"
+          payload: "Lere"
+        - title: "Makarfi"
+          payload: "Makarfi"
+        - title: "Sabon-Gari"
+          payload: "Sabon-Gari"
+        - title: "Sanga"
+          payload: "Sanga"
+        - title: "Soba"
+          payload: "Soba"
+        - title: "Zangon-Kataf"
+          payload: "Zangon-Kataf"
+        - title: "Zaria"
+          payload: "Zaria"
+      button_type: vertical
+        
+    - condition:
+        - type: slot
+          name: state
+          value: "Kebbi"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Aleiro"
+          payload: "Aleiro"
+        - title: "Arewa-Dandi"
+          payload: "Arewa-Dandi"
+        - title: "Argungu"
+          payload: "Argungu"
+        - title: "Augie"
+          payload: "Augie"
+        - title: "Bagudo"
+          payload: "Bagudo"
+        - title: "Birnin Kebbi"
+          payload: "Birnin Kebbi"
+        - title: "Bunza"
+          payload: "Bunza"
+        - title: "Dandi"
+          payload: "Dandi"
+        - title: "Fakai"
+          payload: "Fakai"
+        - title: "Gwandu"
+          payload: "Gwandu"
+        - title: "Jega"
+          payload: "Jega"
+        - title: "Kalgo"
+          payload: "Kalgo"
+        - title: "Koko/Besse"
+          payload: "Koko/Besse"
+        - title: "Maiyama"
+          payload: "Maiyama"
+        - title: "Ngaski"
+          payload: "Ngaski"
+        - title: "Sakaba"
+          payload: "Sakaba"
+        - title: "Shanga"
+          payload: "Shanga"
+        - title: "Suru"
+          payload: "Suru"
+        - title: "Wasagu/Danko"
+          payload: "Wasagu/Danko"
+        - title: "Yauri"
+          payload: "Yauri"
+        - title: "Zuru"
+          payload: "Zuru"
+      button_type: vertical
+
+    - condition:
+        - type: slot
+          name: state
+          value: "Niger"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Agaie"
+          payload: "Agaie"
+        - title: "Agwara"
+          payload: "Agwara"
+        - title: "Bida"
+          payload: "Bida"
+        - title: "Borgu"
+          payload: "Borgu"
+        - title: "Bosso"
+          payload: "Bosso"
+        - title: "Chanchaga"
+          payload: "Chanchaga"
+        - title: "Edati"
+          payload: "Edati"
+        - title: "Gbako"
+          payload: "Gbako"
+        - title: "Gurara"
+          payload: "Gurara"
+        - title: "Kacha"
+          payload: "Kacha"
+        - title: "Kontagoro"
+          payload: "Kontagoro"
+        - title: "Lapai"
+          payload: "Lapai"
+        - title: "Lavun"
+          payload: "Lavun"
+        - title: "Magama"
+          payload: "Magama"
+        - title: "Mariga"
+          payload: "Mariga"
+        - title: "Mashegu"
+          payload: "Mashegu"
+        - title: "Mokwa"
+          payload: "Mokwa"
+        - title: "Muya"
+          payload: "Muya"
+        - title: "Paikoro"
+          payload: "Paikoro"
+        - title: "Rafi"
+          payload: "Rafi"
+        - title: "Rijau"
+          payload: "Rijau"
+        - title: "Shiroro"
+          payload: "Shiroro"
+        - title: "Suleja"
+          payload: "Suleja"
+        - title: "Tafa"
+          payload: "Tafa"
+        - title: "Wushishi"
+          payload: "Wushishi"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Sokoto"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Binji"
+          payload: "Binji"
+        - title: "Bondinga"
+          payload: "Bondinga"
+        - title: "Dange Shuni"
+          payload: "Dange Shuni"
+        - title: "Gada"
+          payload: "Gada"
+        - title: "Goronyo"
+          payload: "Goronyo"
+        - title: "Gudu"
+          payload: "Gudu"
+        - title: "Gwadabawa"
+          payload: "Gwadabawa"
+        - title: "Illela"
+          payload: "Illela"
+        - title: "Isa"
+          payload: "Isa"
+        - title: "Kebbe"
+          payload: "Kebbe"
+        - title: "Kware"
+          payload: "Kware"
+        - title: "Raba"
+          payload: "Raba"
+        - title: "Sabon Birni"
+          payload: "Sabon Birni"
+        - title: "Shagari"
+          payload: "Shagari"
+        - title: "Silame"
+          payload: "Silame"
+        - title: "Sokoto North"
+          payload: "Sokoto North"
+        - title: "Sokoto South"
+          payload: "Sokoto South"
+        - title: "Tambuwal"
+          payload: "Tambuwal"
+        - title: "Tangaza"
+          payload: "Tangaza"
+        - title: "Tureta"
+          payload: "Tureta"
+        - title: "Wamakko"
+          payload: "Wamakko"
+        - title: "Wurno"
+          payload: "Wurno"
+        - title: "Yabo"
+          payload: "Yabo"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Kogi"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Adavi"
+          payload: "Adavi"
+        - title: "Ajaokuta"
+          payload: "Ajaokuta"
+        - title: "Ankpa"
+          payload: "Ankpa"
+        - title: "Bassa"
+          payload: "Bassa"
+        - title: "Dekina"
+          payload: "Dekina"
+        - title: "Ibaji"
+          payload: "Ibaji"
+        - title: "Ida"
+          payload: "Ida"
+        - title: "Igalamela-Odulu"
+          payload: "Igalamela-Odulu"
+        - title: "Ijumu"
+          payload: "Ijumu"
+        - title: "Kabba/Bunu"
+          payload: "Kabba/Bunu"
+        - title: "Kogi"
+          payload: "Kogi"
+        - title: "Lokoja"
+          payload: "Lokoja"
+        - title: "Mopa-Muro"
+          payload: "Mopa-Muro"
+        - title: "Ofu"
+          payload: "Ofu"
+        - title: "Ogori/Mangogo"
+          payload: "Ogori/Mangogo"
+        - title: "Okehi"
+          payload: "Okehi"
+        - title: "Okene"
+          payload: "Okene"
+        - title: "Olamaboro"
+          payload: "Olamaboro"
+        - title: "Omala"
+          payload: "Omala"
+        - title: "Yagba East"
+          payload: "Yagba East"
+        - title: "Yagba West"
+          payload: "Yagba West"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Abia"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Aba North"
+          payload: "Aba North"
+        - title: "Aba South"
+          payload: "Aba South"
+        - title: "Arochukwu"
+          payload: "Arochukwu"
+        - title: "Ikwuano"
+          payload: "Ikwuano"
+        - title: "Isiala Ngwa North"
+          payload: "Isiala Ngwa North"
+        - title: "Isiala Ngwa South"
+          payload: "Isiala Ngwa South"
+        - title: "Isuikwuato"
+          payload: "Isuikwuato"
+        - title: "Obingwa"
+          payload: "Obingwa"
+        - title: "Ohafia"
+          payload: "Ohafia"
+        - title: "Osisioma Ngwa"
+          payload: "Osisioma Ngwa"
+        - title: "Ugwunagbo"
+          payload: "Ugwunagbo"
+        - title: "Ukwa East"
+          payload: "Ukwa East"
+        - title: "Ukwa West"
+          payload: "Ukwa West"
+        - title: "Umuahia North"
+          payload: "Umuahia North"
+        - title: "Umuahia South"
+          payload: "Umuahia South"
+        - title: "Umunneochi"
+          payload: "Umunneochi"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Bayelsa"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Brass"
+          payload: "Brass"
+        - title: "Ekeremor"
+          payload: "Ekeremor"
+        - title: "Kolokuma/Opukuma"
+          payload: "Kolokuma/Opukuma"
+        - title: "Ikwuano"
+          payload: "Ikwuano"
+        - title: "Ogbia"
+          payload: "Ogbia"
+        - title: "Isiala Ngwa South"
+          payload: "Isiala Ngwa South"
+        - title: "Southern Ijaw"
+          payload: "Southern Ijaw"
+        - title: "Yenogoa"
+          payload: "Yenogoa"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "FCT Abuja"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Abaji"
+          payload: "Abaji"
+        - title: "AMAC"
+          payload: "AMAC"
+        - title: "Bwari"
+          payload: "Bwari"
+        - title: "Ikwuano"
+          payload: "Ikwuano"
+        - title: "Kuje"
+          payload: "Kuje"
+        - title: "Kwali"
+          payload: "Kwali"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Nasarawa"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Akwanga"
+          payload: "Akwanga"
+        - title: "Awe"
+          payload: "Awe"
+        - title: "Doma"
+          payload: "Doma"
+        - title: "Karu"
+          payload: "Karu"
+        - title: "Keana"
+          payload: "Keana"
+        - title: "Keffi"
+          payload: "Keffi"
+        - title: "Kokona"
+          payload: "Kokona"
+        - title: "Lafia"
+          payload: "Lafia"
+        - title: "Nasarawa"
+          payload: "Nasarawa"
+        - title: "Nasarawa-Eggon"
+          payload: "Nasarawa-Eggon"
+        - title: "Obi"
+          payload: "Obi"
+        - title: "Toto"
+          payload: "Toto"
+        - title: "Wamba"
+          payload: "Wamba"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Zamfara"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Anka"
+          payload: "Anka"
+        - title: "AMAC"
+          payload: "AMAC"
+        - title: "Birnin Magaji"
+          payload: "Birnin Magaji"
+        - title: "Bukkuyum"
+          payload: "Bukkuyum"
+        - title: "Bungudu"
+          payload: "Bungudu"
+        - title: "Gummi"
+          payload: "Gummi"
+        - title: "Gusau"
+          payload: "Gusau"
+        - title: "Kaura Namoda"
+          payload: "Kaura Namoda"
+        - title: "Maradun"
+          payload: "Maradun"
+        - title: "Maru"
+          payload: "Maru"
+        - title: "Shinkafi"
+          payload: "Shinkafi"
+        - title: "Talata Mafara"
+          payload: "Talata Mafara"
+        - title: "Tsafe"
+          payload: "Tsafe"
+        - title: "Zurmi"
+          payload: "Zurmi"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Bayelsa copy"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Brass"
+          payload: "Brass"
+        - title: "Ekeremor"
+          payload: "Ekeremor"
+        - title: "Kolokuma/Opukuma"
+          payload: "Kolokuma/Opukuma"
+        - title: "Ikwuano"
+          payload: "Ikwuano"
+        - title: "Ogbia"
+          payload: "Ogbia"
+        - title: "Isiala Ngwa South"
+          payload: "Isiala Ngwa South"
+        - title: "Southern Ijaw"
+          payload: "Southern Ijaw"
+        - title: "Yenogoa"
+          payload: "Yenogoa"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Gombe"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Akko"
+          payload: "Akko"
+        - title: "Balanga"
+          payload: "Balanga"
+        - title: "Billiru"
+          payload: "Billiru"
+        - title: "Dukku"
+          payload: "Dukku"
+        - title: "Funakaye"
+          payload: "Funakaye"
+        - title: "Gombe"
+          payload: "Gombe"
+        - title: "Kaltungo"
+          payload: "Kaltungo"
+        - title: "Kwami"
+          payload: "Kwami"
+        - title: "Shogom"
+          payload: "Shogom"
+        - title: "Yamaltu/Deba"
+          payload: "Yamaltu/Deba"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Adamawa"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Demsa"
+          payload: "Demsa"
+        - title: "Fufore"
+          payload: "Fufore"
+        - title: "Ganye"
+          payload: "Ganye"
+        - title: "Girei"
+          payload: "Girei"
+        - title: "Gombi"
+          payload: "Gombi"
+        - title: "Guyuk"
+          payload: "Guyuk"
+        - title: "Hong"
+          payload: "Hong"
+        - title: "Jada"
+          payload: "Jada"
+        - title: "Lamurde"
+          payload: "Lamurde"
+        - title: "Madagali"
+          payload: "Madagali"
+        - title: "Maiha"
+          payload: "Maiha"
+        - title: "Mayo-Belwa"
+          payload: "Mayo-Belwa"
+        - title: "Michika"
+          payload: "Michika"
+        - title: "Mubi North"
+          payload: "Mubi North"
+        - title: "Mubi South"
+          payload: "Mubi South"
+        - title: "Numan"
+          payload: "Numan"
+        - title: "Shelleng"
+          payload: "Shelleng"
+        - title: "Song"
+          payload: "Song"
+        - title: "Toungo"
+          payload: "Toungo"
+        - title: "Yola North"
+          payload: "Yola North"
+        - title: "Yola South"
+          payload: "Yola South"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Akwa Ibom"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Abak"
+          payload: "Abak"
+        - title: "Eastern Obolo"
+          payload: "Eastern Obolo"
+        - title: "Eket"
+          payload: "Eket"
+        - title: "Esit-Eket"
+          payload: "Esit-Eket"
+        - title: "Essien Udim"
+          payload: "Essien Udim"
+        - title: "Etim-Ekpo"
+          payload: "Etim-Ekpo"
+        - title: "Etinan"
+          payload: "Etinan"
+        - title: "Ibeno"
+          payload: "Ibeno"
+        - title: "Ibesikpo-Asutan"
+          payload: "Ibesikpo-Asutan"
+        - title: "Ibiono-Asutan"
+          payload: "Ibiono-Asutan"
+        - title: "Ika"
+          payload: "Ika"
+        - title: "Ikono"
+          payload: "Ikono"
+        - title: "Ikot Abasi"
+          payload: "Ikot Abasi"
+        - title: "Ikot Ekpene"
+          payload: "Ikot Ekpene"
+        - title: "Ini"
+          payload: "Ini"
+        - title: "Itu"
+          payload: "Itu"
+        - title: "Mbo"
+          payload: "Mbo"
+        - title: "Mkpat-Enin"
+          payload: "Mkpat-Enin"
+        - title: "Nsit-Atai"
+          payload: "Nsit-Atai"
+        - title: "Nsit-Ibom"
+          payload: "Nsit-Ibom"
+        - title: "Nsit-Ubium"
+          payload: "Nsit-Ubium"
+        - title: "Obot-Akara"
+          payload: "Obot-Akara"
+        - title: "Okobo"
+          payload: "Okobo"
+        - title: "Onna"
+          payload: "Onna"
+        - title: "Oron"
+          payload: "Oron"
+        - title: "Oruk Anam"
+          payload: "Oruk Anam"
+        - title: "Ukanafun"
+          payload: "Ukanafun"
+        - title: "Udung-Uko"
+          payload: "Udung-Uko"
+        - title: "Uruan"
+          payload: "Uruan"
+        - title: "Urue-Offong/Oruko"
+          payload: "Urue-Offong/Oruko"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Kastina"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Bakori"
+          payload: "Bakori"
+        - title: "Batagarawa"
+          payload: "Batagarawa"
+        - title: "Batsari"
+          payload: "Batsari"
+        - title: "Baure"
+          payload: "Baure"
+        - title: "Bindawa"
+          payload: "Bindawa"
+        - title: "Charanchi"
+          payload: "Charanchi"
+        - title: "Dan Musa"
+          payload: "Dan Musa"
+        - title: "Dandume"
+          payload: "Dandume"
+        - title: "Danja"
+          payload: "Danja"
+        - title: "Daura"
+          payload: "Daura"
+        - title: "Dustin-Ma"
+          payload: "Dustin-Ma"
+        - title: "Dusti"
+          payload: "Dusti"
+        - title: "Faskari"
+          payload: "Faskari"
+        - title: "Funtua"
+          payload: "Funtua"
+        - title: "Ingawa"
+          payload: "Ingawa"
+        - title: "Jibia"
+          payload: "Jibia"
+        - title: "Kafur"
+          payload: "Kafur"
+        - title: "Kaita"
+          payload: "Kaita"
+        - title: "Kankara"
+          payload: "Kankara"
+        - title: "Knakia"
+          payload: "Knakia"
+        - title: "Kastina"
+          payload: "Kastina"
+        - title: "Kurfi"
+          payload: "Kurfi"
+        - title: "Kusada"
+          payload: "Kusada"
+        - title: "Mai'adua"
+          payload: "Mai'adua"
+        - title: "Malumfashi"
+          payload: "Malumfashi"
+        - title: "Mani"
+          payload: "Mani"
+        - title: "Mashi"
+          payload: "Mashi"
+        - title: "Matazu"
+          payload: "Matazu"
+        - title: "Musawa"
+          payload: "Musawa"
+        - title: "Rimi"
+          payload: "Rimi"
+        - title: "Sabuwa"
+          payload: "Sabuwa"
+        - title: "Safana"
+          payload: "Safana"
+        - title: "Sandamu"
+          payload: "Sandamu"
+        - title: "Zango"
+          payload: "Zango"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Osun"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Aiyadaade"
+          payload: "Aiyadaade"
+        - title: "Aiyedire"
+          payload: "Aiyedire"
+        - title: "Atakumosa East"
+          payload: "Atakumosa East"
+        - title: "Atakumosa West"
+          payload: "Atakumosa West"
+        - title: "Boluwaduro"
+          payload: "Boluwaduro"
+        - title: "Boripe"
+          payload: "Boripe"
+        - title: "Ede North"
+          payload: "Ede North"
+        - title: "Ede South"
+          payload: "Ede South"
+        - title: "Egbedore"
+          payload: "Egbedore"
+        - title: "Ejigbo"
+          payload: "Ejigbo"
+        - title: "Ife Central"
+          payload: "Ife Central"
+        - title: "Ife East"
+          payload: "Ife East"
+        - title: "Ife North"
+          payload: "Ife North"
+        - title: "Ife South"
+          payload: "Ife South"
+        - title: "Ifedayo"
+          payload: "Ifedayo"
+        - title: "Ifelodun"
+          payload: "Ifelodun"
+        - title: "Ila"
+          payload: "Ila"
+        - title: "Ilesha West"
+          payload: "Ilesha West"
+        - title: "Ilesha East"
+          payload: "Ilesha East"
+        - title: "Irepodun"
+          payload: "Irepodun"
+        - title: "Irewole"
+          payload: "Irewole"
+        - title: "Isokan"
+          payload: "Isokan"
+        - title: "Iwo"
+          payload: "Iwo"
+        - title: "Obokun"
+          payload: "Obokun"
+        - title: "Odo-Otin"
+          payload: "Odo-Otin"
+        - title: "Ola Oluwa"
+          payload: "Ola Oluwa"
+        - title: "Olorunda"
+          payload: "Olorunda"
+        - title: "Oriade"
+          payload: "Oriade"
+        - title: "Orolu"
+          payload: "Orolu"
+        - title: "Osogbo"
+          payload: "Osogbo"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Oyo"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Afijio"
+          payload: "Afijio"
+        - title: "Akinyele"
+          payload: "Akinyele"
+        - title: "Atiba"
+          payload: "Atiba"
+        - title: "Atisbo"
+          payload: "Atisbo"
+        - title: "Egbeda"
+          payload: "Egbeda"
+        - title: "Ibadan North"
+          payload: "Ibadan North"
+        - title: "Ibadan North East"
+          payload: "Ibadan North East"
+        - title: "Ibadan North West"
+          payload: "Ibadan North West"
+        - title: "Ibandan South East"
+          payload: "Ibandan South East"
+        - title: "Ibadan South West"
+          payload: "Ibadan South West"
+        - title: "Ibarapa Central"
+          payload: "Ibarapa Central"
+        - title: "Ibarapa East"
+          payload: "Ibarapa East"
+        - title: "Ibarapa North"
+          payload: "Ibarapa North"
+        - title: "Ido"
+          payload: "Ido"
+        - title: "Irepo"
+          payload: "Irepo"
+        - title: "Iseyin"
+          payload: "Iseyin"
+        - title: "Itesiwaju"
+          payload: "Itesiwaju"
+        - title: "Iwajowa"
+          payload: "Iwajowa"
+        - title: "Kajola"
+          payload: "Kajola"
+        - title: "Lagelu"
+          payload: "Lagelu"
+        - title: "Ogbomosho North"
+          payload: "Ogbomosho North"
+        - title: "Ogbomosho South"
+          payload: "Ogbomosho South"
+        - title: "Ogo Oluwa"
+          payload: "Ogo Oluwa"
+        - title: "Olorunsogo"
+          payload: "Olorunsogo"
+        - title: "Oluyole"
+          payload: "Oluyole"
+        - title: "Ona-Ara"
+          payload: "Ona-Ara"
+        - title: "Orelope"
+          payload: "Orelope"
+        - title: "Ori Ire"
+          payload: "Ori Ire"
+        - title: "Oyo East"
+          payload: "Oyo East"
+        - title: "Oyo West"
+          payload: "Oyo West"
+        - title: "Saki West"
+          payload: "Saki West"
+        - title: "Saki West"
+          payload: "Saki West"
+        - title: "Surrulere"
+          payload: "Surrulere"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Kano"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Ajingi"
+          payload: "Ajingi"
+        - title: "Albasu"
+          payload: "Albasu"
+        - title: "Bagwai"
+          payload: "Bagwai"
+        - title: "Bebeji"
+          payload: "Bebeji"
+        - title: "Bichi"
+          payload: "Bichi"
+        - title: "Bunkure"
+          payload: "Bunkure"
+        - title: "Dala"
+          payload: "Dala"
+        - title: "Dambatta"
+          payload: "Dambatta"
+        - title: "Dawakin Kudu"
+          payload: "Dawakin Kudu"
+        - title: "Dawakin Tofa"
+          payload: "Dawakin Tofa"
+        - title: "Doguwa"
+          payload: "Doguwa"
+        - title: "Fagge"
+          payload: "Fagge"
+        - title: "Gabasawa"
+          payload: "Gabasawa"
+        - title: "Garko"
+          payload: "Garko"
+        - title: "Garum Mallam"
+          payload: "Garum Mallam"
+        - title: "Gaya"
+          payload: "Gaya"
+        - title: "Gezawa"
+          payload: "Gezawa"
+        - title: "Gwale"
+          payload: "Gwale"
+        - title: "Gwarzo"
+          payload: "Gwarzo"
+        - title: "Nsit-Ibom"
+          payload: "Nsit-Ibom"
+        - title: "Kano Municipal"
+          payload: "Kano Municipal"
+        - title: "Karaye"
+          payload: "Karaye"
+        - title: "Kibiya"
+          payload: "Kibiya"
+        - title: "Kiru"
+          payload: "Kiru"
+        - title: "Kumbosto"
+          payload: "Kumbosto"
+        - title: "Kunchi"
+          payload: "Kunchi"
+        - title: "Kura"
+          payload: "Kura"
+        - title: "Madobi"
+          payload: "Madobi"
+        - title: "Makoda"
+          payload: "Makoda"
+        - title: "Minjibir"
+          payload: "Minjibir"
+        - title: "Rano"
+          payload: "Rano "
+        - title: "Rimin Gado"
+          payload: "Rimin Gado"
+        - title: "Rogo"
+          payload: "Rogo"
+        - title: "Shanono"
+          payload: "Shanono"
+        - title: "Sumaila"
+          payload: "Sumaila"
+        - title: "Takai"
+          payload: "Takai"
+        - title: "Tarauni"
+          payload: "Tarauni"
+        - title: "Tofa"
+          payload: "Tofa"
+        - title: "Tsanyawa"
+          payload: "Tsanyawa"
+        - title: "Tudun Wada"
+          payload: "Tudun Wada"
+        - title: "Ungogo"
+          payload: "Ungogo"
+        - title: "Warawa"
+          payload: "Warawa"
+        - title: "Wudil"
+          payload: "Wudil"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Borno"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Abadam"
+          payload: "Abadam"
+        - title: "Askira-Uba"
+          payload: "Askira-Uba"
+        - title: "Bama"
+          payload: "Bama"
+        - title: "Bayo"
+          payload: "Bayo"
+        - title: "Biu"
+          payload: "Biu"
+        - title: "Chibok"
+          payload: "Chibok"
+        - title: "Damboa"
+          payload: "Damboa"
+        - title: "Ibeno"
+          payload: "Ibeno"
+        - title: "Gubio"
+          payload: "Gubio"
+        - title: "Guzamala"
+          payload: "Guzamala"
+        - title: "Gwoza"
+          payload: "Gwoza"
+        - title: "Hawul"
+          payload: "Hawul"
+        - title: "Jere"
+          payload: "Jere"
+        - title: "Kaga"
+          payload: "Kaga"
+        - title: "Kala/Balge"
+          payload: "Kala/Balge"
+        - title: "Kondunga"
+          payload: "Kondunga"
+        - title: "Kukawa"
+          payload: "Kukawa"
+        - title: "Kwaya Kusar"
+          payload: "Kwaya Kusar"
+        - title: "Mafa"
+          payload: "Mafa"
+        - title: "Magumeri"
+          payload: "Magumeri"
+        - title: "Maiduguri"
+          payload: "Maiduguri"
+        - title: "Marte"
+          payload: "Marte"
+        - title: "Mobbar"
+          payload: "Mobbar"
+        - title: "Monguno"
+          payload: "Monguno"
+        - title: "Ngala"
+          payload: "Ngala"
+        - title: "Nganzai"
+          payload: "Nganzai"
+        - title: "Shani"
+          payload: "Shani"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Delta"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Aniocha North"
+          payload: "Aniocha North"
+        - title: "Aniocha South"
+          payload: "Aniocha South"
+        - title: "Bomadi"
+          payload: "Bomadi"
+        - title: "Burutu"
+          payload: "Burutu"
+        - title: "Ethiope East"
+          payload: "Ethiope East"
+        - title: "Ethiope West"
+          payload: "Ethiope West"
+        - title: "Ika North East"
+          payload: "Ika North East"
+        - title: "Ika South"
+          payload: "Ika South"
+        - title: "Isoko North"
+          payload: "Isoko North"
+        - title: "Isoko South"
+          payload: "Isoko South"
+        - title: "Ndokwa East"
+          payload: "Ndokwa East"
+        - title: "Ndokwa West"
+          payload: "Ndokwa West"
+        - title: "Okpe"
+          payload: "Okpe"
+        - title: "Oshimili North"
+          payload: "Oshimili North"
+        - title: "Oshimili South"
+          payload: "Oshimili South"
+        - title: "Patani"
+          payload: "Patani"
+        - title: "Sapele"
+          payload: "Sapele"
+        - title: "Udu"
+          payload: "Udu"
+        - title: "Ughelli North"
+          payload: "Ughelli North"
+        - title: "Ughelli South"
+          payload: "Ughelli South"
+        - title: "Ukwuani"
+          payload: "Ukwuani"
+        - title: "Uvwie"
+          payload: "Uvwie"
+        - title: "Warri North"
+          payload: "Warri North"
+        - title: "Warri South"
+          payload: "Warri South"
+        - title: "Warri South West"
+          payload: "Warri South West"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Imo"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Abo-Mbaise"
+          payload: "Abo-Mbaise"
+        - title: "Ahiazu-Mbaise"
+          payload: "Ahiazu-Mbaise"
+        - title: "Ehime-Mbano"
+          payload: "Ehime-Mbano"
+        - title: "Ezinihitte Mbaise"
+          payload: "Ezinihitte Mbaise"
+        - title: "Ideato North"
+          payload: "Ideato North"
+        - title: "Ideato South"
+          payload: "Ideato South"
+        - title: "Ihite/Uboma"
+          payload: "Ihite/Uboma"
+        - title: "Ikeduru"
+          payload: "Ikeduru"
+        - title: "Isiala-Mbano"
+          payload: "Isiala-Mbano"
+        - title: "Isu"
+          payload: "Isu"
+        - title: "Mbaitoli"
+          payload: "Mbaitoli"
+        - title: "Ngor-Okpala"
+          payload: "Ngor-Okpala"
+        - title: "Njaba"
+          payload: "Njaba"
+        - title: "Nkwere"
+          payload: "Nkwere"
+        - title: "Nwangele"
+          payload: "Nwangele"
+        - title: "Obowo"
+          payload: "Obowo"
+        - title: "Oguta"
+          payload: "Oguta"
+        - title: "Ohaji/Egbema"
+          payload: "Ohaji/Egbema"
+        - title: "Okigwe"
+          payload: "Okigwe"
+        - title: "Orlu"
+          payload: "Orlu"
+        - title: "Orsu"
+          payload: "Orsu"
+        - title: "Oru West"
+          payload: "Oru West"
+        - title: "Oru East"
+          payload: "Oru East"
+        - title: "Warri South"
+          payload: "Warri South"
+        - title: "Owerri North"
+          payload: "Owerri North"
+        - title: "Owerri West"
+          payload: "Owerri West"
+        - title: "Unuimo"
+          payload: "Unuimo"
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Jigawa"
+      text: "Choose the local government you are chatting from"
+      buttons:
+
+        - title: "Auyo"
+          payload: "Auyo"
+        - title: "Babura"
+          payload: "Babura"
+        - title: "Biminwa"
+          payload: "Biminwa"
+        - title: "Brinin Kudu"
+          payload: "Brinin Kudu"
+        - title: "Buji"
+          payload: "Buji"
+        - title: "Dutse"
+          payload: "Dutse"
+        - title: "Gagarawa"
+          payload: "Gagarawa"
+        - title: "Garki"
+          payload: "Garki"
+        - title: "Gumel"
+          payload: "Gumel"
+        - title: "Guri"
+          payload: "Guri"
+        - title: "Gwaram"
+          payload: "Gwaram"
+        - title: "Gwiwa"
+          payload: "Gwiwa"
+        - title: "Hadejia"
+          payload: "Hadejia"
+        - title: "Jahun"
+          payload: "Jahun"
+        - title: "Kafin Hausa"
+          payload: "Kafin Hausa"
+        - title: "Kaugama"
+          payload: "Kaugama"
+        - title: "Kazaure"
+          payload: "Kazaure"
+        - title: "Kiri Kasama"
+          payload: "Kiri Kasama"
+        - title: "Kiyawa"
+          payload: "Kiyawa"
+        - title: "Maigatari"
+          payload: "Maigatari"
+        - title: "Mallam Madori"
+          payload: "Mallam Madori"
+        - title: "Miga"
+          payload: "Miga"
+        - title: "Ringim"
+          payload: "Ringim"
+        - title: "Roni"
+          payload: "Roni"
+        - title: "Sule Tankarkar"
+          payload: "Sule Tankarkar"
+        - title: "Taura"
+          payload: "Taura"
+        - title: "Yankwashi"
+          payload: "Yankwashi"
+      button_type: vertical
+
+    - condition:
+        - type: slot
+          name: state
+          value: "Bauchi"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Bauchi
+          payload: Bauchi
+        - title: Tafawa Balewa
+          payload: Tafawa Balewa
+        - title: Dass
+          payload: Dass
+        - title: Girei
+          payload: Girei
+        - title: Bogoro
+          payload: Bogoro
+        - title: Ningi
+          payload: Ningi
+        - title: Warji
+          payload: Warji
+        - title: Ganjuwa
+          payload: Ganjuwa
+        - title: Kirfi
+          payload: Kirfi
+        - title: Alkaleri
+          payload: Alkaleri
+        - title: Darazo
+          payload: Darazo
+        - title: Misau
+          payload: Misau
+        - title: Giade
+          payload: Giade
+        - title: Shira
+          payload: Shira
+        - title: Mubi South
+          payload: Mubi South
+        - title: Katagum
+          payload: Katagum
+        - title: Shelleng
+          payload: Shelleng
+        - title: Zaki
+          payload: Zaki
+        - title: Gamawa
+          payload: Gamawa
+        - title: Damban
+          payload: Damban
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Cross River"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Abi
+          payload: Abi
+        - title: Akamkpa
+          payload: Akamkpa
+        - title: Akpabuyo
+          payload: Akpabuyo
+        - title: Bakassi
+          payload: Bakassi
+        - title: Bekwara
+          payload: Bekwara
+        - title: Biase
+          payload: Biase
+        - title: Boki
+          payload: Boki
+        - title: Calabar Municipality
+          payload: Calabar Municipality
+        - title: Calabar South
+          payload: Calabar South
+        - title: Etung
+          payload: Etung
+        - title: Ikom
+          payload: Ikom
+        - title: Misau
+          payload: Misau
+        - title: Obubra
+          payload: Obubra
+        - title: Obudu
+          payload: Obudu
+        - title: Odukpani
+          payload: Odukpani
+        - title: Ogoja
+          payload: Ogoja
+        - title: Yakurr
+          payload: Yakurr
+        - title: Yala
+          payload: Yala
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Edo"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Akoko Edo
+          payload: Akoko Edo
+        - title: Egor
+          payload: Egor
+        - title: Esan Central
+          payload: Esan Central
+        - title: Esan North East
+          payload: Esan North East
+        - title: Esan South East
+          payload: Esan South East
+        - title: Esan West
+          payload: Esan West
+        - title: Etsako Central
+          payload: Etsako Central
+        - title: Etsako East
+          payload: Etsako East
+        - title: Etsako West
+          payload: Etsako West
+        - title: Igueben
+          payload: Igueben
+        - title: Ikpoba-Okha
+          payload: Ikpoba-Okha
+        - title: Oredo
+          payload: Oredo
+        - title: Orhionmwon
+          payload: Orhionmwon
+        - title: Ovia North East
+          payload: Ovia North East
+        - title: Ovia South East
+          payload: Ovia South East
+        - title: Owan East
+          payload: Owan East
+        - title: Owan West
+          payload: Owan West
+        - title: Uhunmwode
+          payload: Uhunmwode
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Ebonyi"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Abakaliki
+          payload: Abakaliki
+        - title: Afikpo North
+          payload: Afikpo North
+        - title: Afikpo South
+          payload: Afikpo South
+        - title: Ebonyi
+          payload: Ebonyi
+        - title: Ezza North
+          payload: Ezza North
+        - title: Ezza South
+          payload: Ezza South
+        - title: Ikwo
+          payload: Ikwo
+        - title: Ishielu
+          payload: Ishielu
+        - title: Ivo
+          payload: Ivo
+        - title: Izzi
+          payload: Izzi
+        - title: Ohaozara
+          payload: Ohaozara
+        - title: Ohaukwu
+          payload: Ohaukwu
+        - title: Onicha
+          payload: Onicha
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Ekiti"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Ado-Ekiti
+          payload: Ado-Ekiti
+        - title: Aiyekire(Gbonyin)
+          payload: Aiyekire(Gbonyin)
+        - title: Efon
+          payload: Efon
+        - title: Ekiti East
+          payload: Ekiti East
+        - title: Ekiti South West
+          payload: Ekiti South West
+        - title: Ekiti West
+          payload: Ekiti West
+        - title: Emure
+          payload: Emure
+        - title: Ido-Osi
+          payload: Ido-Osi
+        - title: Ijero
+          payload: Ijero
+        - title: Ikere
+          payload: Ikere
+        - title: Ikole
+          payload: Ikole
+        - title: Irepodun/Ifelodun
+          payload: Irepodun/Ifelodun
+        - title: Ise/Orun
+          payload: Ise/Orun
+        - title: Ilejemeje
+          payload: Ilejemeje
+        - title: Moba
+          payload: Moba
+        - title: Oye
+          payload: Oye
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Taraba"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Ardo-Kola
+          payload: Ardo-Kola
+        - title: Bali
+          payload: Bali
+        - title: Donga
+          payload: Donga
+        - title: Gashaka
+          payload: Gashaka
+        - title: Gassol
+          payload: Gassol
+        - title: Ibi
+          payload: Ibi
+        - title: Jalingo
+          payload: Jalingo
+        - title: Karim-Lamido
+          payload: Karim-Lamido
+        - title: Kurmi
+          payload: Kurmi
+        - title: Lau
+          payload: Lau
+        - title: Sardauna
+          payload: Sardauna
+        - title: Takum
+          payload: Takum
+        - title: Ussa
+          payload: Ussa
+        - title: Wukari
+          payload: Wukari
+        - title: Yorro
+          payload: Yorro
+        - title: Zing
+          payload: Zing
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Enugu"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Aninri
+          payload: Aninri
+        - title: Awgu
+          payload: Awgu
+        - title: Enugu East
+          payload: Enugu East
+        - title: Enugu North
+          payload: Enugu North
+        - title: Enugu South
+          payload: Enugu South
+        - title: Ezeagu
+          payload: Ezeagu
+        - title: Igbo-Etiti
+          payload: Igbo-Etiti
+        - title: Igo-Eze North
+          payload: Igo-Eze North
+        - title: Igbo-Eze South
+          payload: Igbo-Eze South
+        - title: Isi-Uzo
+          payload: Isi-Uzo
+        - title: Nkanu East
+          payload: Nkanu East
+        - title: Nkanu West
+          payload: Nkanu West
+        - title: Nsukka
+          payload: Nsukka
+        - title: Oji River
+          payload: Oji River
+        - title: Udenu
+          payload: Udenu
+        - title: Udi
+          payload: Udi
+        - title: Uzo-Uwani
+          payload: Uzo-Uwani
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Kwara"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Asa
+          payload: Asa
+        - title: Baruten
+          payload: Baruten
+        - title: Edu
+          payload: Edu
+        - title: Ekiti
+          payload: Ekiti
+        - title: Ifelodun
+          payload: Ifelodun
+        - title: Ilorin East
+          payload: Ilorin East
+        - title: Ilorin South
+          payload: Ilorin South
+        - title: Ilorin West
+          payload: Ilorin West
+        - title: Irepodun
+          payload: Irepodun
+        - title: Isin
+          payload: Isin
+        - title: Kaiama
+          payload: Kaiama
+        - title: Moro
+          payload: Moro
+        - title: Offa
+          payload: Offa
+        - title: Oke-Ero
+          payload: Oke-Ero
+        - title: Oyun
+          payload: Oyun
+        - title: Pategi
+          payload: Pategi
+        - title: Uzo-Uwani
+          payload: Uzo-Uwani
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Lagos"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Agege
+          payload: Agege
+        - title: Ajeromi-Ifelodun
+          payload: Ajeromi-Ifelodun
+        - title: Alimosho
+          payload: Alimosho
+        - title: Ekiti
+          payload: Ekiti
+        - title: Apapa
+          payload: Apapa
+        - title: Badagry
+          payload: Badagry
+        - title: Epe
+          payload: Epe
+        - title: Eti-Osa
+          payload: Eti-Osa
+        - title: Ibeju Lekki
+          payload: Ibeju Lekki
+        - title: Ifako-Ijaiye
+          payload: Ifako-Ijaiye
+        - title: Ikeja
+          payload: Ikeja
+        - title: Ikorodu
+          payload: Ikorodu
+        - title: Kosofe
+          payload: Kosofe
+        - title: Lagos island
+          payload: Lagos island
+        - title: Lagos Mainland
+          payload: Lagos Mainland
+        - title: Mushin
+          payload: Mushin
+        - title: Ojo
+          payload: Ojo
+        - title: Shomolu
+          payload: Shomolu
+        - title: Surulere
+          payload: Surulere
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Rivers"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Abua/Odua
+          payload: Abua/Odua
+        - title: Ahoada East
+          payload: Ahoada East
+        - title: Ahoada West
+          payload: Ahoada West
+        - title: Akukutoru
+          payload: Akukutoru
+        - title: Andoni
+          payload: Andoni
+        - title: Asari-Toru
+          payload: Asari-Toru
+        - title: Bonny
+          payload: Bonny
+        - title: Degama
+          payload: Degama
+        - title: Eleme
+          payload: Eleme
+        - title: Emuoha
+          payload: Emuoha
+        - title: Etche
+          payload: Etche
+        - title: Gokana
+          payload: Gokana
+        - title: Ikwere
+          payload: Ikwere
+        - title: Khana
+          payload: Khana
+        - title: Obio/Akpor
+          payload: Obio/Akpor
+        - title: Ogba/Egbema/Ndoni
+          payload: Ogba/Egbema/Ndoni
+        - title: Ogu/Bolo
+          payload: Ogu/Bolo
+        - title: Okrika
+          payload: Okrika
+        - title: Omumma
+          payload: Omumma
+        - title: Opobo/Nkoro
+          payload: Opobo/Nkoro
+        - title: Oyingbo
+          payload: Oyingbo
+        - title: Port-Harcourt
+          payload: Port-Harcourt
+        - title: Tai
+          payload: Tai
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Ogun"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Abeokuta North
+          payload: Abeokuta North
+        - title: Abeokuta South
+          payload: Abeokuta South
+        - title: Ado-Odo/Ota
+          payload: Ado-Odo/Ota
+        - title: Ewekoro
+          payload: Ewekoro
+        - title: Ifo
+          payload: Ifo
+        - title: Ijebu East
+          payload: Ijebu East
+        - title: Ijebu North
+          payload: Ijebu North
+        - title: Ijebu North East
+          payload: Ijebu North East
+        - title: Ijebu Ode
+          payload: Ijebu Ode
+        - title: Ikenne
+          payload: Ikenne
+        - title: Imeko Afon
+          payload: Imeko Afon
+        - title: Ipokia
+          payload: Ipokia
+        - title: Obafemi-Owode
+          payload: Obafemi-Owode
+        - title: Odeda
+          payload: Odeda
+        - title: Odogbolu
+          payload: Odogbolu
+        - title: Ogun Waterside
+          payload: Ogun Waterside
+        - title: Remo North
+          payload: Remo North
+        - title: Shagamu
+          payload: Shagamu
+        - title: Yewa Notrth
+          payload: Yewa Notrth
+        - title: Yewa South
+          payload: Yewa South
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Ondo"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Akoko North East
+          payload: Akoko North East
+        - title: Akoko North West
+          payload: Akoko North West
+        - title: Akoko South East
+          payload: Akoko South East
+        - title: Akoko North East
+          payload: Akoko North East
+        - title: Akure North
+          payload: Akure North
+        - title: Akure South
+          payload: Akure South
+        - title: Ese-Odo
+          payload: Ese-Odo
+        - title: Idanre
+          payload: Idanre
+        - title: Ifedore
+          payload: Ifedore
+        - title: Ilaje
+          payload: Ilaje
+        - title: Ile-Oluji-Okeigbo
+          payload: Ile-Oluji-Okeigbo
+        - title: Irele
+          payload: Irele
+        - title: Odigbo
+          payload: Odigbo
+        - title: Okitipupa
+          payload: Okitipupa
+        - title: Ondo East
+          payload: Ondo East
+        - title: Ondo West
+          payload: Ondo West
+        - title: Ose
+          payload: Ose
+        - title: Owo
+          payload: Owo
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Plateau"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Barkin ladi
+          payload: Barkin ladi
+        - title: Bassa
+          payload: Bassa
+        - title: Bokkos
+          payload: Bokkos
+        - title: Jos East
+          payload: Jos East
+        - title: Jos North
+          payload: Jos North
+        - title: Jos South
+          payload: Jos South
+        - title: Kanam
+          payload: Kanam
+        - title: Kanke
+          payload: Kanke
+        - title: Langtang North
+          payload: Langtang North
+        - title: Langtang South
+          payload: Langtang South
+        - title: Mangu
+          payload: Mangu
+        - title: Mikang
+          payload: Mikang
+        - title: Pankshin
+          payload: Pankshin
+        - title: Quan'Pan
+          payload: Quan'Pan
+        - title: Riyom
+          payload: Riyom
+        - title: Shendam
+          payload: Shendam
+        - title: Wase
+          payload: Wase
+      button_type: vertical      
+    - condition:
+        - type: slot
+          name: state
+          value: "Yobe"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Bade
+          payload: Bade
+        - title: Bursari
+          payload: Bursari
+        - title: Damaturu
+          payload: Damaturu
+        - title: Fika
+          payload: Fika
+        - title: Fune
+          payload: Fune
+        - title: Geidam
+          payload: Geidam
+        - title: Gujba
+          payload: Gujba
+        - title: Gulani
+          payload: Gulani
+        - title: Jakusko
+          payload: Jakusko
+        - title: Karasuwa
+          payload: Karasuwa
+        - title: Machina
+          payload: Machina
+        - title: Nangere
+          payload: Nangere
+        - title: Nguru
+          payload: Nguru
+        - title: Potiskum
+          payload: Potiskum
+        - title: Tarmua
+          payload: Tarmua
+        - title: Yunusari
+          payload: Yunusari
+        - title: Yusufari
+          payload: Yusufari
+      button_type: vertical
+    - condition:
+        - type: slot
+          name: state
+          value: "Benue"
+      text: "Choose the local government you are chatting from"
+      buttons:
+        - title: Ado
+          payload: Ado
+        - title: Agatu
+          payload: Agatu
+        - title: Apa
+          payload: Apa
+        - title: Buruku
+          payload: Buruku
+        - title: Gboko
+          payload: Gboko
+        - title: Guma
+          payload: Guma
+        - title: Gwer East
+          payload: Gwer East
+        - title: Gwer West
+          payload: Gwer West
+        - title: Kastina-Ala
+          payload: Kastina-Ala
+        - title: Konshisha
+          payload: Konshisha
+        - title: Kwande
+          payload: Kwande
+        - title: Logo
+          payload: Logo
+        - title: Markudi
+          payload: Markudi
+        - title: Obi
+          payload: Obi
+        - title: Ogbadibo
+          payload: Ogbadibo
+        - title: Ohimini
+          payload: Ohimini
+        - title: Oju
+          payload: Oju
+        - title: Okpokwu
+          payload: Okpokwu
+        - title: Oturkpo
+          payload: Oturkpo
+        - title: Tarka
+          payload: Tarka
+        - title: Ukum
+          payload: Ukum
+        - title: Ushongo
+          payload: Ushongo
+        - title: Vandeikya
+          payload: Vandeikya
+      button_type: vertical
+
+  utter_ask_path:
+    - text: |
+        What would you like to know about?
+      buttons:
+      - title: "I want to ask about family Planning."
+        payload: I want to ask about family planning.
+      - title: "I want the nearest family planning clinic to me."
+        payload: /nearest_family_planning_clinic
+      - title: "Other reproductive health issues."
+        payload: /other_reproductive_health_issues
+      - title: "I have a question"
+        payload: /ask_gpt
+      button_type: vertical
+  utter_ask_no_of_children:
+    - text: |
+        Alright. How many children do you have now?
+      buttons:
+      - title: "None"
+        payload: "None"
+      - title: "1-2"
+        payload: "1-2"
+      - title: "3-4"
+        payload: "3-4"
+      - title: "5+"
+        payload: "5+"
+  utter_ask_is_planned_family_planning_before:
+    - text: "Have you tried any family planning method before?"
+      buttons:
+        - title: "Yes"
+          payload: Yes
+        - title: "No"
+          payload: No
+  utter_ask_followed_method_before:
+    - text: "Ok, Which of these methods did you try before?"
+      buttons:
+      - title: "Condoms and Diaphragms"
+        payload: "/previous_Condoms_and_Diaphragms"
+      - title: "Contraceptive Implants"
+        payload: "/previous_Contraceptive_Implants"
+      - title: "Daily Contraceptive Pill"
+        payload: "/previous_Daily_Contraceptive_Pill"
+      - title: "Emergency contraceptive pill"
+        payload: "/previous_Emergency_contraceptive_pill"
+      - title: "Injectibles contraceptives"
+        payload: "/previous_Injectibles"
+      - title: "IUD"
+        payload: "/previous_IUD"
+      - title: "IUS"
+        payload: "/previous_IUS"
+      button_type: vertical
+
+  utter_ask_satisfied_last_method:
+    - text: "Were you satisfied with the last method?"
+      buttons:
+        - title: "Yes"
+          payload: Yes
+        - title: "No"
+          payload: No
+  utter_ask_reason_for_not_satisfied:
+    - text: "Can you tell me why you were not satisfied?"
+
+  utter_ask_prevent_pregnancy_time:
+    - text: "How long do you want to prevent pregnancy?"
+      buttons:
+      - title: "0-3 months"
+        payload: "/prevent_pregnancy_0_3_months"
+      - title: "1-2 years"
+        payload: "/prevent_pregnancy_1_2_years"
+      - title: "3-4 years"
+        payload: "/prevent_pregnancy_3_4_years"
+      - title: "5-10 years"
+        payload: "/prevent_pregnancy_5_10_years"
+      - title: "Permanently"
+        payload: "/prevent_pregnancy_permanently"
+      button_type: vertical
+
+  utter_planning_info:
+    - text: "What do you want to know about family planning?"
+      buttons:
+        - title: "I want to start using a method."
+          payload: /start_family_planning
+        - title: "I want to start using another method."
+          payload: /start_using_another_method
+        - title: "I want to know about side effect."
+          payload: /get_products
+        - title: "I want to know about family planning products."
+          payload: /side_effects
+      button_type: "vertical"
+
+
+  utter_do_you_have_any_medical_conditions:
+    - text: Do you have any of the medical conditions listed?
+      buttons:
+        - title: Yes
+          payload: Yes
+        - title: No
+          payload: No
+        - title: I don't know
+          payload: i don't know
+
+  utter_permanently_response:
+    - text: "Permanent family planning methods means the person will no longer be able to reproduce again.\n
+            Male: Vasectomy\n  
+            Female: Tubal ligation\n
+            Click on any of them to get a short explanation on them."
+      buttons:
+        - title: "Vasectomy"
+          payload: Vasectomy
+        - title: "Tubal Litigation"
+          payload: Tubal Litigation
+
+  utter_ask_3_4_years_method:
+    - text: "Long-acting reversible contraception, or LARC are:\n
+            1. The Injectables.\n
+            2. The Implants.\n
+            3. The IUS.\n
+            4. The IUD\n
+            While the short-acting methods are:\n
+            1. The daily contraceptive Pills.\n
+            2. The emergency contraceptive pills.\n
+            3. The barrier contraceptives\n
+            Choose any them from the options to get the full details about them."
+      buttons:
+        - title: "Daily contraceptive pills"
+          payload: Daily contraceptive pills
+        - title: "Emergency contraceptive pills"
+          payload: Emergency contraceptive pills
+        - title: "Injectable contraceptives"
+          payload: Injectable contraceptives
+        - title: "Contraceptive implants"
+          payload: Contraceptive implants
+        - title: "IUS"
+          payload: IUS
+        - title: "IUD"
+          payload: IUD
+
+  utter_ask_5_10_years_method:
+    - text: "The long-acting reversible contraception, or LARC method ideal for 5 to 10 pregnancy prevention are \n
+            1. The IUS\n
+            2. The IUD\n
+            Click on any of them to get the full details about them."
+      buttons:
+        - title: "IUS"
+          payload: IUS
+        - title: "IUD"
+          payload: IUD
+  utter_ask_permanent_method:
+    - text: "Permanent family planning methods means the person will no longer be able to reproduce again.\n
+            Male: Vasectomy\n
+            Female: Tubal ligation\n
+            Click on any of them to get a short explanation on them."
+      buttons:
+        - title: "Vasectomy"
+          payload: Vasectomy
+        - title: "Tubal Litigation"
+          payload: Tubal Litigation
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
