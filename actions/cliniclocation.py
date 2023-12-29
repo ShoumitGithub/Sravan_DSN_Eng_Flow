@@ -389,7 +389,15 @@ locationInfo = {
                     "City of Hope Hospital , 80, Bale street Ajegunle"
                 ],
 
+<<<<<<< HEAD
                 "KOSOFE": [
+=======
+<<<<<<< HEAD
+                "KOSOFE": [
+=======
+                "Kosofe": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Gifted hands hospital, 25 Old Olowora road Isheri, N/A",
                     "Dafe Medical center, 34 Dairo street Ketu Lagos, N/A",
                     "Barbinton Medical center, No 9, Samuel Ali baba street Iyan school Ketu, N/A",
@@ -412,7 +420,15 @@ locationInfo = {
                     "Azir HealthCare, 47, Oduntan Street, Off Ikorodu Road Kosofe, Bus stop, Kosofe, Lagos, Kosofe bu bus stop"
                 ],
 
+<<<<<<< HEAD
                 "MUSHIN": [
+=======
+<<<<<<< HEAD
+                "MUSHIN": [
+=======
+                "Mushin": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Ade Jimmy Convalescent Home, 24 Wuraola bus stop Itire, N/A",
                     "Labake Clinic, 20, Alfanda street Ilasa Akanro, N/A",
                     "Kaaf Medical center, Akinpelu Adesola Road, University of Lagos (Unilag) Akoka., Unilag Medical Center, Off Unilag Business School",
@@ -423,7 +439,15 @@ locationInfo = {
                     "Royaland Trinity Healthcare, 14, Olanusi Street, Off Daleko Bus Stop"
                 ],
 
+<<<<<<< HEAD
                 "OSHODI-ISOLO": [
+=======
+<<<<<<< HEAD
+                "OSHODI-ISOLO": [
+=======
+                "Oshodi-Isolo": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "FaithCity Hospital, 16, Asa Afariogun Street off Osolo way Ajao Estate, N/A",
                     "Siloan Medical center, 14/16 Mohammed Akije street Ejigbo Lagos, Iyanna Ejigbo market",
                     "Dolu Hospital, 7, Sunmola Abayomi street Mafoluku, Oshodi Lagos, Mosolasi bus stop",
@@ -447,7 +471,15 @@ locationInfo = {
                     "Long Life Hospital, 22, Owoseni Street Oshodi, Oshodi Market"
                 ],
 
+<<<<<<< HEAD
                 "OJO": [
+=======
+<<<<<<< HEAD
+                "OJO": [
+=======
+                "Ojo": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "El Shaddai Hospital, K/m 4 Lasu-Isheri road, Ojo, Iyanna School",
                     "Med-Inn Specialist Hospital, 1&3 Oshogbo, off celestial way Ogudu, N/A",
                     "Ilogbo Central Hospital, 175, Ilogbo Road, Tope, Itire Bustop, Ajangbadi, N/A",
@@ -466,7 +498,15 @@ locationInfo = {
                     "Treasure Hospital, No. 7 Ariyo Close, Iba, Iyana-School"
                 ],
 
+<<<<<<< HEAD
                 "IKORODU": [
+=======
+<<<<<<< HEAD
+                "IKORODU": [
+=======
+                "Ikorodu": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Barbinton Medical Center, No 3, Ade Adenaike street, Ojomo Area Ajegunle Ikorodu Lagos, N/A",
                     "Oak Hospital, 191, Lagos road, N/A",
                     "HOLY Fill HOSPITAL, 1 ONOFOWOKAN STREET OWUTU AGRIC, IKORODU",
@@ -487,7 +527,15 @@ locationInfo = {
                     "Ayo Classical Medical Center, 33, Ijesha Road Itire, Adedeji Junction or Karohunwi Bus Stop"
                 ],
 
+<<<<<<< HEAD
                 "SURULERE": [
+=======
+<<<<<<< HEAD
+                "SURULERE": [
+=======
+                "Surulere": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Uwemedimo Hospital, 5, Thanni street, Ijesha Off Ijesha Road surulere, Ijesha Police Station",
                     "His Mercy Hospital, 17, Adeyemi Street, Orile Iganmu, Off Abu Street",
                     "Peculiar Hospital, 62, Coker Road, Orile Iganmu, N/A",
@@ -502,7 +550,15 @@ locationInfo = {
                     "The Comforter Hospital, 17 Ajana Street, off Ogunlana Dr, Ijesha, Ijesha Market"
                 ],
 
+<<<<<<< HEAD
                 "AGEGE": [
+=======
+<<<<<<< HEAD
+                "AGEGE": [
+=======
+                "Agege": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Promise Medical Center, 132 Dopemu road, Dopemu, Agege Lagos, N/A",
                     "Dunia Hospital, 45, Old Oko Oba road (Abattoir), Abbatoir",
                     "May Fair Medical Center, 30, 32, Adene Street, Off Oke-Koto Agege, Oke-Koto Bustop, N/A",
@@ -512,7 +568,15 @@ locationInfo = {
                     "All Souls Infirmary, Hospital and Maternity Centre., 8, Church Street, Agege, Pencinima Flyover"
                 ],
 
+<<<<<<< HEAD
                 "IFAKO-IJAYE": [
+=======
+<<<<<<< HEAD
+                "IFAKO-IJAYE": [
+=======
+                "Ifako-Ijaye": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Pacific Hospital, 4 Shoboyejo Street, off Iju Waterworks Road, Elliott bus stop, Iju, Lagos, Methodist Church and Oando Filling Station.",
                     "Ayodele Medical Center, 25, Jonathan Coker Road, Abule -Egba, Ifako Ijaiye, Lagos, Nigeria, N/A",
                     "AB10 Specialist Hospital, 3, Ola Street, Karaole Estate off Estate Bus Stop along College Road Ifako Ijaye, N/A",
@@ -527,14 +591,30 @@ locationInfo = {
                     "Marie Claire Hospital, 1b Victory Close, Off Jibowu Estate Road U Turn Bus Stop, Abule Egba, UBA Bank"
                 ],
 
+<<<<<<< HEAD
                 "SHOMOLU": [
+=======
+<<<<<<< HEAD
+                "SHOMOLU": [
+=======
+                "Shomolu": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Ladi-lak Medical Center, 53 Igi Olugbin Street, Bariga, Lagos State, N/A",
                     "Oneness Hospital, 9 Fakorede Street, Shomolu",
                     "Maycentral Healthcare, 22 St. Finbers Road, Akoka, Beolah Diagnostic Centre, and Zenith Bank",
                     "Medol Consultant Clinic, Famous B/Stop, 54 Adaranijo St, Somolu, Pedro Primary School"
                 ],
 
+<<<<<<< HEAD
                 "LAGOS MAINLAND": [
+=======
+<<<<<<< HEAD
+                "LAGOS MAINLAND": [
+=======
+                "Lagos Mainland": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Marian Hospital, 7 Montgomery Road, Off Muritala Mohammed way, Yaba, N/A",
                     "Action Health Incorporated Lagos (AHI), 17 Lawal Street, Off Oweh Street, Fadeyi, Yaba, N/A",
                     "Total Victory Hospital, 2 Ogayemi Street, Oko Agbon Makoko, N/A",
@@ -545,7 +625,15 @@ locationInfo = {
                     "Alpine Integrated Health Services, 15 Aje Road Sabo, Sabo-roundabout"
                 ],
 
+<<<<<<< HEAD
                 "AMUWO-ODOFIN": [
+=======
+<<<<<<< HEAD
+                "AMUWO-ODOFIN": [
+=======
+                "Amuwo-Odofin": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Onyems B Hospital, 16 Oba Dauda street, Ojo, Transformer bus stop(Ojo) and GRA(amuwo odofin)",
                     "Maycentral healthcare, 200 ROAD SECOND AVENUE, HOUSE 7 FESTAC, BEHIND ZENITH BANK, Zenith Bank",
                     "Outreach Mother and Child Hospital, Head Office. Festac, 4th Avenue by 3rd Avenue Junction. Festac Town., Opposite Paramount LifeCare (Diagnostic Center)",
@@ -554,7 +642,15 @@ locationInfo = {
                     "Safehands Medical Center, 26, Akin Mateola street Amuwo, Raji Rasaq Estate"
                 ],
 
+<<<<<<< HEAD
                 "IKEJA": [
+=======
+<<<<<<< HEAD
+                "IKEJA": [
+=======
+                "Ikeja": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Solid Rock hospital, No 6. Akinsanya street off ogunmusi ojodu, Lagos state, N/A",
                     "Motayo hospital, 3, Owodunni street off Amore street off toyin street Ikeja, St. Leo Catholic Church",
                     "Apex Care Hospital, 20, Adeniyi Jones, Avenue, Ikeja Lagos",
@@ -570,7 +666,15 @@ locationInfo = {
                     "J. A. Lashman Hospital, 10, Adedosu Street, Off Akilo Road, Ogba, Lagos., Akilo Road"
                 ],
 
+<<<<<<< HEAD
                 "ETI-OSA": [
+=======
+<<<<<<< HEAD
+                "ETI-OSA": [
+=======
+                "Eti-Osa": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Critical rescue international (CRI), CRI Health Centre @ VGC-Lekki, 2nd Avenue, VGC Shopping complex, VGC Estate, VGC-Lekki, Lekki, Lagos., VGC Roundabout",
                     "Q-Life Hospital, 155A, Prince Ade Odedina Street V.I, N/A",
                     "Maycentral healthcare, 132 AWOLOWO ROAD, IKOYI LAGOS. BEHIND HESS PHARMACY, OPPOSITE SPAR SUPER MARKET, BEHIND HESS PHARMACY",
@@ -583,7 +687,15 @@ locationInfo = {
                     "Ifeoluwani Convalescence Health Centre, 1, Noibi street, Igando, Ibeju Lekki, Igando Bus-stop"
                 ],
 
+<<<<<<< HEAD
                 "BADAGRY": [
+=======
+<<<<<<< HEAD
+                "BADAGRY": [
+=======
+                "Badagry": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "The Great Physician hospital, 3, Niyi Adebule Street, Former Nepa office, Alakija, Badagry",
                     "Era Medical Centre, 72, afromedia road, odan_era, lagos, Afromedia",
                     "Iwalewa Hospital Nursing and Maternity (Annex), Address: No 10 Hassan Iwalewa str, checking point bustop. Ibiye badagry express road.",
@@ -593,20 +705,48 @@ locationInfo = {
                     "Ademola Hospital Ijanikin, 1, omowale street Ijanikin, opposite Cele bustop ijanikin"
                 ],
 
+<<<<<<< HEAD
                 "LAGOS ISLAND": [
+=======
+<<<<<<< HEAD
+                "LAGOS ISLAND": [
+=======
+                "Lagos Island": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Fuja hospital, 22, Elegbata street, Apongbon Lagos Island Lagos state",
                     "Fehintola Hospital, No 2, Olushi Street Lagos Isaland, Opposite Forte Filling Station",
                     "Awoliyi Memorial Hospital And Maternity, 183, Massey Bamgbose Street, Lagos Island, ST. Nicholas Hospital"
                 ],
 
+<<<<<<< HEAD
                 "APAPA": [
+=======
+<<<<<<< HEAD
+                "APAPA": [
+=======
+                "Apapa": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Ifeoluwa hospital, 12, Turner Eradiri, Ojo Road, Apapa, Lagos, Pcn bus stop",
                     "Bayo Ogunro Memorial Hospital, 160, kirikiri road olodi Apapa, Church of latter day saint, close to 2nd Benue bustop."
                 ],
 
+<<<<<<< HEAD
                 "EPE": ["Soneli hospital, KM 10 Freezone way magbon Ibeju lekki"],
 
                 "IBEJU/LEKKI": [
+=======
+<<<<<<< HEAD
+                "EPE": ["Soneli hospital, KM 10 Freezone way magbon Ibeju lekki"],
+
+                "IBEJU/LEKKI": [
+=======
+                "Epe": ["Soneli hospital, KM 10 Freezone way magbon Ibeju lekki"],
+
+                "Ibeju/Lekki": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Clearview Hospital, 14B, Taiye Olowu street off victoria Arobieke lekki, N/A",
                     "Lagos Reproductive Health center, 17, Osapa Road, Osapa London Jakande, Lekki Epe Road., Beside First City Hospital",
                     "Assalam Hospital, KM 34, Lekki Epe Express Way, Lakowe, Ibeju Leki, Lakowe Golf",
@@ -619,14 +759,30 @@ locationInfo = {
              },
 
     "Nasarawa": {
+<<<<<<< HEAD
                 "LAFIA": [
+=======
+<<<<<<< HEAD
+                "LAFIA": [
+=======
+                "Lafia": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Police Clinic Lafia - Jos Road, Lafia Nassarawa State, Taal Conference Hotel",
                     "Dalhatu Araf Special Hospital, Lafia - Shendam Road Lafia, Hospital Management Board",
                     "Kowa Hospital - Shendam Road Lafia, Opposite Dalhatu Araf Specialist Hospital, Lafia",
                     "Diamond Clinic and Maternity - Opposite Emmanuel Baptist Church. Tudun Gwandara, Lafia, Opposite Emmanuel Baptist Church"
                 ],
 
+<<<<<<< HEAD
                 "KARU": [
+=======
+<<<<<<< HEAD
+                "KARU": [
+=======
+                "Karu": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Alhery Clinic - Alheri ifeoluwa medical Centre up market jankawan road Masaka Karu LGA, Up Market Jankawan",
                     "Mojilla Hospital LTD - No. 60 Aso District, Nassarawa, Maria Asumpta School",
                     "Primary Healthcare Centre (PHC) Mararaba - Old Karu Road, Mararaba Nasarawa State, Mararaba Market",
@@ -637,6 +793,10 @@ locationInfo = {
                     "Healthclone Consult Limited - No. 1 Ali Amodu Close Opp Sky Bank CBN Junction karu., CBN Junction"
                 ],
 
+<<<<<<< HEAD
+                "NASARAWA": [
+=======
+<<<<<<< HEAD
                 "NASARAWA": [
                     "Kuana Clinic and Maternity. - Opposite Ruga market Mararaba, Ruga Market"
                 ],
@@ -646,6 +806,22 @@ locationInfo = {
                 ],
 
                 "KEFFI": [
+=======
+                "Nasarawa": [
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
+                    "Kuana Clinic and Maternity. - Opposite Ruga market Mararaba, Ruga Market"
+                ],
+
+                "DOMA": [
+                    "Aida Hospital - No. 2 Hospital Road, Doma, General Hospital Doma"
+                ],
+<<<<<<< HEAD
+
+                "KEFFI": [
+=======
+                "Keffi": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Nagari Aliah Magani Hospital - No 10 Alh Burga road, Adjacent high court keffi nasarawa state, First Bank",
                     "Destiny clinic New Nyanya - Behind Amasco filling station, Karu New Nyayan, Amasco Filling station (there are bike men at the junction beside the filling station ask them to lead you to the clinic)",
                     "Masaka Central Hospital & Maternity - 100 Royal College Road, Masaka Nasarawa State, Royal College",
@@ -657,6 +833,10 @@ locationInfo = {
                 },
 
     "Niger": {
+<<<<<<< HEAD
+                "SULEJA": [
+=======
+<<<<<<< HEAD
                 "SULEJA": [
                     "Suzan Memorial Clinic And Maternity - Uphill, Near Suleja Club, GRA, Old NTA Suleja Club"
                 ],
@@ -668,12 +848,38 @@ locationInfo = {
                     "Yebosoko Specialist hospital - Near former musain guesthouse, Bida, Niger, Emir's palace"
                 ],
                 "BOSSO": [
+=======
+                "Suleja": [
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
+                    "Suzan Memorial Clinic And Maternity - Uphill, Near Suleja Club, GRA, Old NTA Suleja Club"
+                ],
+                "CHANCHAGA": [
+                    "Divine Faith Medical Clinic - No. 26, OFF NITECO ROAD, BESIDE BANANA HOUSE, CLOSE TO GIDAN IBETO, TUNGA LOW-COST, MINNA, Banana House",
+                    "MCH Minna - Old Airport Road, Niger State, Government House"
+                ],
+                "BIDA": [
+                    "Yebosoko Specialist hospital - Near former musain guesthouse, Bida, Niger, Emir's palace"
+                ],
+<<<<<<< HEAD
+                "BOSSO": [
+=======
+                "Bosso": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "Charles Hospital - GRA Road, Suleja Between Union Bank & NTA, GRA",
                     "Olives Hospital - Beside Kingdom Heritage Gbaiko close to st. clement sec school",
                     "Top Medical Hospital - 4 Top medical road minna",
                     "Blossom Specialist Hospital - Besides MJ Wushishi estate Minna"
                 ],
+<<<<<<< HEAD
                 "TAFA": [
+=======
+<<<<<<< HEAD
+                "TAFA": [
+=======
+                "Tafa": [
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
                     "PHC Chachi - OPPOSITE CHACHI PRIMARY SCHOOL, BEHIND NANA OIL, ALONG KADUNA ROAD, CHACHI PRIMARY SCHOOL BEHIND NANA OIL."
                 ]
                 },

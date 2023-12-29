@@ -398,7 +398,18 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
             dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/me84zjejcyqsy5bn0j1kag6x?v=1695032418409")
         
         return {'daily_contraceptive_database': slot_value}
-    
+
+    def validate_emergency_contraceptive_database(self,
+                                                  slot_value: Any,
+                                                  dispatcher: CollectingDispatcher,
+                                                  tracker: Tracker,
+                                                  domain: DomainDict,
+                                                  ):
+        
+        print(f"-------emergency_contraceptive_database--------------- {slot_value}")
+        dispatcher.utter_message(text=get_database_message(slot_value))
+        return {'emergency_contraceptive_database': slot_value}
+
     def validate_ius_medical_condition(self,
                                      slot_value: Any,
                                      dispatcher: CollectingDispatcher,
@@ -418,7 +429,7 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
         return {'ius_medical_condition': slot_value}
 
 
-    def validate_implants_database(self,
+    def validate_daily_implants_database(self,
                                               slot_value: Any,
                                               dispatcher: CollectingDispatcher,
                                               tracker: Tracker,
@@ -427,7 +438,11 @@ class ValidateRequest3To4YearsForm(FormValidationAction):
 
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
+<<<<<<< HEAD
         return {'implants_database': slot_value}
+=======
+        return {'daily_implants_database': slot_value}
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
     
     def validate_iud_who_can_and_cannot_use( self,
                                              slot_value: Any,

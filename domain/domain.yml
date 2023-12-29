@@ -19,6 +19,7 @@ intents:
   - ask_gpt
 
 actions:
+  - action_send_audio
   - action_restart
   - action_how_long_prevent_pregnancy
   - action_path
@@ -2836,7 +2837,15 @@ responses:
         - title: "No"
           payload: No
   utter_ask_followed_method_before:
+<<<<<<< HEAD
     - text: "Ok, Which of these methods did you try before?"
+=======
+<<<<<<< HEAD
+    - text: "Ok, Which of these methods did you try before?"
+=======
+    - text: "Ok, Which of these methods have you tried before?"
+>>>>>>> origin/main
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
       buttons:
       - title: "Condoms and Diaphragms"
         payload: "/previous_Condoms_and_Diaphragms"

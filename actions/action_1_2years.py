@@ -176,8 +176,11 @@ class ValidateRequest02YearsForm(FormValidationAction):
 
         print(f"in solt validate daily contraceptive database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
+<<<<<<< HEAD
         if slot_value=="Levoplant":#"Levoplant", "Jadelle", "Implanon NXT"
             dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/eizomdztlafy60mp42xn4rwn?v=1695034049069")
+=======
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
         return {'daily_implants_database': slot_value}
 
 
@@ -206,7 +209,7 @@ class ValidateRequest02YearsForm(FormValidationAction):
                                                   domain: DomainDict,
                                                   ):
         
-        print(f"------------------------------------ {slot_value}")
+        print(f"in solt validate emergency_contraceptive_database: {slot_value}")
         dispatcher.utter_message(text=get_database_message(slot_value))
         if slot_value == "Postpill":
             dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clk9ixvcx0005jt0fbmqw1kmk/typebots/cllwc05uj0009l80f5xsndtlz/blocks/empvv7jez37bc3q35iteegbi?v=1695031858327")
@@ -245,12 +248,17 @@ class ValidateRequest02YearsForm(FormValidationAction):
                                      ):
         if slot_value is not None:
             dispatcher.utter_message(text=get_database_message(slot_value))
+<<<<<<< HEAD
         print(f"------------------------------------ {slot_value}")
         if slot_value == "Progesta":
             dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/fwty6spob6fvmzy7d6kigsbv?v=1699596361639")
         if slot_value == "Sayana Press":
             dispatcher.utter_message(image="https://s3.typebot.io/public/workspaces/clmis6ucm000il50gyvzllels/typebots/clmis9a0q000ol50gdavazp8y/blocks/y96zv9w050zzhom701pni0hk?v=1699596149796")
             send_audio_to_telegram(tracker.sender_id,"SayanaPress.mp3")
+=======
+        print(f"-------injectable_database--------- {slot_value}")
+            
+>>>>>>> c50b39b3e2bda22d5aad195ad7daf6c9d4a3c69e
 
         return {'injectable_database': slot_value}    
     def validate_implants_who_can_and_cannot_use(self,
